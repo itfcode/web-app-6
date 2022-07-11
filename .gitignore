@@ -36,3 +36,13 @@
 /projects/ITFCodeWA.Services/bin/Debug/net6.0
 /projects/ITFCodeWA.Services/obj/Debug/net6.0
 /projects/ITFCodeWA.Services/obj
+/ITFCodeWA.Core.Services.Tests/bin/Debug/net6.0
+/ITFCodeWA.Core.Services.Tests/obj
+/tests/modules/ITFCodeWA.Core.CQRS.Tests/bin/Debug/net6.0
+/tests/modules/ITFCodeWA.Core.CQRS.Tests/obj
+/tests/modules/ITFCodeWA.Core.Data.Tests/bin/Debug/net6.0
+/tests/modules/ITFCodeWA.Core.Data.Tests/obj
+/tests/modules/ITFCodeWA.Core.Models.Tests/bin/Debug/net6.0
+/tests/modules/ITFCodeWA.Core.Models.Tests/obj
+/tests/modules/ITFCodeWA.Core.Web.Tests/bin/Debug/net6.0
+/tests/modules/ITFCodeWA.Core.Web.Tests/obj

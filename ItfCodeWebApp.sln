@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F565E4CA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{F8B85C3F-254D-4087-AB8F-8590D593A339}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Service", "modules\ITFCodeWA.Core.Service\ITFCodeWA.Core.Service.csproj", "{5871CE12-0F94-4270-B99B-2E5F6506E392}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Services", "modules\ITFCodeWA.Core.Service\ITFCodeWA.Core.Services.csproj", "{5871CE12-0F94-4270-B99B-2E5F6506E392}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Models", "modules\ITFCodeWA.Core.Models\ITFCodeWA.Core.Models.csproj", "{C1BBDE53-9FBB-49C6-9940-162004CE5AF3}"
 EndProject
@@ -25,19 +25,33 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Services", "proje
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.String", "modules\ITFCodeWA.Extensions.String\ITFCodeWA.Extensions.String.csproj", "{F42CDF5F-830C-44F6-BE40-C6791758D13A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Extensions.DateTime", "modules\ITFCodeWA.Extensions.DateTime\ITFCodeWA.Extensions.DateTime.csproj", "{279E889D-DE42-45AB-8633-5CB728F504C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.DateTime", "modules\ITFCodeWA.Extensions.DateTime\ITFCodeWA.Extensions.DateTime.csproj", "{279E889D-DE42-45AB-8633-5CB728F504C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Extensions.Object", "modules\ITFCodeWA.Extensions.Object\ITFCodeWA.Extensions.Object.csproj", "{4F0A6EFF-809E-48FF-8BF5-2BC8B880BD35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.Object", "modules\ITFCodeWA.Extensions.Object\ITFCodeWA.Extensions.Object.csproj", "{4F0A6EFF-809E-48FF-8BF5-2BC8B880BD35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Extensions.Enumerable", "modules\ITFCodeWA.Extensions.Enumerable\ITFCodeWA.Extensions.Enumerable.csproj", "{9F044F21-B948-421F-94F6-A4477A19FD73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.Enumerable", "modules\ITFCodeWA.Extensions.Enumerable\ITFCodeWA.Extensions.Enumerable.csproj", "{9F044F21-B948-421F-94F6-A4477A19FD73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Extensions.Queryable", "modules\ITFCodeWA.Extensions.Queryable\ITFCodeWA.Extensions.Queryable.csproj", "{AC31EB36-C0B9-424E-873C-F5B4460C6C38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.Queryable", "modules\ITFCodeWA.Extensions.Queryable\ITFCodeWA.Extensions.Queryable.csproj", "{AC31EB36-C0B9-424E-873C-F5B4460C6C38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Extensions.Comparable", "modules\ITFCodeWA.Extensions.Comparable\ITFCodeWA.Extensions.Comparable.csproj", "{65CA9305-A1F1-4D86-8712-81E46D1B7BE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.Comparable", "modules\ITFCodeWA.Extensions.Comparable\ITFCodeWA.Extensions.Comparable.csproj", "{65CA9305-A1F1-4D86-8712-81E46D1B7BE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Extensions.Boolean", "modules\ITFCodeWA.Extensions.Boolean\ITFCodeWA.Extensions.Boolean.csproj", "{BACBB423-144E-4C8C-AC53-2042ECB27273}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.Boolean", "modules\ITFCodeWA.Extensions.Boolean\ITFCodeWA.Extensions.Boolean.csproj", "{BACBB423-144E-4C8C-AC53-2042ECB27273}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Core.Web", "modules\ITFCodeWA.Core.Web\ITFCodeWA.Core.Web.csproj", "{D69B2856-1DEA-4D34-B86A-191DC7474C44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Web", "modules\ITFCodeWA.Core.Web\ITFCodeWA.Core.Web.csproj", "{D69B2856-1DEA-4D34-B86A-191DC7474C44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{68A69B10-1B25-4F82-A4BC-B2D7437252A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "projects", "projects", "{455F235C-600B-43E3-9444-FEC3A7049867}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.CQRS.Tests", "tests\modules\ITFCodeWA.Core.CQRS.Tests\ITFCodeWA.Core.CQRS.Tests.csproj", "{A48BAE34-81F2-43E0-804E-DF3CFFFA5AB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Data.Tests", "tests\modules\ITFCodeWA.Core.Data.Tests\ITFCodeWA.Core.Data.Tests.csproj", "{9641DDCC-9EC5-4AC9-AF2D-264B03A21159}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Models.Tests", "tests\modules\ITFCodeWA.Core.Models.Tests\ITFCodeWA.Core.Models.Tests.csproj", "{5DB94C8F-4AFD-4755-B8FB-2CBA8B679C4B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Services.Tests", "ITFCodeWA.Core.Services.Tests\ITFCodeWA.Core.Services.Tests.csproj", "{2F910C82-8779-4FF1-9FD1-05BE78401B99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Core.Web.Tests", "tests\modules\ITFCodeWA.Core.Web.Tests\ITFCodeWA.Core.Web.Tests.csproj", "{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +119,26 @@ Global
 		{D69B2856-1DEA-4D34-B86A-191DC7474C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D69B2856-1DEA-4D34-B86A-191DC7474C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D69B2856-1DEA-4D34-B86A-191DC7474C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A48BAE34-81F2-43E0-804E-DF3CFFFA5AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A48BAE34-81F2-43E0-804E-DF3CFFFA5AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A48BAE34-81F2-43E0-804E-DF3CFFFA5AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A48BAE34-81F2-43E0-804E-DF3CFFFA5AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9641DDCC-9EC5-4AC9-AF2D-264B03A21159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9641DDCC-9EC5-4AC9-AF2D-264B03A21159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9641DDCC-9EC5-4AC9-AF2D-264B03A21159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9641DDCC-9EC5-4AC9-AF2D-264B03A21159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DB94C8F-4AFD-4755-B8FB-2CBA8B679C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DB94C8F-4AFD-4755-B8FB-2CBA8B679C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DB94C8F-4AFD-4755-B8FB-2CBA8B679C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DB94C8F-4AFD-4755-B8FB-2CBA8B679C4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F910C82-8779-4FF1-9FD1-05BE78401B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F910C82-8779-4FF1-9FD1-05BE78401B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F910C82-8779-4FF1-9FD1-05BE78401B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F910C82-8779-4FF1-9FD1-05BE78401B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +159,13 @@ Global
 		{65CA9305-A1F1-4D86-8712-81E46D1B7BE8} = {F8B85C3F-254D-4087-AB8F-8590D593A339}
 		{BACBB423-144E-4C8C-AC53-2042ECB27273} = {F8B85C3F-254D-4087-AB8F-8590D593A339}
 		{D69B2856-1DEA-4D34-B86A-191DC7474C44} = {F8B85C3F-254D-4087-AB8F-8590D593A339}
+		{68A69B10-1B25-4F82-A4BC-B2D7437252A2} = {F565E4CA-6E5A-4B42-9592-6BD5FADBD0E8}
+		{455F235C-600B-43E3-9444-FEC3A7049867} = {F565E4CA-6E5A-4B42-9592-6BD5FADBD0E8}
+		{A48BAE34-81F2-43E0-804E-DF3CFFFA5AB1} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
+		{9641DDCC-9EC5-4AC9-AF2D-264B03A21159} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
+		{5DB94C8F-4AFD-4755-B8FB-2CBA8B679C4B} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
+		{2F910C82-8779-4FF1-9FD1-05BE78401B99} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
+		{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43CA5F39-DD46-42EB-B269-0E7376E69ABF}
