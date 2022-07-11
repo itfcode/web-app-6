@@ -23,19 +23,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Models", "project
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Services", "projects\ITFCodeWA.Services\ITFCodeWA.Services.csproj", "{A7EA2144-C19B-4EE4-AA81-FB8920E3E12F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.StringExtendors", "modules\ITFCodeWA.Extensions.String\ITFCodeWA.Extensions.StringExtendors.csproj", "{F42CDF5F-830C-44F6-BE40-C6791758D13A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.StringExtendors", "modules\ITFCodeWA.Extensions.StringExtendors\ITFCodeWA.Extensions.StringExtendors.csproj", "{F42CDF5F-830C-44F6-BE40-C6791758D13A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.DateTimeExtendors", "modules\ITFCodeWA.Extensions.DateTime\ITFCodeWA.Extensions.DateTimeExtendors.csproj", "{279E889D-DE42-45AB-8633-5CB728F504C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.DateTimeExtendors", "modules\ITFCodeWA.Extensions.DateTimeExtendors\ITFCodeWA.Extensions.DateTimeExtendors.csproj", "{279E889D-DE42-45AB-8633-5CB728F504C9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.ObjectExtendors", "modules\ITFCodeWA.Extensions.Object\ITFCodeWA.Extensions.ObjectExtendors.csproj", "{4F0A6EFF-809E-48FF-8BF5-2BC8B880BD35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.ObjectExtendors", "modules\ITFCodeWA.Extensions.ObjectExtendors\ITFCodeWA.Extensions.ObjectExtendors.csproj", "{4F0A6EFF-809E-48FF-8BF5-2BC8B880BD35}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.EnumerableExtendors", "modules\ITFCodeWA.Extensions.Enumerable\ITFCodeWA.Extensions.EnumerableExtendors.csproj", "{9F044F21-B948-421F-94F6-A4477A19FD73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.EnumerableExtendors", "modules\ITFCodeWA.Extensions.EnumerableExtendors\ITFCodeWA.Extensions.EnumerableExtendors.csproj", "{9F044F21-B948-421F-94F6-A4477A19FD73}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.QueryableExtendors", "modules\ITFCodeWA.Extensions.Queryable\ITFCodeWA.Extensions.QueryableExtendors.csproj", "{AC31EB36-C0B9-424E-873C-F5B4460C6C38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.QueryableExtendors", "modules\ITFCodeWA.Extensions.QueryableExtendors\ITFCodeWA.Extensions.QueryableExtendors.csproj", "{AC31EB36-C0B9-424E-873C-F5B4460C6C38}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.ComparableExtendors", "modules\ITFCodeWA.Extensions.Comparable\ITFCodeWA.Extensions.ComparableExtendors.csproj", "{65CA9305-A1F1-4D86-8712-81E46D1B7BE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.ComparableExtendors", "modules\ITFCodeWA.Extensions.ComparableExtendors\ITFCodeWA.Extensions.ComparableExtendors.csproj", "{65CA9305-A1F1-4D86-8712-81E46D1B7BE8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.BooleanExtendors", "modules\ITFCodeWA.Extensions.Boolean\ITFCodeWA.Extensions.BooleanExtendors.csproj", "{BACBB423-144E-4C8C-AC53-2042ECB27273}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.BooleanExtendors", "modules\ITFCodeWA.Extensions.BooleanExtendors\ITFCodeWA.Extensions.BooleanExtendors.csproj", "{BACBB423-144E-4C8C-AC53-2042ECB27273}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Web", "modules\ITFCodeWA.Core.Web\ITFCodeWA.Core.Web.csproj", "{D69B2856-1DEA-4D34-B86A-191DC7474C44}"
 EndProject
@@ -49,9 +49,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Data.Tests",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Models.Tests", "tests\modules\ITFCodeWA.Core.Models.Tests\ITFCodeWA.Core.Models.Tests.csproj", "{5DB94C8F-4AFD-4755-B8FB-2CBA8B679C4B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Services.Tests", "ITFCodeWA.Core.Services.Tests\ITFCodeWA.Core.Services.Tests.csproj", "{2F910C82-8779-4FF1-9FD1-05BE78401B99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Services.Tests", "tests\modules\ITFCodeWA.Core.Services.Tests\ITFCodeWA.Core.Services.Tests.csproj", "{2F910C82-8779-4FF1-9FD1-05BE78401B99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Core.Web.Tests", "tests\modules\ITFCodeWA.Core.Web.Tests\ITFCodeWA.Core.Web.Tests.csproj", "{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Extensions.DateTimeNullableExtendors", "modules\ITFCodeWA.Extensions.DateTimeNullableExtendors\ITFCodeWA.Extensions.DateTimeNullableExtendors.csproj", "{F0F915F5-DC83-4167-8C48-FD64BCC07F03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -139,6 +141,10 @@ Global
 		{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0F915F5-DC83-4167-8C48-FD64BCC07F03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0F915F5-DC83-4167-8C48-FD64BCC07F03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0F915F5-DC83-4167-8C48-FD64BCC07F03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0F915F5-DC83-4167-8C48-FD64BCC07F03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -166,6 +172,7 @@ Global
 		{5DB94C8F-4AFD-4755-B8FB-2CBA8B679C4B} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
 		{2F910C82-8779-4FF1-9FD1-05BE78401B99} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
 		{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
+		{F0F915F5-DC83-4167-8C48-FD64BCC07F03} = {F8B85C3F-254D-4087-AB8F-8590D593A339}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43CA5F39-DD46-42EB-B269-0E7376E69ABF}
