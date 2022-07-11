@@ -1,4 +1,4 @@
-﻿namespace ITFCodeWA.Extensions.String
+﻿namespace ITFCodeWA.Extensions.StringExtendors
 {
     public class Class1
     {

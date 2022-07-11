@@ -23,19 +23,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Models", "project
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Services", "projects\ITFCodeWA.Services\ITFCodeWA.Services.csproj", "{A7EA2144-C19B-4EE4-AA81-FB8920E3E12F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.String", "modules\ITFCodeWA.Extensions.String\ITFCodeWA.Extensions.String.csproj", "{F42CDF5F-830C-44F6-BE40-C6791758D13A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.StringExtendors", "modules\ITFCodeWA.Extensions.String\ITFCodeWA.Extensions.StringExtendors.csproj", "{F42CDF5F-830C-44F6-BE40-C6791758D13A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.DateTime", "modules\ITFCodeWA.Extensions.DateTime\ITFCodeWA.Extensions.DateTime.csproj", "{279E889D-DE42-45AB-8633-5CB728F504C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.DateTimeExtendors", "modules\ITFCodeWA.Extensions.DateTime\ITFCodeWA.Extensions.DateTimeExtendors.csproj", "{279E889D-DE42-45AB-8633-5CB728F504C9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.Object", "modules\ITFCodeWA.Extensions.Object\ITFCodeWA.Extensions.Object.csproj", "{4F0A6EFF-809E-48FF-8BF5-2BC8B880BD35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.ObjectExtendors", "modules\ITFCodeWA.Extensions.Object\ITFCodeWA.Extensions.ObjectExtendors.csproj", "{4F0A6EFF-809E-48FF-8BF5-2BC8B880BD35}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.Enumerable", "modules\ITFCodeWA.Extensions.Enumerable\ITFCodeWA.Extensions.Enumerable.csproj", "{9F044F21-B948-421F-94F6-A4477A19FD73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.EnumerableExtendors", "modules\ITFCodeWA.Extensions.Enumerable\ITFCodeWA.Extensions.EnumerableExtendors.csproj", "{9F044F21-B948-421F-94F6-A4477A19FD73}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.Queryable", "modules\ITFCodeWA.Extensions.Queryable\ITFCodeWA.Extensions.Queryable.csproj", "{AC31EB36-C0B9-424E-873C-F5B4460C6C38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.QueryableExtendors", "modules\ITFCodeWA.Extensions.Queryable\ITFCodeWA.Extensions.QueryableExtendors.csproj", "{AC31EB36-C0B9-424E-873C-F5B4460C6C38}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.Comparable", "modules\ITFCodeWA.Extensions.Comparable\ITFCodeWA.Extensions.Comparable.csproj", "{65CA9305-A1F1-4D86-8712-81E46D1B7BE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.ComparableExtendors", "modules\ITFCodeWA.Extensions.Comparable\ITFCodeWA.Extensions.ComparableExtendors.csproj", "{65CA9305-A1F1-4D86-8712-81E46D1B7BE8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.Boolean", "modules\ITFCodeWA.Extensions.Boolean\ITFCodeWA.Extensions.Boolean.csproj", "{BACBB423-144E-4C8C-AC53-2042ECB27273}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.BooleanExtendors", "modules\ITFCodeWA.Extensions.Boolean\ITFCodeWA.Extensions.BooleanExtendors.csproj", "{BACBB423-144E-4C8C-AC53-2042ECB27273}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Web", "modules\ITFCodeWA.Core.Web\ITFCodeWA.Core.Web.csproj", "{D69B2856-1DEA-4D34-B86A-191DC7474C44}"
 EndProject
