@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\ITFCodeWA.Core.Data\ITFCodeWA.Core.Data.csproj" />
+  </ItemGroup>
+
 </Project>
