@@ -51,9 +51,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Models.Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Services.Tests", "tests\modules\ITFCodeWA.Core.Services.Tests\ITFCodeWA.Core.Services.Tests.csproj", "{2F910C82-8779-4FF1-9FD1-05BE78401B99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Core.Web.Tests", "tests\modules\ITFCodeWA.Core.Web.Tests\ITFCodeWA.Core.Web.Tests.csproj", "{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Core.Web.Tests", "tests\modules\ITFCodeWA.Core.Web.Tests\ITFCodeWA.Core.Web.Tests.csproj", "{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Extensions.DateTimeNullableExtendors", "modules\ITFCodeWA.Extensions.DateTimeNullableExtendors\ITFCodeWA.Extensions.DateTimeNullableExtendors.csproj", "{F0F915F5-DC83-4167-8C48-FD64BCC07F03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Extensions.DateTimeNullableExtendors", "modules\ITFCodeWA.Extensions.DateTimeNullableExtendors\ITFCodeWA.Extensions.DateTimeNullableExtendors.csproj", "{F0F915F5-DC83-4167-8C48-FD64BCC07F03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Extensions.DateTimeOffsetExtendors", "modules\ITFCodeWA.Extensions.DateTimeOffsetExtendors\ITFCodeWA.Extensions.DateTimeOffsetExtendors.csproj", "{5679696E-157E-40A7-ABCB-D30CEFC6E92E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.Extensions.DateTimeOffsetNullableExtendors", "modules\ITFCodeWA.Extensions.DateTimeOffsetNullableExtendors\ITFCodeWA.Extensions.DateTimeOffsetNullableExtendors.csproj", "{48606054-433C-4D66-9A06-07D7B7C09E09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,6 +149,14 @@ Global
 		{F0F915F5-DC83-4167-8C48-FD64BCC07F03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0F915F5-DC83-4167-8C48-FD64BCC07F03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0F915F5-DC83-4167-8C48-FD64BCC07F03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5679696E-157E-40A7-ABCB-D30CEFC6E92E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5679696E-157E-40A7-ABCB-D30CEFC6E92E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5679696E-157E-40A7-ABCB-D30CEFC6E92E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5679696E-157E-40A7-ABCB-D30CEFC6E92E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48606054-433C-4D66-9A06-07D7B7C09E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48606054-433C-4D66-9A06-07D7B7C09E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48606054-433C-4D66-9A06-07D7B7C09E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48606054-433C-4D66-9A06-07D7B7C09E09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -173,6 +185,8 @@ Global
 		{2F910C82-8779-4FF1-9FD1-05BE78401B99} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
 		{8B4AF341-29C2-4F2B-9DC4-643ACFFF867E} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
 		{F0F915F5-DC83-4167-8C48-FD64BCC07F03} = {F8B85C3F-254D-4087-AB8F-8590D593A339}
+		{5679696E-157E-40A7-ABCB-D30CEFC6E92E} = {F8B85C3F-254D-4087-AB8F-8590D593A339}
+		{48606054-433C-4D66-9A06-07D7B7C09E09} = {F8B85C3F-254D-4087-AB8F-8590D593A339}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43CA5F39-DD46-42EB-B269-0E7376E69ABF}

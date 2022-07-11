@@ -64,3 +64,7 @@
 /tests/modules/ITFCodeWA.Core.Services.Tests/bin/Debug/net6.0
 /tests/modules/ITFCodeWA.Core.Services.Tests/obj
 /modules/ITFCodeWA.Extensions.DateTimeNullableExtendors/bin/Debug/net6.0
+/modules/ITFCodeWA.Extensions.DateTimeOffsetExtendors/bin/Debug/net6.0
+/modules/ITFCodeWA.Extensions.DateTimeOffsetExtendors/obj
+/modules/ITFCodeWA.Extensions.DateTimeOffsetNullableExtendors/obj
+/modules/ITFCodeWA.Extensions.DateTimeOffsetNullableExtendors/bin/Debug/net6.0
