@@ -8,22 +8,22 @@ namespace ITFCodeWA.Core.Models.QueryFilters
     {
         [JsonPropertyName("sortField")]
         [JsonProperty("sortField")]
-        public string SortField { get; init; }
+        public string? SortField { get; set; }
 
         [JsonPropertyName("isAsc")]
         [JsonProperty("isAsc")]
-        public bool IsAsc { get; init; } = true;
+        public bool IsAsc { get; set; } = true;
 
         [JsonPropertyName("take")]
         [JsonProperty("take")]
-        public int Take { get; init; } = 50;
+        public int Take { get; set; } = 50;
 
         [JsonPropertyName("skip")]
         [JsonProperty("skip")]
-        public int Skip { get; init; } = 0;
+        public int Skip { get; set; } = 0;
 
         [JsonPropertyName("filters")]
         [JsonProperty("filters")]
-        public List<IQueryFilter> Filters { get; init; } = new List<IQueryFilter>();
+        public List<IQueryFilter> Filters { get; set; } = new List<IQueryFilter>();
     }
 }

@@ -63,3 +63,4 @@
 /modules/ITFCodeWA.Extensions.StringExtendors/obj
 /tests/modules/ITFCodeWA.Core.Services.Tests/bin/Debug/net6.0
 /tests/modules/ITFCodeWA.Core.Services.Tests/obj
+/modules/ITFCodeWA.Extensions.DateTimeNullableExtendors/bin/Debug/net6.0
