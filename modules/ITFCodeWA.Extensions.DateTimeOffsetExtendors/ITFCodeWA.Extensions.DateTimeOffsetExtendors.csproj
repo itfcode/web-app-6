@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ITFCodeWA.Extensions.DateTimeNullableExtendors\ITFCodeWA.Extensions.DateTimeNullableExtendors.csproj" />
+  </ItemGroup>
+
 </Project>

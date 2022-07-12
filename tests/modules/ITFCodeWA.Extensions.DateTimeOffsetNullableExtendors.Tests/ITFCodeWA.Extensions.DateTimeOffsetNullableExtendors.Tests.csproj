@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -23,6 +23,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\modules\ITFCodeWA.Extensions.DateTimeOffsetNullableExtendors\ITFCodeWA.Extensions.DateTimeOffsetNullableExtendors.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="UnitTests\" />
   </ItemGroup>
 
 </Project>
