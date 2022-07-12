@@ -94,3 +94,9 @@
 /tests/projects/ITFCodeWA.Models.Tests/obj
 /tests/projects/ITFCodeWA.Services.Tests/bin/Debug/net6.0
 /tests/projects/ITFCodeWA.Services.Tests/obj
+/modules/ITFCodeWA.Extensions.DictionaryExtendors/bin/Debug/net6.0
+/modules/ITFCodeWA.Extensions.DictionaryExtendors/obj
+/modules/ITFCodeWA.Extensions.JavaScriptEnxtendors/bin/Debug/net6.0
+/modules/ITFCodeWA.Extensions.JavaScriptEnxtendors/obj
+/tests/modules/ITFCodeWA.Extensions.DictionaryExtendors.Tests/bin/Debug/net6.0
+/tests/modules/ITFCodeWA.Extensions.DictionaryExtendors.Tests/obj

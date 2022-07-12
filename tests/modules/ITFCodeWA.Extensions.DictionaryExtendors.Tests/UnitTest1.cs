@@ -1,4 +1,4 @@
-namespace ITFCodeWA.Extensions.ObjectExtendors.Tests
+namespace ITFCodeWA.Extensions.DictionaryExtendors.Tests
 {
     public class UnitTest1
     {
