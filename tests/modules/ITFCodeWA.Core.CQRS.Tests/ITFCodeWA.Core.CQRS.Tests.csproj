@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\ITFCodeWA.Core.CQRS\ITFCodeWA.Core.CQRS.csproj" />
+  </ItemGroup>
+
 </Project>

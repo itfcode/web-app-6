@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\ITFCodeWA.Extensions.StringExtendors\ITFCodeWA.Extensions.StringExtendors.csproj" />
+  </ItemGroup>
+
 </Project>

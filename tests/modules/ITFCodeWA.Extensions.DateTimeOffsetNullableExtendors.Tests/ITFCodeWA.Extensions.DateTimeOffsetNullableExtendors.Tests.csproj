@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\ITFCodeWA.Extensions.DateTimeOffsetNullableExtendors\ITFCodeWA.Extensions.DateTimeOffsetNullableExtendors.csproj" />
+  </ItemGroup>
+
 </Project>
