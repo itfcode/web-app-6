@@ -6,15 +6,30 @@ namespace ITFCodeWA.Extensions.TypeExtendors.Tests.Classes
     {
         #region Fields
 
-        private static int StaticPrivateField = TypeExtensionsTestData.TestClass_StaticPrivateField;
-        protected static int StaticProtectedField = TypeExtensionsTestData.TestClass_StaticProtectedField;
-        internal static int StaticInternalField = TypeExtensionsTestData.TestClass_StaticInternalField;
-        public static int StaticPublicField = TypeExtensionsTestData.TestClass_StaticPublicField;
+        private const int ConstPrivateField = int.MinValue + 10;
+        protected const int ConstProtectedField = int.MaxValue - 10;
+        internal const int ConstInternalField = int.MaxValue - 100;
+        public const int ConstPublicField = int.MaxValue - 1000;
+
+        private readonly int ReadonlyPrivateField = TypeExtensionsTestData.TestClass_PrivateField;
+        protected readonly int ReadonlyProtectedField = TypeExtensionsTestData.TestClass_ProtectedField;
+        internal readonly int ReadonlyInternalField = TypeExtensionsTestData.TestClass_InternalField;
+        public readonly int ReadonlyPublicField = TypeExtensionsTestData.TestClass_PublicField;
 
         private int PrivateField = TypeExtensionsTestData.TestClass_PrivateField;
         protected int ProtectedField = TypeExtensionsTestData.TestClass_ProtectedField;
         internal int InternalField = TypeExtensionsTestData.TestClass_InternalField;
         public int PublicField = TypeExtensionsTestData.TestClass_PublicField;
+
+        private static int StaticPrivateField = TypeExtensionsTestData.TestClass_PrivateField;
+        protected static int StaticProtectedField = TypeExtensionsTestData.TestClass_ProtectedField;
+        internal static int StaticInternalField = TypeExtensionsTestData.TestClass_InternalField;
+        public static int StaticPublicField = TypeExtensionsTestData.TestClass_PublicField;
+
+        private static readonly int StaticReadonlyPrivateField = TypeExtensionsTestData.TestClass_PrivateField;
+        protected static readonly int StaticReadonlyProtectedField = TypeExtensionsTestData.TestClass_ProtectedField;
+        internal static readonly int StaticReadonlyInternalField = TypeExtensionsTestData.TestClass_InternalField;
+        public static readonly int StaticReadonlyPublicField = TypeExtensionsTestData.TestClass_PublicField;
 
         #endregion
 
