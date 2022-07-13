@@ -100,3 +100,7 @@
 /modules/ITFCodeWA.Extensions.JavaScriptEnxtendors/obj
 /tests/modules/ITFCodeWA.Extensions.DictionaryExtendors.Tests/bin/Debug/net6.0
 /tests/modules/ITFCodeWA.Extensions.DictionaryExtendors.Tests/obj
+/modules/ITFCodeWA.Extensions.TypeExtendors/bin/Debug/net6.0
+/modules/ITFCodeWA.Extensions.TypeExtendors/obj
+/tests/modules/ITFCodeWA.Extensions.TypeExtendors.Tests/bin/Debug/net6.0
+/tests/modules/ITFCodeWA.Extensions.TypeExtendors.Tests/obj
