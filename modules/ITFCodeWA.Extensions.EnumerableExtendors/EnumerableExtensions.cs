@@ -48,8 +48,6 @@
             return items;
         }
 
-        public static IReadOnlyCollection<T> ToReadOnlyCollection<T>(this IEnumerable<T> source) => source.ToList().AsReadOnly();
-
         public static IReadOnlyList<T> ToReadOnlyList<T>(this IEnumerable<T> source) => source.ToList().AsReadOnly();
 
         public static string JoinToSting<T>(this IEnumerable<T> source, string separator = ",")

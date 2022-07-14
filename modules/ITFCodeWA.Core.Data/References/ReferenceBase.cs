@@ -6,6 +6,7 @@ namespace ITFCodeWA.Core.Data.References
     public abstract class ReferenceBase : Entity, IReference
     {
         public string Name { get; set; }
+
         public string Comment { get; set; }
     }
 }

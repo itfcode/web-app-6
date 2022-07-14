@@ -10,4 +10,9 @@
     <ProjectReference Include="..\..\modules\ITFCodeWA.Core.Data\ITFCodeWA.Core.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Health\Documents\" />
+    <Folder Include="Health\References\" />
+  </ItemGroup>
+
 </Project>
