@@ -8,6 +8,6 @@ namespace ITFCodeWA.Data.Health.References
     /// </summary>
     public class Pharmaceutical : ReferenceBase
     {
-        public PharmaceuticalKind Kind { get; set; }
+        public PharmaceuticalType Kind { get; set; }
     }
 }

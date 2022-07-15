@@ -8,10 +8,6 @@
 
   <ItemGroup>
     <Folder Include="FilterValues\" />
-    <Folder Include="Finance\Documents\" />
-    <Folder Include="Finance\References\" />
-    <Folder Include="Health\Documents\" />
-    <Folder Include="Health\References\" />
     <Folder Include="QueryFilters\" />
   </ItemGroup>
 
