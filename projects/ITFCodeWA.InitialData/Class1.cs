@@ -1,4 +1,4 @@
-﻿namespace ITFCodeWA.Data
+﻿namespace ITFCodeWA.InitialData
 {
     public class Class1
     {

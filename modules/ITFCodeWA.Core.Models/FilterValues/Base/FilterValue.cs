@@ -11,6 +11,6 @@ namespace ITFCodeWA.Core.Models.FilterValues.Base
 
     public abstract class FilterValue<T> : FilterValue
     {
-        public T Value { get; set; }
+        public T Value { get; set; } = default(T);
     }
 }

@@ -100,6 +100,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.InitialData", "projects\ITFCodeWA.InitialData\ITFCodeWA.InitialData.csproj", "{B4B6D431-F4F4-4E31-8491-8E0C2326C68B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -270,6 +272,10 @@ Global
 		{4B404FDD-64FE-46BB-93B7-CAB06053E68E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B404FDD-64FE-46BB-93B7-CAB06053E68E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B404FDD-64FE-46BB-93B7-CAB06053E68E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4B6D431-F4F4-4E31-8491-8E0C2326C68B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4B6D431-F4F4-4E31-8491-8E0C2326C68B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4B6D431-F4F4-4E31-8491-8E0C2326C68B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4B6D431-F4F4-4E31-8491-8E0C2326C68B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -318,6 +324,7 @@ Global
 		{B4518E15-606C-4F5C-881A-8ABF9062D18E} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
 		{EAF8FC9D-6126-4202-AAB9-52B62351C17B} = {F8B85C3F-254D-4087-AB8F-8590D593A339}
 		{4B404FDD-64FE-46BB-93B7-CAB06053E68E} = {68A69B10-1B25-4F82-A4BC-B2D7437252A2}
+		{B4B6D431-F4F4-4E31-8491-8E0C2326C68B} = {8EEE109A-B683-464B-9B87-145778950BB0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43CA5F39-DD46-42EB-B269-0E7376E69ABF}

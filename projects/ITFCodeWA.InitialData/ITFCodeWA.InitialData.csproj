@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\modules\ITFCodeWA.Core.Models\ITFCodeWA.Core.Models.csproj" />
+    <ProjectReference Include="..\ITFCodeWA.Models\ITFCodeWA.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Documents\" />
     <Folder Include="Finance\" />
+    <Folder Include="Common\" />
     <Folder Include="Health\" />
   </ItemGroup>
 
