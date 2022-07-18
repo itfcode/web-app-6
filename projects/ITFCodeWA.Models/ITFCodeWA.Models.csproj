@@ -13,7 +13,6 @@
   <ItemGroup>
     <Folder Include="Common\Documents\" />
     <Folder Include="Finance\" />
-    <Folder Include="Health\Documents\" />
   </ItemGroup>
 
 </Project>

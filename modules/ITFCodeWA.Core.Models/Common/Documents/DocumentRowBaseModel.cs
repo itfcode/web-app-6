@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace ITFCodeWA.Core.Models.Common.Documents
 {
-    public abstract class DocumentRowModel : EntitySyncModel
+    public abstract class DocumentRowBaseModel : EntitySyncModel
     {
         [JsonPropertyName("documentId")]
         [JsonProperty("documentId")]

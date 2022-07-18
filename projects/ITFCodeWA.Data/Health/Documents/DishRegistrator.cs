@@ -2,8 +2,7 @@
 
 namespace ITFCodeWA.Data.Health.Documents
 {
-    public class EatingRegistrator : RegistratorBase
+    public class DishRegistrator : RegistratorBase
     {
-        public string TimeValue { get; set; }
     }
 }

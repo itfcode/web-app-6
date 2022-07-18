@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace ITFCodeWA.Core.Models.Common.Documents
 {
-    public abstract class DocumentModel : EntitySyncModel
+    public abstract class DocumentBaseModel : EntitySyncModel
     {
         [JsonPropertyName("number")]
         [JsonProperty("number")]
@@ -29,5 +29,9 @@ namespace ITFCodeWA.Core.Models.Common.Documents
         [JsonPropertyName("authorId")]
         [JsonProperty("authorId")]
         public int AuthorId { get; set; }
+
+        [JsonPropertyName("authorFullName")]
+        [JsonProperty("authorFullName")]
+        public string AuthorFullName { get; set; } = string.Empty;
     }
 }
