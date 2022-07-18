@@ -106,3 +106,5 @@
 /tests/modules/ITFCodeWA.Extensions.TypeExtendors.Tests/obj
 /projects/ITFCodeWA.InitialData/bin/Debug/net6.0
 /projects/ITFCodeWA.InitialData/obj
+/tests/basis/ITFCodeWA.BasisTests/bin/Debug/net6.0
+/tests/basis/ITFCodeWA.BasisTests/obj

@@ -8,14 +8,14 @@ namespace ITFCodeWA.Models.Common.References
     {
         [JsonPropertyName("firstName")]
         [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
 
         [JsonPropertyName("middleName")]
         [JsonProperty("middleName")]
-        public string MiddleName { get; set; }
+        public string MiddleName { get; set; } = string.Empty;
 
         [JsonPropertyName("lastName")]
         [JsonProperty("lastName")]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = string.Empty;
     }
 }

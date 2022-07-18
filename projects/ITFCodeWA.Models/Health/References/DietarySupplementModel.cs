@@ -1,14 +1,18 @@
 ﻿using ITFCodeWA.Core.Models.Common.References;
 using ITFCodeWA.Models.Health.Enums;
+using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace ITFCodeWA.Models.Health.References
 {
     public class DietarySupplementModel : ReferenceBaseModel
     {
-        public string Name { get; set; }
+        [JsonPropertyName("latinName")]
+        [JsonProperty("latinName")]
+        public string? LatinName { get; set; }
 
-        public string LatinName { get; set; }
-
+        [JsonPropertyName("type")]
+        [JsonProperty("type")]
         public DietarySupplementType Type { get; set; }
     }
 }

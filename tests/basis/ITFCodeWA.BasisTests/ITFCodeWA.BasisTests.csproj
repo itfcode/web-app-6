@@ -21,9 +21,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\projects\ITFCodeWA.Models\ITFCodeWA.Models.csproj" />
-    <ProjectReference Include="..\..\basis\ITFCodeWA.BasisTests\ITFCodeWA.BasisTests.csproj" />
-  </ItemGroup>
-
 </Project>

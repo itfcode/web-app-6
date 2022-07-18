@@ -4,6 +4,5 @@ namespace ITFCodeWA.Models.Health.Documents
 {
     public class DishRegistratorModel : RegistratorBaseModel
     {
-
     }
 }
