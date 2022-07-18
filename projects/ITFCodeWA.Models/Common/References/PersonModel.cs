@@ -1,0 +1,21 @@
+﻿using ITFCodeWA.Core.Models.Common.References;
+using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+
+namespace ITFCodeWA.Models.Common.References
+{
+    public class PersonModel : ReferenceBaseModel
+    {
+        [JsonPropertyName("firstName")]
+        [JsonProperty("firstName")]
+        public string FirstName { get; set; }
+
+        [JsonPropertyName("middleName")]
+        [JsonProperty("middleName")]
+        public string MiddleName { get; set; }
+
+        [JsonPropertyName("lastName")]
+        [JsonProperty("lastName")]
+        public string LastName { get; set; }
+    }
+}

@@ -8,7 +8,5 @@ namespace ITFCodeWA.Extensions.DateTimeOffsetExtendors.Tests.Data
 {
     internal static partial class TestData
     {
-
-
     }
 }

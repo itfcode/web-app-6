@@ -8,7 +8,7 @@ namespace ITFCodeWA.Core.Models.QueryFilters.Base
     {
         [JsonPropertyName("propertyName")]
         [JsonProperty("propertyName")]
-        public string PropertyName { get; init; }
+        public string PropertyName { get; init; } = string.Empty;
 
         [JsonPropertyName("typeFilter")]
         [JsonProperty("typeFilter")]
@@ -19,6 +19,6 @@ namespace ITFCodeWA.Core.Models.QueryFilters.Base
     {
         [JsonPropertyName("value")]
         [JsonProperty("value")]
-        public T Value { get; init; }
+        public T Value { get; init; } = default(T);
     }
 }

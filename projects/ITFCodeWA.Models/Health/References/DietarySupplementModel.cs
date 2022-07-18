@@ -1,8 +1,9 @@
-﻿using ITFCodeWA.Models.Health.Enums;
+﻿using ITFCodeWA.Core.Models.Common.References;
+using ITFCodeWA.Models.Health.Enums;
 
 namespace ITFCodeWA.Models.Health.References
 {
-    public class DietarySupplementModel
+    public class DietarySupplementModel : ReferenceBaseModel
     {
         public int Id { get; set; }
 

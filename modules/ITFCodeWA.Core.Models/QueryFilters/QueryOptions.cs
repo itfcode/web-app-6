@@ -16,7 +16,7 @@ namespace ITFCodeWA.Core.Models.QueryFilters
 
         [JsonPropertyName("take")]
         [JsonProperty("take")]
-        public int Take { get; set; } = 50;
+        public int Take { get; set; } = 10;
 
         [JsonPropertyName("skip")]
         [JsonProperty("skip")]

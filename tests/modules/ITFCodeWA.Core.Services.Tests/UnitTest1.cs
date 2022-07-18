@@ -5,7 +5,7 @@ namespace ITFCodeWA.Core.Services.Tests
         [Fact]
         public void Test1()
         {
-
+            "wsds".Equals("ddd", StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
