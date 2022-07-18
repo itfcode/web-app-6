@@ -5,8 +5,6 @@ namespace ITFCodeWA.Models.Health.References
 {
     public class DietarySupplementModel : ReferenceBaseModel
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public string LatinName { get; set; }

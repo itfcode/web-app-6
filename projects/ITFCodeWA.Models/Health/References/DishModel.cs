@@ -8,6 +8,6 @@ namespace ITFCodeWA.Models.Health.References
     {
         [JsonPropertyName("components")]
         [JsonProperty("components")]
-        public ICollection<FoodModel> Components { get; set; }
+        public ICollection<FoodModel>? Components { get; set; }
     }
 }

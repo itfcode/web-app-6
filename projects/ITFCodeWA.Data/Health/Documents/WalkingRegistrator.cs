@@ -2,8 +2,13 @@
 
 namespace ITFCodeWA.Data.Health.Documents
 {
+    /// <summary>
+    /// Регистрация ходьбы: время и расстояние 
+    /// </summary>
     public class WalkingRegistrator : RegistratorBase
     {
-        public int Value { get; set; }
+        public int Duration { get; set; } // пройденное время в минутах
+
+        public double Distance { get; set; } // пройденное расстояние в километрах
     }
 }

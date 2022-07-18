@@ -4,6 +4,6 @@ namespace ITFCodeWA.Data.Health.References
 {
     public class Dish : ReferenceBase
     {
-        public ICollection<Food> Components { get; set; }
+        public ICollection<Food>? Components { get; set; }
     }
 }
