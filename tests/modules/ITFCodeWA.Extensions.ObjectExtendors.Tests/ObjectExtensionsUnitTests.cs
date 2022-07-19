@@ -41,9 +41,9 @@ namespace ItfCodeWA.Extensions.ObjectExtendors.Tests
         {
             var user = new User { Name = name, Email = email };
 
-            Assert.Equal(name, user.TryGet(x => x.Name, string.Empty));
-            Assert.Equal(email, user.TryGet(x => x.Email, string.Empty));
-            Assert.Equal(dateOfBirth, user.TryGet(x => x.DateOfBirth, dateOfBirth));
+            Assert.Equal(name, user.GetTry(x => x.Name, string.Empty));
+            Assert.Equal(email, user.GetTry(x => x.Email, string.Empty));
+            Assert.Equal(dateOfBirth, user.GetTry(x => x.DateOfBirth, dateOfBirth));
         }
     }
 

@@ -1,13 +1,12 @@
 ﻿using ITFCodeWA.Core.Data.References;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ITFCodeWA.Data.Finance.References
 {
-    public class Contragent : ReferenceBase
+    /// <summary>
+    /// Контрагент: поставщик товаров или услуг, потребитель товаров и услуг
+    /// </summary>
+    public class Contractor : ReferenceBase
     {
+
     }
 }

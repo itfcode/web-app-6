@@ -4,8 +4,54 @@ namespace ITFCodeWA.Extensions.ObjectExtendors
 {
     public static class ObjectExtensions
     {
-        public static TResult TryGet<TSource, TResult>(this TSource self, Func<TSource, TResult> func, TResult onFailedValue, bool throwIfNull = false)
-            where TSource : class
+        public static T AddTo<T>(this T self, ICollection<T> collection)
+        {
+            ArgumentNullException.ThrowIfNull(collection, nameof(collection));
+
+            collection.Add(self);
+
+            return self;
+        }
+
+        public static T AddTo<T>(this T self, ICollection<T> collection0, ICollection<T> collection1, params ICollection<T>[] collections)
+        {
+            ArgumentNullException.ThrowIfNull(collection0, nameof(collection1));
+            ArgumentNullException.ThrowIfNull(collection1, nameof(collection1));
+
+            if (collections.Any(x => x is null))
+                throw new ArgumentException();
+
+            foreach (var collection in collections.Concat(new ICollection<T>[] { collection0, collection1 }))
+                collection.Add(self);
+
+            return self;
+        }
+
+        public static T RemoveFrom<T>(this T self, ICollection<T> collection)
+        {
+            ArgumentNullException.ThrowIfNull(collection, nameof(collection));
+
+            collection.Remove(self);
+
+            return self;
+        }
+
+        public static T RemoveFrom<T>(this T self, ICollection<T> collection0, ICollection<T> collection1, params ICollection<T>[] collections)
+        {
+            ArgumentNullException.ThrowIfNull(collection0, nameof(collection0));
+            ArgumentNullException.ThrowIfNull(collection1, nameof(collection1));
+
+            if (collections.Any(x => x is null))
+                throw new ArgumentException();
+
+            foreach (var collection in collections.Concat(new ICollection<T>[] { collection0, collection1 }))
+                collection.Remove(self);
+
+            return self;
+        }
+
+        public static TResult GetTry<TSelf, TResult>(this TSelf self, Func<TSelf, TResult> func, TResult onFailedValue, bool throwIfNull = false)
+            where TSelf : class
         {
             if (throwIfNull) ArgumentNullException.ThrowIfNull(self);
 

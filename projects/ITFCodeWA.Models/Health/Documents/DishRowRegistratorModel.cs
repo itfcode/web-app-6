@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace ITFCodeWA.Models.Health.Documents
 {
-    public class DishRegistratorRowModel : RegistratorRowBaseModel
+    public class DishRowRegistratorModel : RegistratorRowBaseModel
     {
         [JsonPropertyName("foodId")]
         [JsonProperty("foodId")]

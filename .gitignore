@@ -108,3 +108,6 @@
 /projects/ITFCodeWA.InitialData/obj
 /tests/basis/ITFCodeWA.BasisTests/bin/Debug/net6.0
 /tests/basis/ITFCodeWA.BasisTests/obj
+/modules/ITFCodeWA.Extensions.ListExtendors/bin/Debug/net6.0
+/modules/ITFCodeWA.Extensions.ListExtendors/obj/Debug/net6.0
+/modules/ITFCodeWA.Extensions.ListExtendors/obj
