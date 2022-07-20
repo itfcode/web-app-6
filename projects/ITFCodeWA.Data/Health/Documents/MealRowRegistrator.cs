@@ -3,7 +3,7 @@ using ITFCodeWA.Data.Health.References;
 
 namespace ITFCodeWA.Data.Health.Documents
 {
-    public class MealRowRegistrator : RegistratorRowBase
+    public class MealMakingRowRegistrator : RegistratorRowBase
     {
         public int FoodId { get; set; }
 

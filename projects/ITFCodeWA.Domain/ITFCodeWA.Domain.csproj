@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -12,7 +12,6 @@
     <Folder Include="EntityConfigurations\Health\Documents\" />
     <Folder Include="EntityConfigurations\Health\References\" />
     <Folder Include="Migrations\LifeDbContext\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
