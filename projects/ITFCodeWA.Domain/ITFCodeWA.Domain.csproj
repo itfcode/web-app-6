@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,7 +11,7 @@
     <Folder Include="EntityConfigurations\Finance\Document\" />
     <Folder Include="EntityConfigurations\Health\Documents\" />
     <Folder Include="EntityConfigurations\Health\References\" />
-    <Folder Include="Migrations\" />
+    <Folder Include="Migrations\LifeDbContext\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 
@@ -36,5 +36,7 @@
     <ProjectReference Include="..\..\modules\ITFCodeWA.Core.Domain\ITFCodeWA.Core.Domain.csproj" />
     <ProjectReference Include="..\ITFCodeWA.Data\ITFCodeWA.Data.csproj" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="https://json.schemastore.org/appsettings.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

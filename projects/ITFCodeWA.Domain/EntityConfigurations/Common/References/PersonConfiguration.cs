@@ -1,15 +1,13 @@
 ﻿using ITFCodeWA.Domain.EntityConfigurations.Base;
 using ITFCodeWA.Data.Common.Reference;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
 
 namespace ITFCodeWA.Domain.EntityConfigurations.Common.References
 {
-    public class PersonConfiguration : EntityConfigurationBase<Person, int>
+    public class PersonConfiguration : ReferenceConfiguration<Person>
     {
-        public override void Configure(EntityTypeBuilder<Person> builder)
+        public override void Configure()
         {
-            base.Configure(builder);
+            base.Configure();
         }
     }
 }

@@ -1,0 +1,5 @@
+﻿dotnet tool install --global dotnet-ef
+
+dotnet ef database update --context DataContext 
+
+dotnet ef migrations add Initial --context DataContext --output-dir Migrations/DataContext

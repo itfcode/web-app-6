@@ -6,5 +6,7 @@ namespace ITFCodeWA.Core.Data.Documents
     public abstract class DocumentRowBase : EntitySync, IDocumentRow
     {
         public Guid DocumentId { get; set; }
+
+        public int RowNumber { get; set; }
     }
 }

@@ -1,21 +1,31 @@
-﻿using ITFCodeWA.Core.Data.Base.Interface;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using ITFCodeWA.Core.Data.Documents.Interfaces;
+using ITFCodeWA.Core.Domain.Extensions;
 
 namespace ITFCodeWA.Domain.EntityConfigurations.Base
 {
     public abstract class DocumentConfiguration<TEntity> : EntityConfigurationBase<TEntity, Guid>
-        where TEntity : class, IEntitySync
+        where TEntity : class, IDocument
     {
         #region Public Methods 
 
+        /// <summary>
+        /// Sets common configuration settings for Document
+        /// </summary>
         public override void Configure()
         {
             base.Configure();
-        }
 
-        public override sealed void Configure(EntityTypeBuilder<TEntity> builder)
-        {
-            base.Configure(builder);
+            _builder
+                .ConfigProperty(p => p.Number, nameof(IDocument.Number), true)
+                .ConfigProperty(p => p.Date, nameof(IDocument.Date), true)
+                .ConfigProperty(p => p.Commited, nameof(IDocument.Commited), true)
+                .ConfigProperty(p => p.Marked, nameof(IDocument.Marked), true)
+                .ConfigProperty(p => p.AuthorId, nameof(IDocument.AuthorId), true)
+                .ConfigProperty(p => p.Comment, nameof(IDocument.Comment))
+                .AddIndex(i => i.Number, isUnique: true)
+                .AddIndex(i => i.Date, isUnique: false)
+                .AddIndex(i => i.AuthorId, isUnique: true)
+                ;
         }
 
         #endregion

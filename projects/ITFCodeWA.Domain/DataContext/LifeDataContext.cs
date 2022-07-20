@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ITFCodeWA.Domain.DataContext
 {
-    public class DataContext : DataContextCore, IDataContext
+    public class LifeDataContext : DataContextCore, ILifeDataContext
     {
         #region Public Properties 
 
@@ -23,7 +23,7 @@ namespace ITFCodeWA.Domain.DataContext
 
         #region Constuctors
 
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        public LifeDataContext(DbContextOptions<LifeDataContext> options) : base(options)
         {
         }
 

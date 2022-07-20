@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ITFCodeWA.Domain.DataContext.Interfaces
 {
-    public interface IDataContext : IDataContextCore
+    public interface ILifeDataContext : IDataContextCore
     {
         DbSet<Person> Persons { get; set; }
 
@@ -15,5 +15,7 @@ namespace ITFCodeWA.Domain.DataContext.Interfaces
         DbSet<ExpenseItem> ExpenseItems { get; set; }
         DbSet<Good> Goods { get; set; }
         DbSet<RevenueItem> RevenueItems { get; set; }
+
+
     }
 }

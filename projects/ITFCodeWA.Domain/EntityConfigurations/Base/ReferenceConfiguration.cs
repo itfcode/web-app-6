@@ -22,15 +22,6 @@ namespace ITFCodeWA.Domain.EntityConfigurations.Base
                 .ConfigProperty(p => p.Comment, nameof(IReference.Comment));
         }
 
-        /// <summary>
-        ///     Configures the entity of type <typeparamref name="TEntity" />.
-        /// </summary>
-        /// <param name="builder">The builder to be used to configure the entity type.</param>
-        public override sealed void Configure(EntityTypeBuilder<TEntity> builder)
-        {
-            base.Configure(builder);
-        }
-
         #endregion
     }
 }
