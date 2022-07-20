@@ -2,7 +2,7 @@
 
 namespace ITFCodeWA.Data.Finance.Enums
 {
-    public enum ContragentType
+    public enum ContractorType
     {
         [Description("Банк")]
         Bank = 10,

@@ -2,7 +2,7 @@
 
 namespace ITFCodeWA.Data.Health.References
 {
-    public class Dish : ReferenceBase
+    public class Meal : ReferenceBase
     {
         public ICollection<Food>? Components { get; set; }
     }

@@ -1,6 +1,8 @@
-﻿namespace ITFCodeWA.Data.Common.Reference
+﻿using ITFCodeWA.Core.Data.Base;
+
+namespace ITFCodeWA.Data.Common.Reference
 {
-    public class Person
+    public class Person : Entity
     {
         public string FirstName { get; set; }
 

@@ -7,6 +7,5 @@ namespace ITFCodeWA.Data.Finance.References
     /// </summary>
     public class Contractor : ReferenceBase
     {
-
     }
 }

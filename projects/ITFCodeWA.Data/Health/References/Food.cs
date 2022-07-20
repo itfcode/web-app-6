@@ -11,7 +11,5 @@ namespace ITFCodeWA.Data.Health.References
         public decimal Carbohydrates { get; set; }
 
         public decimal Calories { get; set; }
-
-        public ICollection<Dish> Dish { get; set; }
     }
 }

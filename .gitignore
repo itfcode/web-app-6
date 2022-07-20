@@ -113,3 +113,7 @@
 /modules/ITFCodeWA.Extensions.ListExtendors/obj
 /projects/ITFCodeWA.Domain/obj/Debug/net6.0
 /projects/ITFCodeWA.Domain/obj
+/modules/ITFCodeWA.Core.Domain/bin/Debug/net6.0
+/modules/ITFCodeWA.Core.Domain/obj/Debug/net6.0
+/modules/ITFCodeWA.Core.Domain/obj
+/projects/ITFCodeWA.Domain/bin/Debug/net6.0
