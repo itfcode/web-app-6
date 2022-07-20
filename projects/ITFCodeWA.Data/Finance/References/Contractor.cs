@@ -7,5 +7,6 @@ namespace ITFCodeWA.Data.Finance.References
     /// </summary>
     public class Contractor : ReferenceBase
     {
+        public ICollection<Contract> Contracts { get; set; }
     }
 }
