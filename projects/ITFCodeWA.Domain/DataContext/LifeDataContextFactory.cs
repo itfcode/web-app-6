@@ -15,13 +15,13 @@ namespace ITFCodeWA.Domain.DataContext
         {
             var optionsBuilder = new DbContextOptionsBuilder<LifeDataContext>();
 
-            // Get config from appsettings.json
+            // GetById config from appsettings.json
             ConfigurationBuilder builder = new();
             builder.SetBasePath(Directory.GetCurrentDirectory());
             builder.AddJsonFile("appsettings.json");
             IConfigurationRoot config = builder.Build();
 
-            // Get connection string from appsettings.json
+            // GetById connection string from appsettings.json
             string connectionString = config.GetConnectionString("LifeDataContextConnection");
             optionsBuilder.UseSqlServer(connectionString, opts =>
             {
