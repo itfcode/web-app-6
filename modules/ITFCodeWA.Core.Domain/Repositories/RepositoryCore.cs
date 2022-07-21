@@ -1,4 +1,5 @@
 ﻿using ITFCodeWA.Core.Data.Base.Interface;
+using ITFCodeWA.Core.Domain.Exceptions;
 using ITFCodeWA.Core.Domain.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using static ITFCodeWA.Core.Domain.Helpers.ExpressionBuilder;
@@ -56,37 +57,68 @@ namespace ITFCodeWA.Core.Domain.Repositories
 
         public virtual TEntity Add(TEntity entity)
         {
-            ArgumentNullException.ThrowIfNull(entity, nameof(entity));
+            try
+            {
+                ArgumentNullException.ThrowIfNull(entity, nameof(entity));
 
-            return DbSet.Add(entity).Entity;
+                return DbSet.Add(entity).Entity;
+            }
+            catch (Exception ex)
+            {
+                throw new EntityAddingException(ex.Message, ex);
+            }
         }
 
-        public virtual IEnumerable<TEntity> AddRange(IEnumerable<TEntity> entities) => throw new NotImplementedException();
+        public virtual void AddRange(IEnumerable<TEntity> entities) 
+        {
+            try
+            {
+                DbSet.AddRange(entities);
+            }
+            catch (Exception ex)
+            {
+                throw new EntityAddingException(ex.Message, ex);
+            }
+        }
 
         public virtual TEntity Update(TKey id, Action<TEntity> updater) => throw new NotImplementedException();
 
         public virtual TEntity Update(TEntity entity) => throw new NotImplementedException();
 
-        public virtual IEnumerable<TEntity> UpdateRange(IEnumerable<TKey> ids) => throw new NotImplementedException();
+        public virtual void UpdateRange(IEnumerable<TKey> ids) => throw new NotImplementedException();
 
-        public virtual IEnumerable<TEntity> UpdateRange(IEnumerable<TEntity> entities) => throw new NotImplementedException();
+        public virtual void UpdateRange(IEnumerable<TEntity> entities) => throw new NotImplementedException();
 
         public virtual void Delete(TKey id)
         {
-            ArgumentNullException.ThrowIfNull(id, nameof(id));
+            try
+            {
+                ArgumentNullException.ThrowIfNull(id, nameof(id));
 
-            var entity = GetById(id) ?? throw new NullReferenceException($"Entity '{typeof(TEntity).Name}' with id = {id} not found");
+                var entity = GetById(id) ?? throw new NullReferenceException($"Entity '{typeof(TEntity).Name}' with id = {id} not found");
 
-            Delete(entity);
+                Delete(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new EntityDeletingException(ex.Message, ex);
+            }
         }
 
         public virtual void Delete(TEntity entity)
         {
-            ArgumentNullException.ThrowIfNull(entity, nameof(entity));
+            try
+            {
+                ArgumentNullException.ThrowIfNull(entity, nameof(entity));
 
-            AttachEntity(entity);
+                AttachEntity(entity);
 
-            DbSet.Remove(entity);
+                DbSet.Remove(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new EntityDeletingException(ex.Message, ex);
+            }
         }
 
         public virtual void DeleteRange(IEnumerable<TKey> ids)
@@ -118,7 +150,7 @@ namespace ITFCodeWA.Core.Domain.Repositories
         public virtual async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellation = default)
             => throw new NotImplementedException();
 
-        public virtual async Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellation = default)
+        public virtual async Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellation = default)
             => throw new NotImplementedException();
 
         public virtual async Task<TEntity> UpdateAsync(TKey id, Action<TEntity> updater, CancellationToken cancellation = default)
@@ -127,10 +159,10 @@ namespace ITFCodeWA.Core.Domain.Repositories
         public virtual async Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellation = default)
             => throw new NotImplementedException();
 
-        public virtual async Task<IEnumerable<TEntity>> UpdateRangeAsync(IEnumerable<TKey> ids, CancellationToken cancellation = default) =>
+        public virtual async Task UpdateRangeAsync(IEnumerable<TKey> ids, CancellationToken cancellation = default) =>
             throw new NotImplementedException();
 
-        public virtual async Task<IEnumerable<TEntity>> UpdateRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellation = default)
+        public virtual async Task UpdateRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellation = default)
             => throw new NotImplementedException();
 
         public virtual async Task DeleteAsync(TKey id, CancellationToken cancellation = default)

@@ -4,8 +4,8 @@ namespace ITFCodeWA.Core.Domain.Exceptions
 {
     public class EntityUpdatingException : DataContextException
     {
-        public EntityUpdatingException(string? message, Exception? innerException) : base(message, innerException)
-        {
-        }
+        public EntityUpdatingException(Exception innerException) : base(innerException) { }
+
+        public EntityUpdatingException(string? message, Exception? innerException) : base(message, innerException) { }
     }
 }
