@@ -43,17 +43,23 @@ namespace ITFCodeWA.Core.Domain.Repositories
 
         #region IReadOnlyRepositoryCore implementation
 
-        public virtual async Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> predicate, bool includeDetails = true, CancellationToken cancellationToken = default)
+        public async Task<bool> ExistsAsync([NotNull] TKey id, CancellationToken cancellationToken = default)
+            => await ExistsAsync(GenerateEqual<TEntity>("Id", id), cancellationToken);
+
+        public async Task<bool> ExistsAsync([NotNull] Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
+            => await GetQueryable().AnyAsync(predicate, cancellationToken);
+
+        public virtual async Task<TEntity> FindAsync([NotNull] Expression<Func<TEntity, bool>> predicate, bool includeDetails = true, CancellationToken cancellationToken = default)
             => await GetQueryable(includeDetails).SingleOrDefaultAsync(predicate, cancellationToken);
 
-        public virtual async Task<TEntity> FindByIdAsync(TKey id, bool includeDetails = true, CancellationToken cancellationToken = default)
+        public virtual async Task<TEntity> FindAsync([NotNull] TKey id, bool includeDetails = true, CancellationToken cancellationToken = default)
             => await FindAsync(GenerateEqual<TEntity>("Id", id), includeDetails, cancellationToken);
 
-        public virtual async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, bool includeDetails = true, CancellationToken cancellationToken = default)
+        public virtual async Task<TEntity> GetAsync([NotNull] Expression<Func<TEntity, bool>> predicate, bool includeDetails = true, CancellationToken cancellationToken = default)
             => await FindAsync(predicate, includeDetails, cancellationToken) ?? throw new EntityNotFoundException(typeof(TEntity));
 
-        public virtual async Task<TEntity> GetByIdAsync(TKey id, bool includeDetails = true, CancellationToken cancellationToken = default)
-            => await FindByIdAsync(id, includeDetails, cancellationToken) ?? throw new EntityNotFoundException(id, typeof(TEntity));
+        public virtual async Task<TEntity> GetAsync([NotNull] TKey id, bool includeDetails = true, CancellationToken cancellationToken = default)
+            => await FindAsync(id, includeDetails, cancellationToken) ?? throw new EntityNotFoundException(id, typeof(TEntity));
 
         #endregion
 
