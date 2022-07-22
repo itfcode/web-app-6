@@ -73,18 +73,22 @@ namespace ITFCodeWA.Core.Domain.Repositories
                 return DbSet;
         }
 
-        protected void AttachEntity(TEntity entity)
+        protected TEntity AttachEntity(TEntity entity)
         {
             if (Context.Entry(entity).State == EntityState.Detached)
                 DbSet.Attach(entity);
+
+            return entity;
         }
 
-        protected void AttachEntities(IEnumerable<TEntity> entities)
+        protected IEnumerable<TEntity> AttachEntities(IEnumerable<TEntity> entities)
         {
             var needed = entities.Where(r => Context.Entry(r).State == EntityState.Detached);
 
             if (needed.Any())
                 DbSet.AttachRange(needed);
+
+            return entities;
         }
 
         #endregion

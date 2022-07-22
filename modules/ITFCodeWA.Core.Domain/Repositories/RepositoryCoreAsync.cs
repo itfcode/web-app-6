@@ -49,7 +49,7 @@
 //        public virtual async Task DeleteRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellation = default)
 //            => throw new NotImplementedException();
 
-//        public virtual async Task<int> SaveChangesAsync(CancellationToken cancellation = default)
+//        public virtual async Task<int> CommitChangesAsync(CancellationToken cancellation = default)
 //            => throw new NotImplementedException();
 
 //        #endregion

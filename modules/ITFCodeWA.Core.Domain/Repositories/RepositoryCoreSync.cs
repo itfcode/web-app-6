@@ -146,7 +146,7 @@
 //            }
 //            catch (Exception ex)
 //            {
-//                throw new EntitySavingException(ex);
+//                throw new EntityCommitingException(ex);
 //            }
 //        }
 

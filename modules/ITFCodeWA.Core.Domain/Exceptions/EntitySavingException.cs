@@ -2,10 +2,10 @@
 
 namespace ITFCodeWA.Core.Domain.Exceptions
 {
-    public class EntitySavingException : DataContextException
+    public class EntityCommitingException : DataContextException
     {
-        public EntitySavingException(Exception innerException) : base(innerException) { }
+        public EntityCommitingException(Exception innerException) : base(innerException) { }
 
-        public EntitySavingException(string? message, Exception? innerException) : base(message, innerException) { }
+        public EntityCommitingException(string? message, Exception? innerException) : base(message, innerException) { }
     }
 }
