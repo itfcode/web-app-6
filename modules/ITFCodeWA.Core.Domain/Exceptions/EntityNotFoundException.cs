@@ -1,0 +1,11 @@
+﻿using ITFCodeWA.Core.Domain.Exceptions.Base;
+
+namespace ITFCodeWA.Core.Domain.Exceptions
+{
+    public class EntityNotFoundException : DataContextException
+    {
+        public EntityNotFoundException(object id, Type type) : base($"Entity '{type.Name}'(Id = {id}) not found") { }
+
+        public EntityNotFoundException(Type type) : base($"Entity '{type.Name}' not found for given condition") { }
+    }
+}

@@ -53,9 +53,40 @@ namespace ITFCodeWA.Core.Domain.Repositories
             }
         }
 
-        public virtual TEntity Update(TKey id, Action<TEntity> updater) => throw new NotImplementedException();
+        public virtual TEntity Update(TKey id, Action<TEntity> updater)
+        {
+            try
+            {
+                ArgumentNullException.ThrowIfNull(id, nameof(id));
+                ArgumentNullException.ThrowIfNull(updater, nameof(updater));
 
-        public virtual TEntity Update(TEntity entity) => throw new NotImplementedException();
+                var entity = GetById(id) ?? throw new EntityNotFoundException(id, typeof(TEntity));
+
+                updater(entity);
+
+                Context.Entry(entity).State = EntityState.Modified;
+
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                throw new EntityUpdatingException(ex);
+            }
+        }
+
+        public virtual TEntity Update(TEntity entity)
+        {
+            try
+            {
+                ArgumentNullException.ThrowIfNull(entity, nameof(entity));
+                AttachEntity(entity);
+                return DbSet.Update(entity).Entity;
+            }
+            catch (Exception ex)
+            {
+                throw new EntityUpdatingException(ex);
+            }
+        }
 
         public virtual void UpdateRange(IEnumerable<TKey> ids) => throw new NotImplementedException();
 
@@ -107,7 +138,17 @@ namespace ITFCodeWA.Core.Domain.Repositories
             DbSet.RemoveRange(entities);
         }
 
-        public virtual int SaveChanges() => throw new NotImplementedException();
+        public virtual int SaveChanges() 
+        {
+            try
+            {
+                return Context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new EntitySavingException(ex);
+            }
+        }
 
         #endregion
     }

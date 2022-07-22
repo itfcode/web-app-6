@@ -10,6 +10,8 @@ namespace ITFCodeWA.Core.Domain.Repositories.Interfaces
     {
         bool Exist(TKey id);
         TEntity GetById(TKey id);
+        //TEntity FindById(TKey id);
+        //TEntity Find(TKey id);
         TEntity Add(TEntity entity);
         void AddRange(IEnumerable<TEntity> entities);
         TEntity Update(TKey id, Action<TEntity> updater);
