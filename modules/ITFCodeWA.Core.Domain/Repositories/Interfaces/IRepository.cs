@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace ITFCodeWA.Core.Domain.Repositories.Interfaces
 {
-    public interface IRepositoryCore<TContext, TEntity, TKey> : IReadOnlyRepositoryCore<TContext, TEntity, TKey>
+    public interface IRepository<TContext, TEntity, TKey> : IReadOnlyRepository<TContext, TEntity, TKey>
         where TContext : DbContext
         where TEntity : class, IEntity<TKey>
         where TKey : IComparable

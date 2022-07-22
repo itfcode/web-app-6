@@ -7,15 +7,15 @@ using static ITFCodeWA.Core.Domain.Helpers.ExpressionBuilder;
 
 namespace ITFCodeWA.Core.Domain.Repositories
 {
-    public partial class RepositoryCore<TContext, TEntity, TKey> : ReadOnlyRepositoryCore<TContext, TEntity, TKey>,
-        IRepositoryCore<TContext, TEntity, TKey>
+    public partial class Repository<TContext, TEntity, TKey> : ReadOnlyRepository<TContext, TEntity, TKey>,
+        IRepository<TContext, TEntity, TKey>
             where TContext : DbContext
             where TEntity : class, IEntity<TKey>
             where TKey : IComparable
     {
         #region Constructros 
 
-        public RepositoryCore([NotNull] TContext context) : base(context) { }
+        public Repository([NotNull] TContext context) : base(context) { }
 
         #endregion
 

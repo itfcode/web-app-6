@@ -8,7 +8,7 @@ using static ITFCodeWA.Core.Domain.Helpers.ExpressionBuilder;
 
 namespace ITFCodeWA.Core.Domain.Repositories
 {
-    public partial class ReadOnlyRepositoryCore<TContext, TEntity, TKey> : IReadOnlyRepositoryCore<TContext, TEntity, TKey>
+    public partial class ReadOnlyRepository<TContext, TEntity, TKey> : IReadOnlyRepository<TContext, TEntity, TKey>
             where TContext : DbContext
             where TEntity : class, IEntity<TKey>
             where TKey : IComparable
@@ -31,7 +31,7 @@ namespace ITFCodeWA.Core.Domain.Repositories
 
         #region Constructros 
 
-        public ReadOnlyRepositoryCore([NotNull] TContext context)
+        public ReadOnlyRepository([NotNull] TContext context)
         {
             ArgumentNullException.ThrowIfNull(context, nameof(context));
 

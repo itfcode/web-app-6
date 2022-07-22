@@ -12,9 +12,10 @@
     <Folder Include="EntityConfigurations\Health\Documents\" />
     <Folder Include="EntityConfigurations\Health\References\" />
     <Folder Include="Migrations\LifeDbContext\" />
+    <Folder Include="Repositories\Common\Document\Interfaces\" />
     <Folder Include="Repositories\Common\References\Interfaces\" />
     <Folder Include="Repositories\Finance\Documents\Interfaces\" />
-    <Folder Include="Repositories\Finance\References\" />
+    <Folder Include="Repositories\Finance\References\Intrefaces\" />
     <Folder Include="Repositories\Health\Documents\Interfaces\" />
     <Folder Include="Repositories\Health\References\Intrefaces\" />
   </ItemGroup>

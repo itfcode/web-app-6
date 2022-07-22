@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace ITFCodeWA.Core.Domain.Repositories.Interfaces
 {
-    public interface IReadOnlyRepositoryCore<TContext, TEntity, TKey>
+    public interface IReadOnlyRepository<TContext, TEntity, TKey>
         where TContext : DbContext
         where TEntity : class, IEntity<TKey>
         where TKey : IComparable
