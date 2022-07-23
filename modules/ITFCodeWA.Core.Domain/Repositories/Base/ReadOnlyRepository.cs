@@ -1,12 +1,12 @@
 ﻿using ITFCodeWA.Core.Data.Base.Interface;
 using ITFCodeWA.Core.Domain.Exceptions;
-using ITFCodeWA.Core.Domain.Repositories.Interfaces;
+using ITFCodeWA.Core.Domain.Repositories.Base.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using static ITFCodeWA.Core.Domain.Helpers.ExpressionBuilder;
 
-namespace ITFCodeWA.Core.Domain.Repositories
+namespace ITFCodeWA.Core.Domain.Repositories.Base
 {
     public partial class ReadOnlyRepository<TContext, TEntity, TKey> : IReadOnlyRepository<TContext, TEntity, TKey>
             where TContext : DbContext

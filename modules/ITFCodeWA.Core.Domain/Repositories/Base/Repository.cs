@@ -1,11 +1,11 @@
 ﻿using ITFCodeWA.Core.Data.Base.Interface;
 using ITFCodeWA.Core.Domain.Exceptions;
-using ITFCodeWA.Core.Domain.Repositories.Interfaces;
+using ITFCodeWA.Core.Domain.Repositories.Base.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 using static ITFCodeWA.Core.Domain.Helpers.ExpressionBuilder;
 
-namespace ITFCodeWA.Core.Domain.Repositories
+namespace ITFCodeWA.Core.Domain.Repositories.Base
 {
     public partial class Repository<TContext, TEntity, TKey> : ReadOnlyRepository<TContext, TEntity, TKey>,
         IRepository<TContext, TEntity, TKey>
@@ -292,7 +292,7 @@ namespace ITFCodeWA.Core.Domain.Repositories
 
         #region Private && Protected 
 
-        protected virtual void ValidateParam<TParam>(TParam param, string paramName) 
+        protected virtual void ValidateParam<TParam>(TParam param, string paramName)
         {
             ArgumentNullException.ThrowIfNull(param, paramName);
         }

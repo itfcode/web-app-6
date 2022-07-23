@@ -1,0 +1,31 @@
+﻿using ITFCodeWA.Core.Data.Documents.Interfaces;
+using ITFCodeWA.Core.Domain.Exceptions;
+using ITFCodeWA.Core.Domain.Repositories.Base;
+using ITFCodeWA.Core.Domain.Repositories.Documents.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
+
+namespace ITFCodeWA.Core.Domain.Repositories.Documents
+{
+    public class DocumentRepository<TContext, TEntity> : Repository<TContext, TEntity, Guid>,
+            IDocumentRepository<TContext, TEntity>
+        where TContext : DbContext
+        where TEntity : class, IDocument
+    {
+        #region Constructors 
+
+        public DocumentRepository([NotNull] TContext context) : base(context) { }
+
+        #endregion
+
+        #region IDocumentRepository Implementation
+
+        public virtual async Task<TEntity> FindByNumberAsync(int number, bool includeDetails = true, CancellationToken cancellationToken = default)
+            => await FindAsync(x => x.Number == number, includeDetails, cancellationToken);
+
+        public virtual async Task<TEntity> GetByNumberAsync(int number, bool includeDetails = true, CancellationToken cancellationToken = default)
+             => await FindByNumberAsync(number, includeDetails, cancellationToken) ?? throw new EntityNotFoundException(number, "Number", typeof(TEntity));
+
+        #endregion
+    }
+}

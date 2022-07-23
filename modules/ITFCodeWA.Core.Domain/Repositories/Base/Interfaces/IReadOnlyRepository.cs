@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 
-namespace ITFCodeWA.Core.Domain.Repositories.Interfaces
+namespace ITFCodeWA.Core.Domain.Repositories.Base.Interfaces
 {
     public interface IReadOnlyRepository<TContext, TEntity, TKey>
         where TContext : DbContext
