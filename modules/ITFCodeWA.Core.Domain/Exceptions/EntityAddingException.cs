@@ -2,10 +2,10 @@
 
 namespace ITFCodeWA.Core.Domain.Exceptions
 {
-    public class EntityAddingException : DataContextException
+    public class RepositoryAddException : RepositoryException
     {
-        public EntityAddingException(Exception innerException) : base(innerException) { }
+        public RepositoryAddException(Exception innerException) : base(innerException) { }
 
-        public EntityAddingException(string? message, Exception? innerException) : base(message, innerException) { }
+        public RepositoryAddException(string? message, Exception? innerException) : base(message, innerException) { }
     }
 }

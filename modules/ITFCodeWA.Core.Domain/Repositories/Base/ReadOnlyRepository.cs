@@ -59,7 +59,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
             => await FindAsync(predicate, includeDetails, cancellationToken) ?? throw new EntityNotFoundException(typeof(TEntity));
 
         public virtual async Task<TEntity> GetAsync([NotNull] TKey id, bool includeDetails = true, CancellationToken cancellationToken = default)
-            => await FindAsync(id, includeDetails, cancellationToken) ?? throw new EntityNotFoundException(id, typeof(TEntity));
+            => ValidateFindRequest(await FindAsync(id, includeDetails, cancellationToken), id, "Id");
 
         #endregion
 
@@ -73,20 +73,15 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
                 return DbSet;
         }
 
-        protected TEntity AttachEntity(TEntity entity)
+        protected TEntity ValidateFindRequest(TEntity entity, object paramValue, string paramName)
         {
-            if (Context.Entry(entity).State == EntityState.Detached)
-                DbSet.Attach(entity);
-
-            return entity;
+            return entity ?? throw new EntityNotFoundException(paramValue, paramName, typeof(TEntity));
         }
 
-        protected IEnumerable<TEntity> AttachEntities(IEnumerable<TEntity> entities)
+        protected IList<TEntity> ValidateFindAllRequest(IList<TEntity> entities, object paramValue, string paramName)
         {
-            var needed = entities.Where(r => Context.Entry(r).State == EntityState.Detached);
-
-            if (needed.Any())
-                DbSet.AttachRange(needed);
+            if (entities is null || !entities.Any())
+                throw new EntityNotFoundException(paramValue, paramName, typeof(TEntity));
 
             return entities;
         }

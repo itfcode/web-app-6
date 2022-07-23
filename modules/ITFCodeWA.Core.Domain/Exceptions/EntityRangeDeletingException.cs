@@ -2,7 +2,7 @@
 
 namespace ITFCodeWA.Core.Domain.Exceptions
 {
-    public class EntityRangeDeletingException : DataContextException
+    public class EntityRangeDeletingException : RepositoryException
     {
         public EntityRangeDeletingException(Exception innerException) : base(innerException) { }
 

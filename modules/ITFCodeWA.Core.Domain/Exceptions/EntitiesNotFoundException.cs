@@ -6,7 +6,7 @@ namespace ITFCodeWA.Core.Domain.Exceptions
     /// <summary>
     /// Class Exception to handle an exception when entities have been not found by IDs
     /// </summary>
-    public class EntitiesNotFoundException : DataContextException
+    public class EntitiesNotFoundException : RepositoryException
     {
         public EntitiesNotFoundException(IEnumerable<object> ids, Type type) : base(GetMessage(ids, type)) { }
 

@@ -9,10 +9,10 @@ namespace ITFCodeWA.Core.Domain.Repositories.References.Interfaces
         where TContext : DbContext
         where TEntity : class, IReference
     {
-        Task<TEntity> GetByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default);
         Task<TEntity> FindByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default);
+        Task<TEntity> GetByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default);
 
-        Task<TEntity> GetAllByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default);
-        Task<TEntity> FindAllByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default);
+        Task<IList<TEntity>> FindAllByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default);
+        Task<IList<TEntity>> GetAllByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default);
     }
 }

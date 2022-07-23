@@ -2,7 +2,7 @@
 
 namespace ITFCodeWA.Core.Domain.Exceptions
 {
-    public class EntityNotFoundException : DataContextException
+    public class EntityNotFoundException : RepositoryException
     {
         public EntityNotFoundException(object id, Type type) : base($"Entity '{type.Name}'(Id = {id}) not found") { }
 

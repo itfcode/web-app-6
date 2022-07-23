@@ -24,13 +24,13 @@ namespace ITFCodeWA.Core.Domain.Repositories.References
             => await FindAsync(x => x.Name == name, includeDetails, cancellationToken);
 
         public virtual async Task<TEntity> GetByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default)
-            => await FindByNameAsync(name, includeDetails, cancellationToken) ?? throw new EntityNotFoundException(name, "Name", typeof(TEntity));
+            => ValidateFindRequest(await FindByNameAsync(name, includeDetails, cancellationToken), name, "Name");
 
-        public virtual async Task<TEntity> GetAllByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default)
-            => throw new NotImplementedException();
+        public virtual async Task<IList<TEntity>> FindAllByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default)
+            => await GetQueryable(includeDetails).Where(x => x.Name.Contains(name)).ToListAsync(cancellationToken);
 
-        public virtual async Task<TEntity> FindAllByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default)
-            => throw new NotImplementedException();
+        public virtual async Task<IList<TEntity>> GetAllByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default)
+            => ValidateFindAllRequest(await FindAllByNameAsync(name, includeDetails, cancellationToken), name, "Name");
 
         #endregion
     }

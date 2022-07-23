@@ -15,4 +15,8 @@
     <ProjectReference Include="..\ITFCodeWA.Core.Data\ITFCodeWA.Core.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Exceptions\RepositoryMethods\" />
+  </ItemGroup>
+
 </Project>

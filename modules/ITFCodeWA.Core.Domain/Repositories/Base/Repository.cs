@@ -28,7 +28,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
         /// <param name="commit"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        /// <exception cref="EntityAddingException"></exception>
+        /// <exception cref="RepositoryAddException"></exception>
         public virtual async Task<TEntity> AddAsync([NotNull] TEntity entity, bool commit = false, CancellationToken cancellationToken = default)
         {
             try
@@ -44,7 +44,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
             }
             catch (Exception ex)
             {
-                throw new EntityAddingException(ex);
+                throw new RepositoryAddException(ex);
             }
         }
 
@@ -55,7 +55,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
         /// <param name="commit"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        /// <exception cref="EntityRangeAddingException"></exception>
+        /// <exception cref="DbSetAddRangeException"></exception>
         public virtual async Task AddRangeAsync([NotNull] IEnumerable<TEntity> entities, bool commit = false, CancellationToken cancellationToken = default)
         {
             try
@@ -68,7 +68,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
             }
             catch (Exception ex)
             {
-                throw new EntityRangeAddingException(ex);
+                throw new DbSetAddRangeException(ex);
             }
         }
 
@@ -80,7 +80,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
         /// <param name="commit"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        /// <exception cref="EntityUpdatingException"></exception>
+        /// <exception cref="DbSetUpdateException"></exception>
         public virtual async Task<TEntity> UpdateAsync([NotNull] TKey id, Action<TEntity> updater, bool commit = false, CancellationToken cancellationToken = default)
         {
             try
@@ -97,7 +97,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
             }
             catch (Exception ex)
             {
-                throw new EntityUpdatingException(ex);
+                throw new DbSetUpdateException(ex);
             }
         }
 
@@ -108,7 +108,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
         /// <param name="commit"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        /// <exception cref="EntityUpdatingException"></exception>
+        /// <exception cref="DbSetUpdateException"></exception>
         public virtual async Task<TEntity> UpdateAsync([NotNull] TEntity entity, bool commit = false, CancellationToken cancellationToken = default)
         {
             try
@@ -123,7 +123,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
             }
             catch (Exception ex)
             {
-                throw new EntityUpdatingException(ex);
+                throw new DbSetUpdateException(ex);
             }
         }
 
@@ -292,11 +292,46 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
 
         #region Private && Protected 
 
+        /// <summary>
+        /// Attaches an entity if entity state is Detached
+        /// </summary>
+        /// <param name="entity">Entity</param>
+        /// <returns>Entity</returns>
+        protected TEntity AttachEntity(TEntity entity)
+        {
+            if (Context.Entry(entity).State == EntityState.Detached)
+                DbSet.Attach(entity);
+
+            return entity;
+        }
+
+        /// <summary>
+        /// Attaches entities of sequence that has state is Detached
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns></returns>
+        protected IEnumerable<TEntity> AttachEntities(IEnumerable<TEntity> entities)
+        {
+            var needed = entities.Where(r => Context.Entry(r).State == EntityState.Detached);
+
+            if (needed.Any())
+                DbSet.AttachRange(needed);
+
+            return entities;
+        }
+
         protected virtual void ValidateParam<TParam>(TParam param, string paramName)
         {
             ArgumentNullException.ThrowIfNull(param, paramName);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TItem"></typeparam>
+        /// <param name="items"></param>
+        /// <param name="paramName"></param>
+        /// <exception cref="ArgumentException"></exception>
         protected virtual void ValidateSequence<TItem>(IEnumerable<TItem> items, string paramName)
         {
             ValidateParam(items, paramName);
@@ -308,6 +343,12 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
                 throw new ArgumentException($"{paramName} contains null item");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        /// <exception cref="EntitiesNotFoundException"></exception>
         protected virtual async Task<IList<TEntity>> GetEntitiesByIds(IEnumerable<TKey> ids)
         {
             ValidateSequence(ids, nameof(ids));
