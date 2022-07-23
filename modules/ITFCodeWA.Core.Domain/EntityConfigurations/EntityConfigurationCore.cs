@@ -1,4 +1,5 @@
 ﻿using ITFCodeWA.Core.Data.Base.Interface;
+using ITFCodeWA.Core.Domain.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -26,14 +27,19 @@ namespace ITFCodeWA.Core.Domain.EntityConfiguration
             _builder.Property(d => d.Id)
                 .HasColumnName(typeof(TEntity).Name + "Id");
 
+            SimpleLogger.Log($"Table name should be '{TableName}'");
             _builder.ToTable(TableName);
         }
 
         public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
+            SimpleLogger.Log($"Start entity configuration for type {typeof(TEntity).Name}");
+
             _builder = builder;
 
             Configure();
+
+            SimpleLogger.Log($"End entity configuration for type {typeof(TEntity).Name}");
         }
 
         #endregion

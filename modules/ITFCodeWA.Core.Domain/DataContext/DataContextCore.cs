@@ -11,6 +11,8 @@ namespace ITFCodeWA.Core.Domain.DataContext
 
         protected readonly DbContextOptions _options;
 
+        protected virtual Assembly ExecutingAssembly => Assembly.GetExecutingAssembly();
+
         #endregion
 
         #region Constructors 
@@ -27,15 +29,12 @@ namespace ITFCodeWA.Core.Domain.DataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("dbo");
-
-            BuildGenericModelConfigurations(modelBuilder, typeof(EntityConfigurationCore<,>));
+            BuildModelConfigurations(modelBuilder, typeof(EntityConfigurationCore<,>), ExecutingAssembly.GetTypes());
         }
 
-        protected void BuildGenericModelConfigurations(ModelBuilder modelBuilder, Type baseType)
+        protected void BuildModelConfigurations(ModelBuilder modelBuilder, Type baseType, Type[] types)
         {
-            Assembly.GetExecutingAssembly()
-                .GetTypes()
-                .Where(type =>
+            types.Where(type =>
                     (type.BaseType != null && type.BaseType.IsGenericType && !type.IsAbstract)
                     &&
                     (type.BaseType.GetGenericTypeDefinition() == baseType))

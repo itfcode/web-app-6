@@ -2,7 +2,9 @@
 using ITFCodeWA.Data.Common.Reference;
 using ITFCodeWA.Data.Finance.References;
 using ITFCodeWA.Domain.DataContext.Interfaces;
+using ITFCodeWA.Domain.EntityConfigurations.Base;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace ITFCodeWA.Domain.DataContext
 {
@@ -34,6 +36,7 @@ namespace ITFCodeWA.Domain.DataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            BuildModelConfigurations(modelBuilder, typeof(ReferenceConfiguration<>), Assembly.GetExecutingAssembly().GetTypes());
         }
 
         #endregion

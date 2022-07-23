@@ -4,6 +4,7 @@ using ITFCodeWA.Domain.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITFCodeWA.Domain.Migrations.LifeDbContext
 {
     [DbContext(typeof(LifeDataContext))]
-    partial class LifeDataContextModelSnapshot : ModelSnapshot
+    [Migration("20220723161423_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,9 +101,7 @@ namespace ITFCodeWA.Domain.Migrations.LifeDbContext
                         .HasColumnName("StartDate");
 
                     b.Property<decimal>("TotalCost")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)")
-                        .HasColumnName("TotalCost");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

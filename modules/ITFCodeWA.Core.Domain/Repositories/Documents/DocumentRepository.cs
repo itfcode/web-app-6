@@ -1,5 +1,4 @@
 ﻿using ITFCodeWA.Core.Data.Documents.Interfaces;
-using ITFCodeWA.Core.Domain.Exceptions;
 using ITFCodeWA.Core.Domain.Repositories.Base;
 using ITFCodeWA.Core.Domain.Repositories.Documents.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +23,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Documents
             => await FindAsync(x => x.Number == number, includeDetails, cancellationToken);
 
         public virtual async Task<TEntity> GetByNumberAsync(int number, bool includeDetails = true, CancellationToken cancellationToken = default)
-             => await FindByNumberAsync(number, includeDetails, cancellationToken) ?? throw new EntityNotFoundException(number, "Number", typeof(TEntity));
+             => ValidateFindRequest(await FindByNumberAsync(number, includeDetails, cancellationToken), number, "Number");
 
         #endregion
     }

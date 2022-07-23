@@ -1,5 +1,4 @@
 ﻿using ITFCodeWA.Core.Data.References.Interfaces;
-using ITFCodeWA.Core.Domain.Exceptions;
 using ITFCodeWA.Core.Domain.Repositories.Base;
 using ITFCodeWA.Core.Domain.Repositories.References.Interfaces;
 using Microsoft.EntityFrameworkCore;

@@ -1,6 +1,7 @@
 ﻿using ITFCodeWA.Data.Finance.References;
 using ITFCodeWA.Domain.EntityConfigurations.Base;
 using ITFCodeWA.Core.Domain.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace ITFCodeWA.Domain.EntityConfigurations.Finance.References
 {
@@ -15,6 +16,11 @@ namespace ITFCodeWA.Domain.EntityConfigurations.Finance.References
                 .ConfigProperty(p => p.FinishDate, nameof(Contract.FinishDate), true)
                 .AddIndex(i => i.StartDate, isUnique: false)
                 .AddIndex(i => i.FinishDate, isUnique: false);
+
+            _builder.Property(x => x.TotalCost)
+                .HasColumnName(nameof(Contract.TotalCost))
+                .HasPrecision(18, 2)
+                .IsRequired();
         }
     }
 }

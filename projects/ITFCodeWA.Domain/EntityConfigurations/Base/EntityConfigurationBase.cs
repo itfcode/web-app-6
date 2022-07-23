@@ -8,7 +8,6 @@ namespace ITFCodeWA.Domain.EntityConfigurations.Base
         where TEntity : class, IEntity<TKey>
         where TKey : IComparable
     {
-
         /// <summary>
         ///     Configures the entity of type <typeparamref name="TEntity" />.
         /// </summary>

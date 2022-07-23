@@ -7,6 +7,8 @@ namespace ITFCodeWA.Domain.EntityConfigurations.Base
     public abstract class ReferenceConfiguration<TEntity> : EntityConfigurationBase<TEntity, int>
         where TEntity : class, IReference
     {
+        protected override string TableName => typeof(TEntity).Name;
+
         #region Public Methods 
 
         /// <summary>

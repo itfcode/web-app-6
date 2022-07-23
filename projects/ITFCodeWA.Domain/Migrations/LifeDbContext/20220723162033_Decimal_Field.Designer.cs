@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITFCodeWA.Domain.Migrations.LifeDbContext
 {
     [DbContext(typeof(LifeDataContext))]
-    [Migration("20220720142321_Initial")]
-    partial class Initial
+    [Migration("20220723162033_Decimal_Field")]
+    partial class Decimal_Field
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,9 +29,14 @@ namespace ITFCodeWA.Domain.Migrations.LifeDbContext
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("PersonId");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Comment");
 
                     b.Property<DateTimeOffset>("DateOfBirth")
                         .HasColumnType("datetimeoffset");
@@ -48,34 +53,70 @@ namespace ITFCodeWA.Domain.Migrations.LifeDbContext
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(99)
+                        .HasColumnType("nvarchar(99)")
+                        .HasColumnName("Name");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Persons", "dbo");
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Person", "dbo");
                 });
 
             modelBuilder.Entity("ITFCodeWA.Data.Finance.References.Contract", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ContractId");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Comment");
+
+                    b.Property<int>("ContractorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CurrencyId")
+                        .HasColumnType("int");
 
                     b.Property<DateTimeOffset>("FinishDate")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("datetimeoffset")
+                        .HasColumnName("FinishDate");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(99)
+                        .HasColumnType("nvarchar(99)")
+                        .HasColumnName("Name");
 
                     b.Property<DateTimeOffset>("StartDate")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("datetimeoffset")
+                        .HasColumnName("StartDate");
+
+                    b.Property<decimal>("TotalCost")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("TotalCost");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ContractorId");
+
+                    b.HasIndex("CurrencyId");
+
+                    b.HasIndex("FinishDate");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.HasIndex("StartDate");
 
                     b.ToTable("Contract", "dbo");
                 });
@@ -84,90 +125,122 @@ namespace ITFCodeWA.Domain.Migrations.LifeDbContext
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ContractorId");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Comment");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(99)
+                        .HasColumnType("nvarchar(99)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contractors", "dbo");
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Contractor", "dbo");
                 });
 
             modelBuilder.Entity("ITFCodeWA.Data.Finance.References.Currency", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CurrencyId");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Code")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Code");
 
                     b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Comment");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(99)
+                        .HasColumnType("nvarchar(99)")
+                        .HasColumnName("Name");
 
                     b.Property<string>("ShortName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)")
+                        .HasColumnName("ShortName");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Currencies", "dbo");
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.HasIndex("ShortName")
+                        .IsUnique();
+
+                    b.ToTable("Currency", "dbo");
+
+                    b.HasCheckConstraint("CK_Currency_Code", "Code > 0 AND Code < 999");
                 });
 
             modelBuilder.Entity("ITFCodeWA.Data.Finance.References.ExpenseItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ExpenseItemId");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Comment");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(99)
+                        .HasColumnType("nvarchar(99)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ExpenseItems", "dbo");
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("ExpenseItem", "dbo");
                 });
 
             modelBuilder.Entity("ITFCodeWA.Data.Finance.References.Good", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("GoodId");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Comment");
 
                     b.Property<int?>("ExpenseItemId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(99)
+                        .HasColumnType("nvarchar(99)")
+                        .HasColumnName("Name");
 
                     b.Property<int?>("RevenueItemId")
                         .HasColumnType("int");
@@ -176,30 +249,58 @@ namespace ITFCodeWA.Domain.Migrations.LifeDbContext
 
                     b.HasIndex("ExpenseItemId");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.HasIndex("RevenueItemId");
 
-                    b.ToTable("Goods", "dbo");
+                    b.ToTable("Good", "dbo");
                 });
 
             modelBuilder.Entity("ITFCodeWA.Data.Finance.References.RevenueItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("RevenueItemId");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Comment");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(99)
+                        .HasColumnType("nvarchar(99)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("RevenueItems", "dbo");
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("RevenueItem", "dbo");
+                });
+
+            modelBuilder.Entity("ITFCodeWA.Data.Finance.References.Contract", b =>
+                {
+                    b.HasOne("ITFCodeWA.Data.Finance.References.Contractor", "Contractor")
+                        .WithMany("Contracts")
+                        .HasForeignKey("ContractorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ITFCodeWA.Data.Finance.References.Currency", "Currency")
+                        .WithMany()
+                        .HasForeignKey("CurrencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Contractor");
+
+                    b.Navigation("Currency");
                 });
 
             modelBuilder.Entity("ITFCodeWA.Data.Finance.References.Good", b =>
@@ -215,6 +316,11 @@ namespace ITFCodeWA.Domain.Migrations.LifeDbContext
                     b.Navigation("ExpenseItem");
 
                     b.Navigation("RevenueItem");
+                });
+
+            modelBuilder.Entity("ITFCodeWA.Data.Finance.References.Contractor", b =>
+                {
+                    b.Navigation("Contracts");
                 });
 
             modelBuilder.Entity("ITFCodeWA.Data.Finance.References.ExpenseItem", b =>

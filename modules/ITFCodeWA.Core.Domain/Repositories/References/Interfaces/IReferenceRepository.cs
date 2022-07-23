@@ -9,5 +9,6 @@ namespace ITFCodeWA.Core.Domain.Repositories.References.Interfaces
         where TContext : DbContext
         where TEntity : class, IReference
     {
+        //
     }
 }
