@@ -53,7 +53,7 @@ namespace ITFCodeWA.Extensions.ObjectExtendors
         public static TResult GetTry<TSelf, TResult>(this TSelf self, Func<TSelf, TResult> func, TResult onFailedValue, bool throwIfNull = false)
             where TSelf : class
         {
-            if (throwIfNull) ArgumentNullException.ThrowIfNull(self);
+            if (throwIfNull) ArgumentNullException.ThrowIfNull(self, nameof(self));
 
             TResult result;
 
@@ -85,7 +85,7 @@ namespace ITFCodeWA.Extensions.ObjectExtendors
 
         public static TSelf Set<TSelf, TType>(this TSelf self, string propName, TType propValue) where TSelf : class
         {
-            ArgumentNullException.ThrowIfNull(self);
+            ArgumentNullException.ThrowIfNull(self, nameof(self));
 
             var propInfo = self.GetType().GetProperty(propName, BindingFlags.Instance | BindingFlags.Public);
 

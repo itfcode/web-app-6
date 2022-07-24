@@ -18,8 +18,8 @@
         public static IOrderedEnumerable<T> SortBy<T, TKey>(this IEnumerable<T> source, bool isAsc,
             params Func<T, TKey>[] keySelectors)
         {
-            ArgumentNullException.ThrowIfNull(source);
-            ArgumentNullException.ThrowIfNull(keySelectors);
+            ArgumentNullException.ThrowIfNull(source, nameof(source));
+            ArgumentNullException.ThrowIfNull(keySelectors, nameof(keySelectors));
 
             var length = keySelectors.Length;
 
@@ -47,9 +47,9 @@
         public static IEnumerable<T> CrossApply<T, TKey>(this IEnumerable<T> source, IEnumerable<TKey> keys,
             Func<T, TKey> keySelector, int count = 1)
         {
-            ArgumentNullException.ThrowIfNull(source);
-            ArgumentNullException.ThrowIfNull(keys);
-            ArgumentNullException.ThrowIfNull(keySelector);
+            ArgumentNullException.ThrowIfNull(source, nameof(source));
+            ArgumentNullException.ThrowIfNull(keys, nameof(keys));
+            ArgumentNullException.ThrowIfNull(keySelector, nameof(keySelector));
 
             var items = Enumerable.Empty<T>();
 
@@ -72,7 +72,7 @@
         /// <returns>A new sequence that ends with added elements</returns>
         public static IEnumerable<T> Append<T>(this IEnumerable<T> source, T element0, T element1, params T[] elements) 
         {
-            ArgumentNullException.ThrowIfNull(source);
+            ArgumentNullException.ThrowIfNull(source, nameof(source));
 
             return source.Append(element0)
                 .Append(element1)
@@ -91,7 +91,7 @@
         /// <returns></returns>
         public static IEnumerable<T> Prepend<T>(this IEnumerable<T> source, T element0, T element1, params T[] elements) 
         {
-            ArgumentNullException.ThrowIfNull(source);
+            ArgumentNullException.ThrowIfNull(source, nameof(source));
 
             return elements.Prepend(element0)
                 .Prepend(element1)
@@ -116,8 +116,8 @@
         /// <returns></returns>
         public static string JoinToSting<T>(this IEnumerable<T> source, string separator = ",")
         {
-            ArgumentNullException.ThrowIfNull(source);
-            ArgumentNullException.ThrowIfNull(separator);
+            ArgumentNullException.ThrowIfNull(source, nameof(source));
+            ArgumentNullException.ThrowIfNull(separator, nameof(separator));
 
             return string.Join(separator, source);
         }

@@ -50,7 +50,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
             => await GetQueryable().AnyAsync(predicate, cancellationToken);
 
         public virtual async Task<TEntity> FindAsync([NotNull] Expression<Func<TEntity, bool>> predicate, bool includeDetails = true, CancellationToken cancellationToken = default)
-            => await GetQueryable(includeDetails).SingleOrDefaultAsync(predicate, cancellationToken);
+            => await GetQueryableForOne(includeDetails).SingleOrDefaultAsync(predicate, cancellationToken);
 
         public virtual async Task<TEntity> FindAsync([NotNull] TKey id, bool includeDetails = true, CancellationToken cancellationToken = default)
             => await FindAsync(ExpressionFactory.Equal<TEntity>("Id", id), includeDetails, cancellationToken);
@@ -65,13 +65,17 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
 
         #region Private & Protected Methods
 
-        protected virtual IQueryable<TEntity> GetQueryable(bool includeDetails = true)
-        {
-            if (includeDetails)
-                return DbSet;
-            else
-                return DbSet;
-        }
+        protected virtual IQueryable<TEntity> GetQueryableOneWithDetails() => DbSet;
+
+        protected virtual IQueryable<TEntity> GetQueryableManyWithDetails() => DbSet;
+
+        protected virtual IQueryable<TEntity> GetQueryableForOne(bool includeDetails = true)
+            => includeDetails ? GetQueryableOneWithDetails() : GetQueryable();
+
+        protected virtual IQueryable<TEntity> GetQueryableForMany(bool includeDetails = true)
+            => includeDetails ? GetQueryableManyWithDetails() : GetQueryable();
+
+        protected virtual IQueryable<TEntity> GetQueryable() => DbSet;
 
         protected TEntity ValidateFindRequest(TEntity entity, object paramValue, string paramName)
         {

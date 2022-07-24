@@ -26,7 +26,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.References
             => ValidateFindRequest(await FindByNameAsync(name, includeDetails, cancellationToken), name, "Name");
 
         public virtual async Task<IList<TEntity>> FindAllByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default)
-            => await GetQueryable(includeDetails).Where(x => x.Name.Contains(name)).ToListAsync(cancellationToken);
+            => await GetQueryableForMany(includeDetails).Where(x => x.Name.Contains(name)).ToListAsync(cancellationToken);
 
         public virtual async Task<IList<TEntity>> GetAllByNameAsync([NotNull] string name, bool includeDetails = true, CancellationToken cancellationToken = default)
             => ValidateFindAllRequest(await FindAllByNameAsync(name, includeDetails, cancellationToken), name, "Name");

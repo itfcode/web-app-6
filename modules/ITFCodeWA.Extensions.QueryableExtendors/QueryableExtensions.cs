@@ -7,8 +7,8 @@ namespace ITFCodeWA.Extensions.QueryableExtendors
         public static IOrderedQueryable<TSource> SortBy<TSource, TKey>(this IQueryable<TSource> source, bool isAsc,
             params Expression<Func<TSource, TKey>>[] keySelectors)
         {
-            ArgumentNullException.ThrowIfNull(source);
-            ArgumentNullException.ThrowIfNull(keySelectors);
+            ArgumentNullException.ThrowIfNull(source, nameof(source));
+            ArgumentNullException.ThrowIfNull(keySelectors, nameof(source));
 
             var length = keySelectors.Length;
 

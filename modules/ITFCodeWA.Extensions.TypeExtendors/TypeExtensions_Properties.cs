@@ -24,7 +24,7 @@
 
         private static IList<PropertyInfo> GetProperties(Type type, BindingFlags bindingFlag, bool? canRead = default, bool? canWrite = default)
         {
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullException.ThrowIfNull(type, nameof(type));
 
             return type.GetProperties(bindingFlag)
                 .Where(x => !canRead.HasValue || x.CanRead == canRead)
@@ -35,8 +35,8 @@
 
         private static IList<PropertyInfo> GetProperties(Type type, BindingFlags[] bindingFlags, bool? canRead = default, bool? canWrite = default)
         {
-            ArgumentNullException.ThrowIfNull(type);
-            ArgumentNullException.ThrowIfNull(bindingFlags);
+            ArgumentNullException.ThrowIfNull(type, nameof(type));
+            ArgumentNullException.ThrowIfNull(bindingFlags, nameof(bindingFlags));
 
             if (bindingFlags.Length == 0)
                 throw new ArgumentException($"{bindingFlags} should be not empty collection!!!");

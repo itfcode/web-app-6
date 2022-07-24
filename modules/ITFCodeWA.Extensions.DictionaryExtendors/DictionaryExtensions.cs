@@ -20,8 +20,8 @@
         /// <returns></returns>
         public static TDictionary Append<TDictionary, TKey, TValue>(this TDictionary source, TKey key, TValue value) where TDictionary : IDictionary<TKey, TValue>
         {
-            ArgumentNullException.ThrowIfNull(source);
-            ArgumentNullException.ThrowIfNull(key);
+            ArgumentNullException.ThrowIfNull(source, nameof(source));
+            ArgumentNullException.ThrowIfNull(key, nameof(key));
 
             source.Add(key, value);
 
@@ -40,9 +40,9 @@
         /// <returns></returns>
         public static TDictionary Append<TDictionary, TKey, TValue>(this TDictionary source, IEnumerable<TKey> keys, IEnumerable<TValue> values) where TDictionary : IDictionary<TKey, TValue>
         {
-            ArgumentNullException.ThrowIfNull(source);
-            ArgumentNullException.ThrowIfNull(keys);
-            ArgumentNullException.ThrowIfNull(values);
+            ArgumentNullException.ThrowIfNull(source, nameof(source));
+            ArgumentNullException.ThrowIfNull(keys, nameof(source));
+            ArgumentNullException.ThrowIfNull(values, nameof(source));
 
             var arrKeys = keys.ToArray();
             var arrValues = values.ToArray();

@@ -24,7 +24,7 @@ namespace ITFCodeWA.Extensions.TypeExtendors
 
         private static IList<FieldInfo> GetFields(Type type, BindingFlags bindingFlag, bool? isReadonly = default)
         {
-            ArgumentNullException.ThrowIfNull(type);
+            ArgumentNullException.ThrowIfNull(type, nameof(type));
 
             return type.GetFields(bindingFlag)
                 .Where(x => !isReadonly.HasValue || x.IsInitOnly == isReadonly)
@@ -36,8 +36,8 @@ namespace ITFCodeWA.Extensions.TypeExtendors
 
         private static IList<FieldInfo> GetFields(Type type, BindingFlags[] bindingFlags, bool? isReadonly = default)
         {
-            ArgumentNullException.ThrowIfNull(type);
-            ArgumentNullException.ThrowIfNull(bindingFlags);
+            ArgumentNullException.ThrowIfNull(type, nameof(type));
+            ArgumentNullException.ThrowIfNull(bindingFlags, nameof(bindingFlags));
 
             if (bindingFlags.Length == 0)
                 throw new ArgumentException($"{bindingFlags} should be not empty collection!!!");
