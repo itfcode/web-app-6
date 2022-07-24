@@ -1,4 +1,5 @@
 ﻿using ITFCodeWA.Core.Domain.DataContext;
+using ITFCodeWA.Core.Domain.EntityConfigurations.Base;
 using ITFCodeWA.Data.Common.Reference;
 using ITFCodeWA.Data.Finance.References;
 using ITFCodeWA.Domain.DataContext.Interfaces;
@@ -37,6 +38,7 @@ namespace ITFCodeWA.Domain.DataContext
         {
             base.OnModelCreating(modelBuilder);
             BuildModelConfigurations(modelBuilder, typeof(ReferenceConfiguration<>), Assembly.GetExecutingAssembly().GetTypes());
+            BuildModelConfigurations(modelBuilder, typeof(DocumentConfiguration<>), Assembly.GetExecutingAssembly().GetTypes());
         }
 
         #endregion

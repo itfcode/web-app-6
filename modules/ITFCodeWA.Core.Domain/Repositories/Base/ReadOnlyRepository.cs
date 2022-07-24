@@ -1,10 +1,10 @@
 ﻿using ITFCodeWA.Core.Data.Base.Interface;
 using ITFCodeWA.Core.Domain.Exceptions;
+using ITFCodeWA.Core.Domain.Helpers;
 using ITFCodeWA.Core.Domain.Repositories.Base.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
-using static ITFCodeWA.Core.Domain.Helpers.ExpressionBuilder;
 
 namespace ITFCodeWA.Core.Domain.Repositories.Base
 {
@@ -44,7 +44,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
         #region IReadOnlyRepositoryCore implementation
 
         public async Task<bool> ExistsAsync([NotNull] TKey id, CancellationToken cancellationToken = default)
-            => await ExistsAsync(GenerateEqual<TEntity>("Id", id), cancellationToken);
+            => await ExistsAsync(ExpressionFactory.Equal<TEntity>("Id", id), cancellationToken);
 
         public async Task<bool> ExistsAsync([NotNull] Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
             => await GetQueryable().AnyAsync(predicate, cancellationToken);
@@ -53,7 +53,7 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
             => await GetQueryable(includeDetails).SingleOrDefaultAsync(predicate, cancellationToken);
 
         public virtual async Task<TEntity> FindAsync([NotNull] TKey id, bool includeDetails = true, CancellationToken cancellationToken = default)
-            => await FindAsync(GenerateEqual<TEntity>("Id", id), includeDetails, cancellationToken);
+            => await FindAsync(ExpressionFactory.Equal<TEntity>("Id", id), includeDetails, cancellationToken);
 
         public virtual async Task<TEntity> GetAsync([NotNull] Expression<Func<TEntity, bool>> predicate, bool includeDetails = true, CancellationToken cancellationToken = default)
             => await FindAsync(predicate, includeDetails, cancellationToken) ?? throw new EntityNotFoundException(typeof(TEntity));

@@ -1,5 +1,5 @@
 ﻿using ITFCodeWA.Core.Data.Base.Interface;
-using ITFCodeWA.Core.Domain.EntityConfiguration;
+using ITFCodeWA.Core.Domain.EntityConfiguration.Base;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ITFCodeWA.Domain.EntityConfigurations.Base

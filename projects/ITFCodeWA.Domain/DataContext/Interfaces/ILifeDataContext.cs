@@ -16,5 +16,6 @@ namespace ITFCodeWA.Domain.DataContext.Interfaces
         DbSet<Good> Goods { get; set; }
         DbSet<RevenueItem> RevenueItems { get; set; }
 
+
     }
 }

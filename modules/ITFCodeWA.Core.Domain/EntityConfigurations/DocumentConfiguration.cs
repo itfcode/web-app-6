@@ -1,9 +1,10 @@
 ﻿using ITFCodeWA.Core.Data.Documents.Interfaces;
+using ITFCodeWA.Core.Domain.EntityConfiguration.Base;
 using ITFCodeWA.Core.Domain.Extensions;
 
-namespace ITFCodeWA.Domain.EntityConfigurations.Base
+namespace ITFCodeWA.Core.Domain.EntityConfigurations.Base
 {
-    public abstract class DocumentConfiguration<TEntity> : EntityConfigurationBase<TEntity, Guid>
+    public abstract class DocumentConfiguration<TEntity> : EntityConfigurationCore<TEntity, Guid>
         where TEntity : class, IDocument
     {
         #region Public Methods 

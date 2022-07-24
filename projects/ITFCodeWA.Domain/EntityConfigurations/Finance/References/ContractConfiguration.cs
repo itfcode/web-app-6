@@ -1,7 +1,7 @@
 ﻿using ITFCodeWA.Data.Finance.References;
-using ITFCodeWA.Domain.EntityConfigurations.Base;
 using ITFCodeWA.Core.Domain.Extensions;
 using Microsoft.EntityFrameworkCore;
+using ITFCodeWA.Core.Domain.EntityConfigurations.Base;
 
 namespace ITFCodeWA.Domain.EntityConfigurations.Finance.References
 {

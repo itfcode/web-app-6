@@ -3,7 +3,7 @@ using ITFCodeWA.Data.Common.Reference;
 
 namespace ITFCodeWA.Domain.EntityConfigurations.Common.References
 {
-    public class PersonConfiguration : ReferenceConfiguration<Person>
+    public class PersonConfiguration : EntityConfigurationBase<Person, int>
     {
         public override void Configure()
         {

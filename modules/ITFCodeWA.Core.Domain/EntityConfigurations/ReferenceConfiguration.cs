@@ -1,14 +1,12 @@
 ﻿using ITFCodeWA.Core.Data.References.Interfaces;
+using ITFCodeWA.Core.Domain.EntityConfiguration.Base;
 using ITFCodeWA.Core.Domain.Extensions;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ITFCodeWA.Domain.EntityConfigurations.Base
+namespace ITFCodeWA.Core.Domain.EntityConfigurations.Base
 {
-    public abstract class ReferenceConfiguration<TEntity> : EntityConfigurationBase<TEntity, int>
+    public abstract class ReferenceConfiguration<TEntity> : EntityConfigurationCore<TEntity, int>
         where TEntity : class, IReference
     {
-        protected override string TableName => typeof(TEntity).Name;
-
         #region Public Methods 
 
         /// <summary>
@@ -20,8 +18,8 @@ namespace ITFCodeWA.Domain.EntityConfigurations.Base
 
             _builder
                 .ConfigProperty(p => p.Name, nameof(IReference.Name), true, 99)
-                .AddIndex(i => i.Name, isUnique: true)
-                .ConfigProperty(p => p.Comment, nameof(IReference.Comment));
+                .ConfigProperty(p => p.Comment, nameof(IReference.Comment))
+                .AddIndex(i => i.Name, isUnique: true);
         }
 
         #endregion

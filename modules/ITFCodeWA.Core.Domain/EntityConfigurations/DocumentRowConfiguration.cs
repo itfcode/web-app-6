@@ -1,10 +1,10 @@
 ﻿using ITFCodeWA.Core.Data.Documents.Interfaces;
+using ITFCodeWA.Core.Domain.EntityConfiguration.Base;
 using ITFCodeWA.Core.Domain.Extensions;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ITFCodeWA.Domain.EntityConfigurations.Base
+namespace ITFCodeWA.Core.Domain.EntityConfigurations
 {
-    public abstract class DocumentRowConfiguration<TEntity> : EntityConfigurationBase<TEntity, Guid>
+    public abstract class DocumentRowConfiguration<TEntity> : EntityConfigurationCore<TEntity, Guid>
         where TEntity : class, IDocumentRow
     {
         #region Public Methods 
@@ -18,7 +18,7 @@ namespace ITFCodeWA.Domain.EntityConfigurations.Base
 
             _builder
                 .ConfigProperty(p => p.RowNumber, nameof(IDocumentRow.RowNumber), true)
-                .AddIndex(i => i.DocumentId, isUnique:false)
+                .AddIndex(i => i.DocumentId, isUnique: false)
                 ;
         }
 
