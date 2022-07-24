@@ -7,6 +7,14 @@ namespace ITFCodeWA.Core.Domain.EntityConfigurations.Base
     public abstract class ReferenceConfiguration<TEntity> : EntityConfigurationCore<TEntity, int>
         where TEntity : class, IReference
     {
+        #region Protected Properties 
+
+        protected virtual int ColumnNameLenth => 99;
+
+        protected virtual int? ColumnCommentLenth => default;
+
+        #endregion
+
         #region Public Methods 
 
         /// <summary>
@@ -17,8 +25,8 @@ namespace ITFCodeWA.Core.Domain.EntityConfigurations.Base
             base.Configure();
 
             _builder
-                .ConfigProperty(p => p.Name, nameof(IReference.Name), true, 99)
-                .ConfigProperty(p => p.Comment, nameof(IReference.Comment))
+                .ConfigProperty(p => p.Name, nameof(IReference.Name), true, ColumnNameLenth)
+                .ConfigProperty(p => p.Comment, nameof(IReference.Comment), maxLength: ColumnCommentLenth)
                 .AddIndex(i => i.Name, isUnique: true);
         }
 

@@ -17,8 +17,23 @@ namespace ITFCodeWA.Core.Domain.Extensions
                 .HasColumnName(columnName)
                 .IsRequired(IsRequired);
 
-            if (typeof(TProperty) == typeof(string) && maxLength.HasValue) 
+            if (typeof(TProperty) == typeof(string) && maxLength.HasValue)
                 prop.HasMaxLength(maxLength.Value);
+
+            return builder;
+        }
+
+        public static EntityTypeBuilder<TEntity> ConfigProperty<TEntity>(this EntityTypeBuilder<TEntity> builder,
+            Expression<Func<TEntity, decimal>> propertyExpression, string columnName, (int Prec, int Scale) precision, bool IsRequired = false)
+            where TEntity : class
+        {
+            ArgumentNullException.ThrowIfNull(propertyExpression, nameof(propertyExpression));
+            ArgumentNullException.ThrowIfNull(columnName, nameof(columnName));
+
+            builder.Property(propertyExpression)
+                .HasColumnName(columnName)
+                .HasPrecision(precision.Prec, precision.Scale)
+                .IsRequired(IsRequired);
 
             return builder;
         }

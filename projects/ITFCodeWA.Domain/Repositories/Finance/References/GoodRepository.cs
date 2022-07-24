@@ -17,10 +17,13 @@ namespace ITFCodeWA.Domain.Repositories.Finance.References
 
         #region Private && Protected Methods 
 
-        protected override IQueryable<Good> GetQueryableOneWithDetails()
+        protected override IQueryable<Good> GetOneWithDetails()
             => DbSet.Include(x => x.ExpenseItem)
                 .Include(x => x.RevenueItem);
 
+        protected override IQueryable<Good> GetManyWithDetails()
+            => DbSet.Include(x => x.ExpenseItem)
+                .Include(x => x.RevenueItem);
 
         #endregion
     }

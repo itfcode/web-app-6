@@ -10,7 +10,6 @@
     <Folder Include="EntityConfigurations\Common\Documents\" />
     <Folder Include="EntityConfigurations\Finance\Document\" />
     <Folder Include="EntityConfigurations\Health\Documents\" />
-    <Folder Include="EntityConfigurations\Health\References\" />
     <Folder Include="Migrations\LifeDbContext\" />
     <Folder Include="Repositories\Common\Document\Interfaces\" />
     <Folder Include="Repositories\Finance\Documents\Interfaces\" />

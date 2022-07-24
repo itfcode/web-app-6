@@ -4,7 +4,7 @@ using ITFCodeWA.Domain.DataContext;
 
 namespace ITFCodeWA.Domain.Repositories.Common.References.Interfaces
 {
-    public  interface IPersonRepository : IRepository<LifeDataContext, Person , int>
+    public interface IPersonRepository : IRepository<LifeDataContext, Person, int>
     {
     }
 }

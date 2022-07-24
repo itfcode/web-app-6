@@ -1,7 +1,9 @@
 ﻿using ITFCodeWA.Core.Domain.DataContext;
+using ITFCodeWA.Core.Domain.EntityConfiguration.Base;
 using ITFCodeWA.Core.Domain.EntityConfigurations.Base;
 using ITFCodeWA.Data.Common.Reference;
 using ITFCodeWA.Data.Finance.References;
+using ITFCodeWA.Data.Health.References;
 using ITFCodeWA.Domain.DataContext.Interfaces;
 using ITFCodeWA.Domain.EntityConfigurations.Base;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +24,8 @@ namespace ITFCodeWA.Domain.DataContext
         public DbSet<ExpenseItem> ExpenseItems { get; set; }
         public DbSet<RevenueItem> RevenueItems { get; set; }
 
+        public DbSet<Food> Foods { get; set; }
+
         #endregion
 
         #region Constuctors
@@ -37,8 +41,15 @@ namespace ITFCodeWA.Domain.DataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            BuildModelConfigurations(modelBuilder, typeof(ReferenceConfiguration<>), Assembly.GetExecutingAssembly().GetTypes());
-            BuildModelConfigurations(modelBuilder, typeof(DocumentConfiguration<>), Assembly.GetExecutingAssembly().GetTypes());
+
+            var baseTypes = new Type[] 
+            {
+                typeof(EntityConfigurationCore<,>),
+                typeof(ReferenceConfiguration<>),
+                typeof(DocumentConfiguration<>)
+            };
+
+            BuildModelConfigurations(modelBuilder, baseTypes, Assembly.GetExecutingAssembly().GetTypes());
         }
 
         #endregion

@@ -65,30 +65,26 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
 
         #region Private & Protected Methods
 
-        protected virtual IQueryable<TEntity> GetQueryableOneWithDetails() => DbSet;
+        protected virtual IQueryable<TEntity> GetOneWithDetails() 
+            => DbSet;
 
-        protected virtual IQueryable<TEntity> GetQueryableManyWithDetails() => DbSet;
+        protected virtual IQueryable<TEntity> GetManyWithDetails() 
+            => DbSet;
 
         protected virtual IQueryable<TEntity> GetQueryableForOne(bool includeDetails = true)
-            => includeDetails ? GetQueryableOneWithDetails() : GetQueryable();
+            => includeDetails ? GetOneWithDetails() : GetQueryable();
 
         protected virtual IQueryable<TEntity> GetQueryableForMany(bool includeDetails = true)
-            => includeDetails ? GetQueryableManyWithDetails() : GetQueryable();
+            => includeDetails ? GetManyWithDetails() : GetQueryable();
 
         protected virtual IQueryable<TEntity> GetQueryable() => DbSet;
 
         protected TEntity ValidateFindRequest(TEntity entity, object paramValue, string paramName)
-        {
-            return entity ?? throw new EntityNotFoundException(paramValue, paramName, typeof(TEntity));
-        }
+            => entity ?? throw new EntityNotFoundException(paramValue, paramName, typeof(TEntity));
 
         protected IList<TEntity> ValidateFindAllRequest(IList<TEntity> entities, object paramValue, string paramName)
-        {
-            if (entities is null || !entities.Any())
-                throw new EntityNotFoundException(paramValue, paramName, typeof(TEntity));
+            => (entities is not null && entities.Any()) ? entities : throw new EntityNotFoundException(paramValue, paramName, typeof(TEntity));
 
-            return entities;
-        }
 
         #endregion
     }
