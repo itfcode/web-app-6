@@ -8,6 +8,13 @@
 
   <ItemGroup>
     <Folder Include="AmazonServices\" />
+    <Folder Include="DataServices\Finance\Documents\Interfaces\" />
+    <Folder Include="DataServices\Health\Documents\Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ITFCodeWA.Data\ITFCodeWA.Data.csproj" />
+    <ProjectReference Include="..\ITFCodeWA.Models\ITFCodeWA.Models.csproj" />
   </ItemGroup>
 
 </Project>
