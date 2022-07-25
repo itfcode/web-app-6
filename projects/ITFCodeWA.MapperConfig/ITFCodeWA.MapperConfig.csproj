@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Common\Documents\" />
-    <Folder Include="Common\References\" />
     <Folder Include="Finance\Documents\" />
     <Folder Include="Health\Documents\" />
   </ItemGroup>

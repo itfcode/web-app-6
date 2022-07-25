@@ -17,5 +17,9 @@ namespace ITFCodeWA.Models.Common.References
         [JsonPropertyName("lastName")]
         [JsonProperty("lastName")]
         public string LastName { get; set; } = string.Empty;
+
+        [JsonPropertyName("fullName")]
+        [JsonProperty("fullName")]
+        public string FullName { get; set; } = string.Empty;
     }
 }
