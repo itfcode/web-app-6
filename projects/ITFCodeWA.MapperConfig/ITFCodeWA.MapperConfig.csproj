@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Base\Resolvers\" />
     <Folder Include="Common\Documents\" />
     <Folder Include="Common\References\" />
     <Folder Include="Finance\Documents\" />
@@ -20,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ITFCodeWA.Data\ITFCodeWA.Data.csproj" />
+    <ProjectReference Include="..\ITFCodeWA.Domain\ITFCodeWA.Domain.csproj" />
     <ProjectReference Include="..\ITFCodeWA.Models\ITFCodeWA.Models.csproj" />
   </ItemGroup>
 
