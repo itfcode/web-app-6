@@ -2,7 +2,7 @@
 
 namespace ITFCodeWA.Models.Finance.Reference
 {
-    public class ExpenseModel : ReferenceBaseModel
+    public class ExpenseItemModel : ReferenceBaseModel
     {
     }
 }

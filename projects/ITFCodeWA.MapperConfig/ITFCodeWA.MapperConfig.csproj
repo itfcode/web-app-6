@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Base\Resolvers\" />
+    <Folder Include="Common\Documents\" />
+    <Folder Include="Common\References\" />
+    <Folder Include="Finance\Documents\" />
+    <Folder Include="Health\Documents\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ITFCodeWA.Data\ITFCodeWA.Data.csproj" />
+    <ProjectReference Include="..\ITFCodeWA.Models\ITFCodeWA.Models.csproj" />
+  </ItemGroup>
+
+</Project>

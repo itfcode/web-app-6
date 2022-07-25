@@ -13,14 +13,11 @@ namespace ITFCodeWA.Domain.EntityConfigurations.Finance.References
 
             _builder
                 .ConfigProperty(p => p.StartDate, nameof(Contract.StartDate), true)
-                .ConfigProperty(p => p.FinishDate, nameof(Contract.FinishDate), true)
                 .AddIndex(i => i.StartDate, isUnique: false)
-                .AddIndex(i => i.FinishDate, isUnique: false);
-
-            _builder.Property(x => x.TotalCost)
-                .HasColumnName(nameof(Contract.TotalCost))
-                .HasPrecision(18, 2)
-                .IsRequired();
+                .ConfigProperty(p => p.FinishDate, nameof(Contract.FinishDate), true)
+                .AddIndex(i => i.FinishDate, isUnique: false)
+                .ConfigProperty(x => x.TotalCost, nameof(Contract.TotalCost), (18, 2), true)
+                ;
         }
     }
 }
