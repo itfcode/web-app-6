@@ -10,10 +10,14 @@
             public const string CONTRACTORS = ROOT + "/contractors";
             public const string CONTRACTS = ROOT + "/contracts";
             public const string CURRENCIES = ROOT + "/currencies";
+            public const string EXPENSE_GROUPS = ROOT + "/expense-groups";
             public const string EXPENSE_ITEMS = ROOT + "/expense-items";
+            public const string FOOD_GROUPS = ROOT + "/food-groups";
             public const string FOODS = ROOT + "/foods";
+            public const string GOOD_GROUPS = ROOT + "/good-groups";
             public const string GOODS = ROOT + "/goods";
             public const string PERSONS = ROOT + "/persons";
+            public const string REVENUE_GROUPS = ROOT + "/revenue-groups";
             public const string REVENUE_ITEMS = ROOT + "/revenue-items";
         }
 

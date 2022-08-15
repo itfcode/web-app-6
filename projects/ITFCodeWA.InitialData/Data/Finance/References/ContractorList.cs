@@ -4,14 +4,14 @@ namespace ITFCodeWA.InitialData.Data.Finance.References
 {
     internal static class ContractorList
     {
-        public static ContractorModel GeneralSupplyer = new()
+        public static readonly ContractorModel GeneralSupplyer = new()
         {
             Name = "Обычный ПОСТАВЩИК *****",
             TaxNumber = $"{113356789012}",
             Comment = "Создано программно"
         };
 
-        public static ContractorModel GeneralBuyer = new()
+        public static readonly ContractorModel GeneralBuyer = new()
         {
             Name = "Обычный ПОКУПАТЕЛЬ >>>>",
             TaxNumber = $"{224456789012}",

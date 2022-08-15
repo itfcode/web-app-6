@@ -5,7 +5,7 @@ using ITFCodeWA.Models.Documents;
 using ITFCodeWA.Services.DataServices.Documents.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using static ITFCodeWA.API.Constants.SwaggerConfiguration.FoodController;
+using static ITFCodeWA.API.Constants.SwaggerConfiguration.Foods;
 
 namespace ITFCodeWA.API.Controllers.Documents
 {

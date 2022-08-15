@@ -50,6 +50,5 @@ namespace ITFCodeWA.InitialData.Data.Finance.References
         {
             Dollar, Euro, Pound, Ruble, Zloty, Grivnya
         };
-
     }
 }

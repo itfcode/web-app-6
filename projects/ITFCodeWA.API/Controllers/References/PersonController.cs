@@ -7,7 +7,7 @@ using ITFCodeWA.Models.References;
 using ITFCodeWA.Services.DataServices.References.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using static ITFCodeWA.API.Constants.SwaggerConfiguration.PersonController;
+using static ITFCodeWA.API.Constants.SwaggerConfiguration.Persons;
 
 namespace ITFCodeWA.API.Controllers.References
 {

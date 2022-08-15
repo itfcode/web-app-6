@@ -5,7 +5,7 @@ using ITFCodeWA.Models.References;
 using ITFCodeWA.Services.DataServices.References.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using static ITFCodeWA.API.Constants.SwaggerConfiguration.ExpenseItemController;
+using static ITFCodeWA.API.Constants.SwaggerConfiguration.ExpenseItems;
 
 namespace ITFCodeWA.API.Controllers.References
 {

@@ -9,14 +9,14 @@ using Microsoft.Extensions.Logging;
 
 namespace ITFCodeWA.Services.DataServices.References
 {
-    public class ExpenseItemDataService : ReferenceDataService<IExpenseItemRepository, ExpenseItem, ExpenseItemModel>, IExpenseItemDataService
+    public class ExpenseGroupDataService : ReferenceDataService<IExpenseGroupRepository, ExpenseGroup, ExpenseGroupModel>, IExpenseGroupDataService
     {
         #region Constructros 
 
-        public ExpenseItemDataService(ILogger<ExpenseItemDataService> logger,
+        public ExpenseGroupDataService(ILogger<ExpenseGroupDataService> logger,
             ICurrentUserService currentUserService,
             IMapper mapper,
-            IExpenseItemRepository repository) : base(logger, currentUserService, mapper, repository)
+            IExpenseGroupRepository repository) : base(logger, currentUserService, mapper, repository)
         {
         }
 

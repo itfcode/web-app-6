@@ -22,9 +22,11 @@ namespace ITFCodeWA.API.Constants
 <# 
 string[] controllers = 
 {
-	"Person", 
-	"Contract", "Contractor", "Currency", "ExpenseItem", "Good", "MoneyAccount", "RevenueItem", 
-	"Food"
+	"Person", "Contract", "Contractor", "Currency", "MoneyAccount", 
+    "ExpenseItem", "ExpenseGroup", 
+    "RevenueItem", "RevenueGroup", 
+    "Good", "GoodGroup",
+	"Food", "FoodGroup",
 };
 foreach(var controller in controllers)
 {
