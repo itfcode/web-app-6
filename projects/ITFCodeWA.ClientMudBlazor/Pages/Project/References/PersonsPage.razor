@@ -1,0 +1,35 @@
+﻿@page "/persons"
+
+@using ITFCodeWA.ClientMudBlazor.Components.PagePart
+@using ITFCodeWA.ClientMudBlazor.Components.References;
+@using ITFCodeWA.ClientMudBlazor.Models.ColumnSettings
+@using ITFCodeWA.ClientMudBlazor.Pages.Project.Basis.Analityca
+@using ITFCodeWA.ClientMudBlazor.Pages.Project.Basis.Catalogs
+@using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
+@using ITFCodeWA.ClientMudBlazor.Static.ColumnSettings
+@using ITFCodeWA.Models.References;
+
+@inherits ReferenceBasePage<PersonModel, IPersonService>
+
+<ReferenceTemplatePage Title="Физические лица" Loading="@Loading" LoadFailed="@LoadFailed" Error="@Error">
+    <PageContent>
+        <ReferenceTable TModel="PersonModel" Table="@_table" Columns="@_columns"
+                        SelectedItem="@_selectedItem"
+                        ServerData="@(new Func<TableState, Task<TableData<PersonModel>>>(GetPage))"
+                        RelatedInfo="Информация о физических лицах">
+        </ReferenceTable>
+    </PageContent>
+</ReferenceTemplatePage>
+
+@code {
+
+    #region Initialization
+
+    protected override async Task OnInitializedAsync()
+        => await base.OnInitializedAsync();
+
+    protected override void InitColumns()
+        => _columns = ColumnSettingSets.Persons;
+
+    #endregion
+}

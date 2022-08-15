@@ -1,0 +1,75 @@
+﻿@page "/demo"
+
+@using ITFCodeWA.ClientMudBlazor.Components.Buttons.Defaults
+@using ITFCodeWA.ClientMudBlazor.Components.Buttons.Operations
+@using ITFCodeWA.ClientMudBlazor.Components.PagePart
+
+<PageTitle>Демо</PageTitle>
+
+<CardContent>
+    <HeadingContent>
+        <PageHeading Title="Demonstartion of Buttons56"></PageHeading>
+    </HeadingContent>
+
+    <BodyContent>
+        <LoadContent Loading="@Loading" LoadFailed="@LoadFailed" Error="@Error">
+            <InternalContent>
+                <MudPaper Class="pa-16 ma-2">
+                    <h3> Buttons by default</h3>
+                    <br />
+                    <ItfPrimaryBtn>Primary</ItfPrimaryBtn>
+                    <ItfSecondaryBtn>Secondary</ItfSecondaryBtn>
+                    <ItfTertiaryBtn>Tertiary</ItfTertiaryBtn>
+                    <ItfInfoBtn>Info</ItfInfoBtn>
+                    <ItfSuccessBtn>Success</ItfSuccessBtn>
+                    <ItfWarningBtn>Warning</ItfWarningBtn>
+                    <ItfErrorBtn>Error</ItfErrorBtn>
+                    <ItfDarkBtn>Dark</ItfDarkBtn>
+                </MudPaper>
+
+                <MudPaper Class="pa-16 ma-2">
+                    <h3> Buttons by operations</h3>
+                    <br />
+                    <ItfAddBtn>Add</ItfAddBtn>
+                    <ItfCloseBtn>Close</ItfCloseBtn>
+                    <ItfDeleteBtn>Delete</ItfDeleteBtn>
+                    <ItfUpdateBtn>Update</ItfUpdateBtn>
+                    <ItfSaveBtn>Save</ItfSaveBtn>
+                </MudPaper>
+
+            </InternalContent>
+        </LoadContent>
+    </BodyContent>
+
+    <FooterContent>
+    </FooterContent>
+
+</CardContent>
+
+@code {
+
+    [Parameter]
+    public bool Loading { get; set; } = true;
+
+    [Parameter]
+    public bool LoadFailed { get; set; } = false;
+
+    [Parameter]
+    public System.Exception Error { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(500);
+        Loading = false;
+    }
+}
+
+@code {
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

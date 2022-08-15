@@ -1,0 +1,52 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Models.NavigationMenuItems
+@using NavigationLink = ITFCodeWA.ClientMudBlazor.Models.NavigationMenuItems.NavigationLink
+
+@if (Item is not null)
+{
+    if (Item is NavigationGroup navGroup)
+    {
+        <MudNavGroup Title="@(navGroup.Title)" Icon="@(navGroup.Icon)"
+             IconColor="@(navGroup.IconColor)"
+             Expanded="@(navGroup.Expanded)">
+
+            @if (navGroup.Groups.Count > 0)
+            {
+                foreach (var subGroup in navGroup.Groups)
+                {
+                    <ItfNavItem Item="subGroup"></ItfNavItem>
+                }
+            }
+            else if (navGroup.Links.Count > 0)
+            {
+                foreach (var link in navGroup.Links)
+                {
+                    <ItfNavItem Item="link"></ItfNavItem>
+                }
+            }
+        </MudNavGroup>
+    }
+    else if (Item is NavigationLink navLink)
+    {
+        <MudNavLink Href="@(navLink.Href)" Match="@(navLink.Match)"
+            IconColor="@(navLink.IconColor)"
+            Icon="@(navLink.Icon)">
+            @if (navLink.Tooltip is not null)
+            {
+                <MudTooltip Text="@(navLink.Tooltip.Text)" Arrow="@(navLink.Tooltip.Arrow)"
+                Placement="@(navLink.Tooltip.Placement)">
+                    @(navLink.Title)
+                </MudTooltip>
+            }
+            else
+            {
+                @(navLink.Title)
+            }
+        </MudNavLink>
+    }
+}
+
+@code {
+
+    [Parameter]
+    public NavigationItem Item { get; set; }
+}

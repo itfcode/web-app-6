@@ -1,0 +1,20 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Models.NavigationMenuItems
+
+<MudNavMenu>
+
+    @if (Items is not null && Items.Count > 0)
+    {
+        foreach (var navItem in Items)
+        {
+            <ItfNavItem Item="@navItem"></ItfNavItem>
+        }
+    }
+
+</MudNavMenu>
+
+@code {
+
+    [Parameter]
+    public IList<NavigationItem> Items { get; set; }
+
+}

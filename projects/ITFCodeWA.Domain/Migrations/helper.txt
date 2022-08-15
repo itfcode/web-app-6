@@ -1,0 +1,5 @@
+﻿dotnet tool install --global dotnet-ef
+
+dotnet ef database update --context LifeDataContext 
+
+dotnet ef migrations add Updating04 --context LifeDataContext --output-dir Migrations/LifeDbContext

@@ -1,0 +1,129 @@
+﻿@page "/weight-analityca"
+
+@using ITFCodeWA.ClientMudBlazor.Components.Analityca.Weight
+@using ITFCodeWA.ClientMudBlazor.Components.Buttons.Defaults
+@using ITFCodeWA.ClientMudBlazor.Components.Buttons.Operations
+@using ITFCodeWA.ClientMudBlazor.Components.PagePart
+@using ITFCodeWA.ClientMudBlazor.Services.Api.Totals.Interfaces;
+@using ITFCodeWA.Models.Totals.Weight
+
+<PageTitle>Демо</PageTitle>
+
+<CardContent>
+
+    <HeadingContent>
+        <PageHeading Title="Weight Analityca"></PageHeading>
+    </HeadingContent>
+
+    <BodyContent>
+        <LoadContent Loading="@Loading" LoadFailed="@LoadFailed" Error="@Error">
+            <InternalContent>
+                <MudTabs Elevation="2" Rounded="true" Centered="false" Style="font-size:90%;">
+
+                    <MudTabPanel Text="Итоги по годам" BadgeData='"2017-2022"'
+                                 Style="min-width:220px;justify-content:left;">
+                        <WeightSingleTotals Totals="@_yearTotals"
+                                            Caption="Среднее значение по месяцам" />
+
+                        <WeightSingleTotals Totals="@_yearTotals"
+                                            Caption="Максимальное значение по месяцам"
+                                            ValueFunc="x=>x.Max"
+                                            YearThColor="@Colors.Indigo.Darken4"
+                                            YearTdColor="@Colors.Indigo.Lighten3"
+                                            MonthThColor="@Colors.BlueGrey.Darken3" />
+
+                        <WeightSingleTotals Totals="@_yearTotals"
+                                            Caption="Минимальное значение по месяцам"
+                                            ValueFunc="x=>x.Min"
+                                            YearThColor="@Colors.Pink.Darken4"
+                                            YearTdColor="@Colors.Pink.Lighten3"
+                                            MonthThColor="@Colors.BlueGrey.Darken3" />
+                    </MudTabPanel>
+
+                    <MudTabPanel Text="Итоги по неделям" BadgeData='"2017-2022"' BadgeColor="Color.Info"
+                                 Style="min-width:220px;justify-content:left;">
+                        <WeightTotalsByYears></WeightTotalsByYears>
+                    </MudTabPanel>
+
+                    <MudTabPanel Text="График по годам" BadgeData='"e"'>
+                        <WeightTotalsChart Series="@_yearSeries" />
+                    </MudTabPanel>
+
+                    <MudTabPanel Text="График по неделям" BadgeColor="Color.Primary">
+                        <WeightTotalsChart Series="@_weekSeries" />
+                    </MudTabPanel>
+
+                </MudTabs>
+
+                <MudContainer>
+                    <MudText>&nbsp;</MudText>
+                </MudContainer>
+
+            </InternalContent>
+        </LoadContent>
+    </BodyContent>
+
+    <FooterContent>
+    </FooterContent>
+
+</CardContent>
+
+@code {
+
+    private List<ChartSeries> _yearSeries = new List<ChartSeries>();
+
+    private List<ChartSeries> _weekSeries = new List<ChartSeries>();
+
+    private IList<PeriodWeightTotalsModel> _yearTotals;
+
+    private IList<WeekWeightTotalsModel> _weekTotals;
+
+    [Parameter]
+    public bool Loading { get; set; } = true;
+
+    [Parameter]
+    public bool LoadFailed { get; set; } = false;
+
+    [Parameter]
+    public System.Exception Error { get; set; }
+
+    [Inject]
+    public IWeightTotalService WeightTotalService { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(500);
+
+        var personTotals = await WeightTotalService.GetPersonTotalsAsync(16);
+
+        _yearTotals = personTotals.Totals;
+        _weekTotals = personTotals.WeekTotals;
+
+        var _minAvg = _yearTotals.SelectMany(x => x.SubTotals).Min(x => x.Avg);
+        var _maxAvg = _yearTotals.SelectMany(x => x.SubTotals).Max(x => x.Avg);
+
+        var _minMin = _yearTotals.SelectMany(x => x.SubTotals).Min(x => x.Min);
+        var _maxMin = _yearTotals.SelectMany(x => x.SubTotals).Max(x => x.Min);
+
+        var _minMax = _yearTotals.SelectMany(x => x.SubTotals).Min(x => x.Max);
+        var _maxMax = _yearTotals.SelectMany(x => x.SubTotals).Max(x => x.Max);
+
+        _yearSeries = _yearTotals.Select(x => new ChartSeries
+            {
+                Name = $"{x.Period}",
+                Data = x.SubTotals.Select(r => (double)r.Avg).ToArray()
+            }).ToList();
+
+        Loading = false;
+    }
+}
+
+@code {
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

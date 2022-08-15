@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="AmazonServices\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\ITFCodeWA.Core.Domain\ITFCodeWA.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\modules\ITFCodeWA.Core.Service\ITFCodeWA.Core.Services.csproj" />
+    <ProjectReference Include="..\..\modules\ITFCodeWA.Extensions.DateTimeOffsetExtendors\ITFCodeWA.Extensions.DateTimeOffsetExtendors.csproj" />
+    <ProjectReference Include="..\ITFCodeWA.Data\ITFCodeWA.Data.csproj" />
+    <ProjectReference Include="..\ITFCodeWA.Domain\ITFCodeWA.Domain.csproj" />
+    <ProjectReference Include="..\ITFCodeWA.Models\ITFCodeWA.Models.csproj" />
+  </ItemGroup>
+
+</Project>

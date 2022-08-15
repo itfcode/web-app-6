@@ -1,0 +1,28 @@
+﻿<style>
+    .main-card {
+        padding-left: 15px;
+        padding-right: 10px;
+    }
+</style>
+
+<div class="main-card">
+    @HeadingContent
+    @BodyContent
+    @FooterContent
+</div>
+
+@code {
+
+    #region Properties
+
+    [Parameter]
+    public RenderFragment HeadingContent { get; set; }
+
+    [Parameter]
+    public RenderFragment BodyContent { get; set; }
+
+    [Parameter]
+    public RenderFragment FooterContent { get; set; }
+
+    #endregion
+}

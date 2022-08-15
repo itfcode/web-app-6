@@ -1,0 +1,67 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Models.ColumnSettings
+
+@typeparam TModel
+
+<MudTable @ref="Table" @bind-SelectedItem="SelectedItem"
+          ServerData="@ServerData"
+          Dense="true" Hover="false" Bordered="false" Striped="true">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Все физические особы</MudText>
+        <MudSpacer />
+    </ToolBarContent>
+    <HeaderContent>
+        @foreach (var column in Columns.Where(x => x.Visible))
+        {
+            <MudTh Style="font-weight:bold;">
+                <MudTableSortLabel SortLabel="@column.Name" T="TModel">
+                    @*<EadFilterIconButton OnClick="() => SelectFilterdByColumn(column)" />*@
+                    @column.Label
+                </MudTableSortLabel>
+            </MudTh>
+        }
+        <MudTh Style="font-weight:bold;">&nbsp;</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        @foreach (var column in Columns.Where(x => x.Visible))
+        {
+            <MudTd DataLabel="@column.Label">@column.View(context)</MudTd>
+        }
+        <MudTd Class="action-column">
+            <MudTooltip Text="Редактировать" Class="float-right">
+                <MudIconButton Icon="@Icons.Filled.Edit"
+                               Size="@Size.Small"
+                               Class="ma-2"
+                               Style="padding:0px;padding-left:16px;"
+                               OnClick="() => {}"></MudIconButton>
+            </MudTooltip>
+        </MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager HorizontalAlignment="MudBlazor.HorizontalAlignment.Center" />
+    </PagerContent>
+</MudTable>
+
+@if (!string.IsNullOrWhiteSpace(RelatedInfo))
+{
+    <MudAlert Severity="Severity.Info" Variant="Variant.Filled" Dense="true">
+        @RelatedInfo
+    </MudAlert>
+}
+
+@code {
+
+    [Parameter]
+    public TModel SelectedItem { get; set; }
+
+    [Parameter]
+    public MudTable<TModel> Table { get; set; }
+
+    [Parameter]
+    public Func<TableState, Task<TableData<TModel>>> ServerData { get; set; }
+
+    [Parameter]
+    public IEnumerable<ColumnSetting<TModel>> Columns { get; set; }
+
+    [Parameter]
+    public string RelatedInfo { get; set; }
+}

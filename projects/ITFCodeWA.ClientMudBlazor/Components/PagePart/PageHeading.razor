@@ -1,0 +1,35 @@
+﻿<MudContainer Style="padding:12px 0px 12px 0px;">
+    <MudText Typo="Typo.h4" Color="Color.Dark">
+        @Title
+    </MudText>
+</MudContainer>
+
+@code {
+
+    #region properties
+
+    [Parameter]
+    public string Title { get; set; }
+
+    #endregion
+
+    #region Initialization
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            //
+        }
+        catch
+        {
+            throw;
+        }
+        finally
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    #endregion
+}

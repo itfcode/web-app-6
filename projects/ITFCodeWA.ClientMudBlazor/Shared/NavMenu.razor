@@ -1,0 +1,103 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.NavMenu
+
+<ItfNavMenu Items="@_navGroups"></ItfNavMenu>
+
+@*<MudNavMenu>
+
+    @*<MudNavLink Href="" Match="NavLinkMatch.All"
+    Icon="@Icons.Material.Filled.Home">
+    Home vv
+    </MudNavLink>
+
+    <MudNavLink Href="counter" Match="NavLinkMatch.Prefix"
+    Icon="@Icons.Material.Filled.Add">
+    Counter
+    </MudNavLink>
+
+    <MudNavLink Href="fetchdata" Match="NavLinkMatch.Prefix"
+    Icon="@Icons.Material.Filled.List">
+    Fetch data
+    </MudNavLink>*@
+
+@*
+    @foreach (var navGroup in _navGroups)
+    {
+        <MudNavGroup Title="@(navGroup.Title)" Icon="@(navGroup.Icon)"
+                 IconColor="@(navGroup.IconColor)"
+                 Expanded="@(navGroup.Expanded)">
+
+            @if (navGroup.Groups.Count > 0)
+            {
+                foreach (var subGroup in navGroup.Groups)
+                {
+
+                }
+            }
+            else if (navGroup.Links.Count > 0)
+            {
+
+            }
+        </MudNavGroup>
+    }*@
+
+@*    <MudNavLink Href="demo" Match="NavLinkMatch.Prefix"
+                IconColor="Color.Warning"
+                Icon="@Icons.Material.Filled.DesktopWindows">
+        Demo
+    </MudNavLink>
+
+    <MudNavLink Href="demo" Match="NavLinkMatch.Prefix"
+                IconColor="Color.Primary"
+                Icon="@Icons.Material.Filled.MonetizationOn">
+        Finance
+    </MudNavLink>
+
+    <MudNavGroup Title="Finance" Icon="@Icons.Filled.MonetizationOn"
+                 IconColor="Color.Primary"
+                 Expanded="false">
+
+        <MudNavGroup Title="Catalogs" Icon="@Icons.Filled.MenuBook"
+                     IconColor="Color.Dark"
+                     Expanded="false">
+        </MudNavGroup>
+
+        <MudNavGroup Title="Registrators" Icon="@Icons.Filled.AppRegistration"
+                     IconColor="Color.Secondary"
+                     Expanded="false">
+        </MudNavGroup>
+
+        <MudNavGroup Title="Analityca" Icon="@Icons.Filled.Analytics"
+                     IconColor="Color.Info"
+                     Expanded="false">
+        </MudNavGroup>
+
+    </MudNavGroup>
+
+    <MudNavGroup Title="Health"
+                 Icon="@Icons.Material.Filled.HealthAndSafety"
+                 IconColor="Color.Secondary"
+                 Expanded="false">
+
+        <MudNavLink Href="demo" Match="NavLinkMatch.Prefix"
+                    IconColor="Color.Primary"
+                    Icon="@Icons.Material.Filled.FoodBank">
+            <MudTooltip Text="Справочник: Продукты питания" Arrow="true" Placement="Placement.Right">
+                Food
+            </MudTooltip>
+        </MudNavLink>
+
+        <MudNavLink Href="demo" Match="NavLinkMatch.Prefix"
+                    IconColor="Color.Dark"
+                    Icon="@Icons.Material.Filled.AppRegistration">
+            Weight Registration
+        </MudNavLink>
+
+        <MudNavLink Href="weight-analityca" Match="NavLinkMatch.Prefix"
+                    IconColor="Color.Info"
+                    Icon="@Icons.Material.Filled.Analytics">
+            Weight Analytica
+        </MudNavLink>
+    </MudNavGroup>
+
+</MudNavMenu>
+*@

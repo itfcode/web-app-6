@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\ITFCodeWA.Core.API\ITFCodeWA.Core.API.csproj" />
+    <ProjectReference Include="..\ITFCodeWA.InitialData\ITFCodeWA.InitialData.csproj" />
+    <ProjectReference Include="..\ITFCodeWA.MapperConfig\ITFCodeWA.MapperConfig.csproj" />
+    <ProjectReference Include="..\ITFCodeWA.Services\ITFCodeWA.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Constants\SwaggerConfigurationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SwaggerConfigurationTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Constants\TextTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TextTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Constants\SwaggerConfigurationTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SwaggerConfigurationTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

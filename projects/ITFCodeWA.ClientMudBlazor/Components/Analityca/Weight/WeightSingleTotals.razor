@@ -1,0 +1,28 @@
+﻿<MudTable Items="@Totals" Dense="true" Hover="true">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6" Style="text-align:center;">@Caption</MudText>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh Style="@($"background-color:{YearThColor};color:#ffffff;text-align:center;")">Year</MudTh>
+        @foreach (var month in _months)
+        {
+            <MudTh Style="@($"background-color:{MonthThColor};color:#ffffff;text-align:center;")">@month</MudTh>
+        }
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Year" Style="@($"background-color:{YearTdColor};")">@context.Period</MudTd>
+        @foreach (var subTotal in @context.SubTotals)
+        {
+            var dataLabel = _months[subTotal.Period - 1];
+            var value = ValueFunc(subTotal);
+            var style = value == _minValue ? _minStyle : value == _maxValue ? _maxStyle : "text-align:right;";
+            <MudTd DataLabel="@dataLabel" Style="@style">
+                @value
+            </MudTd>
+        }
+    </RowTemplate>
+</MudTable>
+
+@code {
+
+}

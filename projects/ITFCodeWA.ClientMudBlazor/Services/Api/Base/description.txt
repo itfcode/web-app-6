@@ -1,0 +1,11 @@
+﻿IApiBaseService
+		
+		IApiTotalService
+		
+		IApiEntityCrudServcie 
+
+			IApiReferenceService
+		
+			IApiReadonlyReferenceService
+
+			IApiDocumentService

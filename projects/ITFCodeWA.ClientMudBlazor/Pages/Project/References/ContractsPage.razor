@@ -1,0 +1,35 @@
+﻿@page "/contracts"
+
+@using ITFCodeWA.ClientMudBlazor.Components.PagePart
+@using ITFCodeWA.ClientMudBlazor.Components.References;
+@using ITFCodeWA.ClientMudBlazor.Models.ColumnSettings
+@using ITFCodeWA.ClientMudBlazor.Pages.Project.Basis.Analityca
+@using ITFCodeWA.ClientMudBlazor.Pages.Project.Basis.Catalogs
+@using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
+@using ITFCodeWA.ClientMudBlazor.Static.ColumnSettings
+@using ITFCodeWA.Models.References;
+
+@inherits ReferenceBasePage<ContractModel, IContractService>
+
+<ReferenceTemplatePage Title="Контракты, договора" Loading="@Loading" LoadFailed="@LoadFailed" Error="@Error">
+    <PageContent>
+        <ReferenceTable TModel="ContractModel" Table="@_table" Columns="@_columns"
+                        SelectedItem="@_selectedItem"
+                        ServerData="@ServerData"
+                        RelatedInfo="Информация о контрактах">
+        </ReferenceTable>
+    </PageContent>
+</ReferenceTemplatePage>
+
+@code {
+
+    #region Initialization
+
+    protected override async Task OnInitializedAsync()
+        => await base.OnInitializedAsync();
+
+    protected override void InitColumns()
+        => _columns = ColumnSettingSets.Contracts;
+
+    #endregion
+}

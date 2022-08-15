@@ -1,0 +1,73 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.PagePart
+
+@inherits GeneralBasePage
+
+<PageTitle>@Title</PageTitle>
+
+<CardContent>
+
+    <HeadingContent>
+        <PageHeading Title="@Title"></PageHeading>
+    </HeadingContent>
+
+    <BodyContent>
+        <LoadContent Loading="@Loading" LoadFailed="@LoadFailed" Error="@Error">
+            <InternalContent>
+                
+                @if (LoadFailed)
+                {
+                    <MudAlert Severity="Severity.Error" Dense="true" Class="my-2">
+                        Ошибка загрузки страницы
+                    </MudAlert>
+                }
+                else
+                {
+                    <MudGrid>
+                        <MudItem md="12">
+                            @PageContent
+                        </MudItem>
+                    </MudGrid>
+                }
+            </InternalContent>
+        </LoadContent>
+    </BodyContent>
+    <FooterContent>
+
+    </FooterContent>
+</CardContent>
+
+@code {
+
+    #region Parameters
+
+    [Parameter]
+    public RenderFragment PageContent { get; set; }
+
+    [Parameter]
+    public EventCallback ClearFilter { get; set; }
+
+    [Parameter]
+    public EventCallback Generate { get; set; }
+
+    // [Parameter]
+    // public 
+
+    #endregion
+
+    #region Protected Methods
+
+    public async Task ClearFilterHandler()
+    {
+        if (ClearFilter.HasDelegate)
+            await ClearFilter.InvokeAsync();
+    }
+
+    public async Task GenerateHandler()
+    {
+        if (Generate.HasDelegate)
+            await Generate.InvokeAsync();
+    }
+
+    #endregion
+
+}
