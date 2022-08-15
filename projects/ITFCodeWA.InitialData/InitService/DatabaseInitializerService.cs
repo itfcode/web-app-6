@@ -1,5 +1,6 @@
 ﻿using ITFCodeWA.InitialData.Data.Common.References;
 using ITFCodeWA.InitialData.Data.Finance.References;
+using ITFCodeWA.InitialData.Data.Health;
 using ITFCodeWA.InitialData.Health;
 using ITFCodeWA.InitialData.InitService.Interfaces;
 using ITFCodeWA.Models.Documents;
@@ -20,6 +21,9 @@ namespace ITFCodeWA.InitialData.InitService
         private readonly IContractorDataService _contractorDataService;
         private readonly ICurrencyDataService _currencyDataService;
         private readonly IFoodDataService _foodDataService;
+        private readonly IFoodGroupDataService _foodGroupDataService;
+        private readonly IGoodDataService _goodDataService;
+        private readonly IGoodGroupDataService _goodGroupDataService;
         private readonly IPersonDataService _personDataService;
         private readonly IWeightRegistratorDataService _weightRegistratorDataService;
 
@@ -32,6 +36,9 @@ namespace ITFCodeWA.InitialData.InitService
             IContractorDataService contractorDataService,
             ICurrencyDataService currencyDataService,
             IFoodDataService foodDataService,
+            IFoodGroupDataService foodGroupDataService,
+            IGoodDataService goodDataService,
+            IGoodGroupDataService goodGroupDataService,
             IPersonDataService personDataService,
             IWeightRegistratorDataService weightRegistratorDataService
             )
@@ -41,6 +48,9 @@ namespace ITFCodeWA.InitialData.InitService
             _contractorDataService = contractorDataService;
             _currencyDataService = currencyDataService;
             _foodDataService = foodDataService;
+            _foodGroupDataService = foodGroupDataService;
+            _goodDataService = goodDataService;
+            _goodGroupDataService = goodGroupDataService;
             _personDataService = personDataService;
             _weightRegistratorDataService = weightRegistratorDataService;
         }
@@ -53,9 +63,12 @@ namespace ITFCodeWA.InitialData.InitService
         {
             InitializePersons();
             InitializeWeights();
-            InitializeFoods();
             InitializeCurrencies();
             InitializeContractors();
+            InitializeFoods();
+            // InitializeExpenseItems();
+            // InitializeRevenueItems();
+            // InitializeGoods();
         }
 
         #endregion
@@ -78,8 +91,17 @@ namespace ITFCodeWA.InitialData.InitService
         private void InitializeWeights()
         {
             var filePath = @"C:\projects\personal\net6\itfcode.web-app-6\projects\ITFCodeWA.InitialData\Data\Health\Weight\WeightRegistration.json";
+            // данные вводим для первого
+
+            var person = _personDataService.GetByUtrAsync(PersonList.Johnson.Utr).Result;
+
+            if (person is null)
+                throw new Exception("Person not found");
 
             var registrators = JsonConvert.DeserializeObject<List<WeightRegistratorModel>>(File.ReadAllText(filePath));
+
+            registrators.ForEach(x => x.PersonId = person.Id);
+
             foreach (var registrator in registrators)
             {
                 var entity = _weightRegistratorDataService.GetByIdAsync(registrator.Id).Result;
@@ -90,8 +112,18 @@ namespace ITFCodeWA.InitialData.InitService
 
         private void InitializeFoods()
         {
-            foreach (var food in FoodList.Foods)
+            foreach (var group in FoodGroupSet.All)
             {
+                var entity = _foodGroupDataService.GetByNameAsync(group.Name).Result;
+                if (entity is null)
+                    _foodGroupDataService.CreateAsync(group).Wait();
+            }
+
+            var generalGroup = _foodGroupDataService.GetByNameAsync(FoodGroupSet.GereneralGroup.Name).Result;
+
+            foreach (var food in FoodSet.All)
+            {
+                food.FoodGroupId = generalGroup.Id;
                 var entity = _foodDataService.GetByNameAsync(food.Name).Result;
                 if (entity is null)
                     _foodDataService.CreateAsync(food).Wait();
@@ -108,7 +140,7 @@ namespace ITFCodeWA.InitialData.InitService
             }
         }
 
-        private void InitializeContractors() 
+        private void InitializeContractors()
         {
             foreach (var contractor in ContractorList.All)
             {
@@ -118,7 +150,7 @@ namespace ITFCodeWA.InitialData.InitService
             }
         }
 
-        private void InitializeContracts() 
+        private void InitializeContracts()
         {
             //foreach (var contractor in ContractorList.All)
             //{

@@ -1,4 +1,5 @@
-﻿using ITFCodeWA.ClientMudBlazor.Models.ColumnSettings;
+﻿using ITFCodeWA.ClientMudBlazor.Extensions;
+using ITFCodeWA.ClientMudBlazor.Models.ColumnSettings;
 using ITFCodeWA.Models.Documents;
 
 namespace ITFCodeWA.ClientMudBlazor.Static.ColumnSettings

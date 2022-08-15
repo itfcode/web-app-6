@@ -19,14 +19,17 @@ namespace ITFCodeWA.Domain.Repositories
             services.AddScoped<IContractRepository, ContractRepository>();
             services.AddScoped<ICurrencyRepository, CurrencyRepository>();
             services.AddScoped<IExpenseItemRepository, ExpenseItemRepository>();
+            services.AddScoped<IExpenseGroupRepository, ExpenseGroupRepository>();
+            services.AddScoped<IFoodGroupRepository, FoodGroupRepository>();
             services.AddScoped<IFoodRepository, FoodRepository>();
+            services.AddScoped<IGoodGroupRepository, GoodGroupRepository>();
             services.AddScoped<IGoodRepository, GoodRepository>();
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IRevenueItemRepository, RevenueItemRepository>();
+            services.AddScoped<IRevenueGroupRepository, RevenueGroupRepository>();
 
             // repository registration of Documents   
             services.AddScoped<IWeightRegistratorRepository, WeightRegistratorRepository>();
-
         }
     }
 }

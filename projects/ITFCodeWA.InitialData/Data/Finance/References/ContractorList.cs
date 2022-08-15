@@ -1,22 +1,12 @@
 ﻿using ITFCodeWA.Models.References;
+using static ITFCodeWA.InitialData.Data.Factories.ContractorFactory;
 
 namespace ITFCodeWA.InitialData.Data.Finance.References
 {
     internal static class ContractorList
     {
-        public static ContractorModel GeneralSupplyer = new()
-        {
-            Name = "Обычный ПОСТАВЩИК *****",
-            TaxNumber = $"{113356789012}",
-            Comment = "Создано программно"
-        };
-
-        public static ContractorModel GeneralBuyer = new()
-        {
-            Name = "Обычный ПОКУПАТЕЛЬ >>>>",
-            TaxNumber = $"{224456789012}",
-            Comment = "Создано программно"
-        };
+        public static readonly ContractorModel GeneralSupplyer = Create("Обычный ПОСТАВЩИК *****", $"{113356789012}");
+        public static readonly ContractorModel GeneralBuyer = Create("Обычный ПОКУПАТЕЛЬ >>>> ", $"{224456789012}");
 
         public static IReadOnlyList<ContractorModel> All => new List<ContractorModel>
         {

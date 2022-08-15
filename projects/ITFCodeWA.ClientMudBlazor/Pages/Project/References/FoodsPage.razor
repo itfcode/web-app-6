@@ -13,11 +13,19 @@
 
 <ReferenceTemplatePage Title="Продукты питания" Loading="@Loading" LoadFailed="@LoadFailed" Error="@Error">
     <PageContent>
-        <ReferenceTable TModel="FoodModel" Table="@_table" Columns="@_columns"
-                        SelectedItem="@_selectedItem"
-                        ServerData="@ServerData"
-                        RelatedInfo="Информация о продуктах питания">
-        </ReferenceTable>
+        <MudTabs Elevation="2" Rounded="true" Centered="false" Style="font-size:90%;">
+            <MudTabPanel Text="Продукты" Style="min-width:220px;justify-content:left;">
+                <ReferenceTable TModel="FoodModel" Table="@_table" Columns="@_columns"
+                                SelectedItem="@_selectedItem"
+                                ServerData="@ServerData"
+                                RelatedInfo="Информация о продуктах питания">
+                </ReferenceTable>
+            </MudTabPanel>
+
+            <MudTabPanel Text="Группы продуктов">
+
+            </MudTabPanel>
+        </MudTabs>
     </PageContent>
 </ReferenceTemplatePage>
 

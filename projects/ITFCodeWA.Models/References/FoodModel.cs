@@ -24,10 +24,10 @@ namespace ITFCodeWA.Models.References
 
         [JsonPropertyName("groupId")]
         [JsonProperty("groupId")]
-        public int GroupId { get; set; }
+        public int FoodGroupId { get; set; }
 
-        [JsonPropertyName("groupName")]
-        [JsonProperty("groupName")]
-        public int GroupName { get; set; }
+        [JsonPropertyName("foodGroupName")]
+        [JsonProperty("foodGroupName")]
+        public string FoodGroupName { get; set; }
     }
 }

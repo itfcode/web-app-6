@@ -4,7 +4,7 @@ using ITFCodeWA.Core.Services.Operating.Interfaces;
 using ITFCodeWA.Services.TotalServices.Health.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using static ITFCodeWA.API.Constants.SwaggerConfiguration.FoodController;
+using static ITFCodeWA.API.Constants.SwaggerConfiguration.Foods;
 
 namespace ITFCodeWA.API.Controllers.Totals
 {

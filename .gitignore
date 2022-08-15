@@ -128,3 +128,5 @@
 /tests/projects/ITFCodeWA.Models.Tests/obj
 /tests/projects/ITFCodeWA.Services.Tests/bin/Debug/net6.0
 /tests/projects/ITFCodeWA.Services.Tests/obj
+/tests/projects/ITFCodeWA.MapperConfig.Tests/bin/Debug/net6.0
+/tests/projects/ITFCodeWA.MapperConfig.Tests/obj

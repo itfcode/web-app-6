@@ -124,6 +124,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "helpers", "helpers", "{ACBB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITFCodeWA.Helper.DataCollector", "helpers\ITFCodeWA.Helper.DataCollector\ITFCodeWA.Helper.DataCollector.csproj", "{DA3C9C27-E95C-4ADC-8C39-673C51F2C94E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITFCodeWA.MapperConfig.Tests", "tests\projects\ITFCodeWA.MapperConfig.Tests\ITFCodeWA.MapperConfig.Tests.csproj", "{B12BABC8-121E-4F56-8689-61204FC44B0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -334,6 +336,10 @@ Global
 		{DA3C9C27-E95C-4ADC-8C39-673C51F2C94E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA3C9C27-E95C-4ADC-8C39-673C51F2C94E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA3C9C27-E95C-4ADC-8C39-673C51F2C94E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B12BABC8-121E-4F56-8689-61204FC44B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B12BABC8-121E-4F56-8689-61204FC44B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B12BABC8-121E-4F56-8689-61204FC44B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B12BABC8-121E-4F56-8689-61204FC44B0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -393,6 +399,7 @@ Global
 		{8F61B6B0-1A7E-4586-A4C4-9FD63851C30F} = {8EEE109A-B683-464B-9B87-145778950BB0}
 		{CCB511FF-355E-44D7-868F-AA9CA57E849A} = {F8B85C3F-254D-4087-AB8F-8590D593A339}
 		{DA3C9C27-E95C-4ADC-8C39-673C51F2C94E} = {ACBB6902-7F07-411C-88C3-FDC96F5CBDA6}
+		{B12BABC8-121E-4F56-8689-61204FC44B0E} = {455F235C-600B-43E3-9444-FEC3A7049867}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43CA5F39-DD46-42EB-B269-0E7376E69ABF}
