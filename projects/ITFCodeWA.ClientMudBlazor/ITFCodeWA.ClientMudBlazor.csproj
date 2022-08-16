@@ -7,13 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MudBlazor" Version="6.0.13" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <Content Remove="Pages\Project\References\ContractorsPage.razor" />
+    <Content Remove="Pages\Project\References\ContractsPage.razor" />
+    <Content Remove="Pages\Project\References\CurrenciesPage.razor" />
+    <Content Remove="Pages\Project\References\ExpenseItemsPage.razor" />
+    <Content Remove="Pages\Project\References\GoodsPage.razor" />
+    <Content Remove="Pages\Project\References\PersonsPage.razor" />
+    <Content Remove="Pages\Project\References\RevenueItemsPage.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\Catalogs\" />
-    <Folder Include="Components\Registrators\" />
+    <PackageReference Include="MudBlazor" Version="6.0.13" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>

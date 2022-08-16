@@ -65,7 +65,7 @@ namespace ITFCodeWA.Core.Services.DataServices.Base
         {
             ValidateQueryOptions(queryOptions);
 
-            var query = _repository.GetDBSetQuery();
+            var query = _repository.GetDBSetQuery(true);
 
             //query = ApplySpecialFiltering(query, queryOptions);
             query = ApplyFiltering(query, queryOptions);

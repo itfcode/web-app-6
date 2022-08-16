@@ -61,8 +61,8 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
         public virtual async Task<TEntity> GetAsync([NotNull] TKey id, bool includeDetails = true, CancellationToken cancellationToken = default)
             => ValidateFindRequest(await FindAsync(id, includeDetails, cancellationToken), id, "Id");
 
-        public IQueryable<TEntity> GetDBSetQuery()
-            => DbSet.AsNoTracking();
+        public IQueryable<TEntity> GetDBSetQuery(bool includeDetails = false)
+            => GetQueryableForMany(includeDetails).AsNoTracking();
 
         #endregion
 

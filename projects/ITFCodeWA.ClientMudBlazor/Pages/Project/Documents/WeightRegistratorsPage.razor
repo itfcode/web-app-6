@@ -1,7 +1,6 @@
 ﻿@page "/weight-registratos"
 
 @using ITFCodeWA.ClientMudBlazor.Components.PagePart
-@using ITFCodeWA.ClientMudBlazor.Components.References;
 @using ITFCodeWA.ClientMudBlazor.Models.ColumnSettings
 @using ITFCodeWA.ClientMudBlazor.Pages.Project.Basis.Analityca
 @using ITFCodeWA.ClientMudBlazor.Pages.Project.Basis.Registrators
@@ -13,11 +12,11 @@
 
 <DocumentTemplatePage Title="Регистрация веса" Loading="@Loading" LoadFailed="@LoadFailed" Error="@Error">
     <PageContent>
-        <ReferenceTable TModel="WeightRegistratorModel" Table="@_table" Columns="@_columns"
+@*        <ReferenceTable TModel="WeightRegistratorModel" Table="@_table" Columns="@_columns"
                         SelectedItem="@_selectedItem"
                         ServerData="@ServerData"
                         RelatedInfo="Регистрация изменений веса">
-        </ReferenceTable>
+        </ReferenceTable>*@
     </PageContent>
 </DocumentTemplatePage>
 

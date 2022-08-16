@@ -18,11 +18,13 @@ namespace ITFCodeWA.Domain.Repositories.References
         #region Private && Protected Methods 
 
         protected override IQueryable<Good> GetOneWithDetails()
-            => DbSet.Include(x => x.ExpenseItem)
+            => DbSet.Include(x => x.GoodGroup)
+                .Include(x => x.ExpenseItem)
                 .Include(x => x.RevenueItem);
 
         protected override IQueryable<Good> GetManyWithDetails()
-            => DbSet.Include(x => x.ExpenseItem)
+            => DbSet.Include(x => x.GoodGroup)
+                .Include(x => x.ExpenseItem)
                 .Include(x => x.RevenueItem);
 
         #endregion

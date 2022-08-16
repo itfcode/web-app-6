@@ -1,0 +1,24 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityTableView.References.Base
+@using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
+@using ITFCodeWA.ClientMudBlazor.Static.ColumnSettings
+@using ITFCodeWA.Models.References
+
+@inherits ReferenceTableView<FoodGroupModel, IFoodGroupService>
+
+<ReferenceTable TModel="FoodGroupModel" Table="@_table" Columns="@_columns"
+                SelectedItem="@_selectedItem"
+                ServerData="@ServerData"
+                RelatedInfo="Информация о группах продуктов питания">
+</ReferenceTable>
+
+@code {
+    #region Initialization
+
+    protected override async Task OnInitializedAsync()
+        => await base.OnInitializedAsync();
+
+    protected override void InitColumns()
+        => _columns = ColumnSettingSets.FoodGroups;
+
+    #endregion
+}

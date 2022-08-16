@@ -21,6 +21,6 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base.Interfaces
 
         Task<TEntity> GetAsync([NotNull] Expression<Func<TEntity, bool>> predicate, bool includeDetails = true, CancellationToken cancellationToken = default);
 
-        IQueryable<TEntity> GetDBSetQuery();
+        IQueryable<TEntity> GetDBSetQuery(bool includeDetails = false);
     }
 }

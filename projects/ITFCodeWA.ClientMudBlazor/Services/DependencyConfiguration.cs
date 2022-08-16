@@ -15,10 +15,14 @@ namespace ITFCodeWA.ClientMudBlazor.Services
             services.AddScoped<IContractorService, ContractorService>();
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<ICurrencyService, CurrencyService>();
+            services.AddScoped<IExpenseGroupService, ExpenseGroupService>();
             services.AddScoped<IExpenseItemService, ExpenseItemService>();
+            services.AddScoped<IFoodGroupService, FoodGroupService>();
             services.AddScoped<IFoodService, FoodService>();
+            services.AddScoped<IGoodGroupService, GoodGroupService>();
             services.AddScoped<IGoodService, GoodService>();
             services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IRevenueGroupService, RevenueGroupService>();
             services.AddScoped<IRevenueItemService, RevenueItemService>();
 
             // Documents
