@@ -17,10 +17,14 @@ namespace ITFCodeWA.ClientMudBlazor.Components.EntityTableView.References.Base
                 ["ModelId"] = model.Id,
                 //["SaveHandler"] = EventCallback.Factory.Create(this, (TModel arg) => Save(arg)),
             };
+<<<<<<< HEAD
 
             var options = new DialogOptions() { CloseButton = true };
 
             await DialogService.Show<TModelForm>(title, parameters, options).Result;
+=======
+            await _dialogService.Show<TModelForm>(title, parameters).Result;
+>>>>>>> 0f9cff0c508729a59bb5e6b01ff908232256e2cb
         }
 
         #endregion

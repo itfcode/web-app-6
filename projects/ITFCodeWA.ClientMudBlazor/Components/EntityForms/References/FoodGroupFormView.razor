@@ -2,6 +2,7 @@
 @using ITFCodeWA.ClientMudBlazor.Components.EntityForms.References.Base
 @using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
 @using ITFCodeWA.Models.References
+<<<<<<< HEAD
 @using ITFCodeWA.ClientMudBlazor.Components.PagePart;
 
 @inherits ReferenceFormView<FoodGroupModel, IFoodGroupService>
@@ -44,4 +45,65 @@
             await Task.Delay(1);
         }
     }
+=======
+
+@inherits ReferenceFormView<FoodGroupModel, IFoodGroupService>
+
+<div class="row">
+    <div class="col">
+        <MudDialog DisableSidePadding="true" Style="max-height: 500px; min-width: 600px;">
+            <DialogContent>
+                <MudContainer>
+                    <MudText>Группа продуктов питания</MudText>
+                    @if (_loading)
+                    {
+                        <MudProgressCircular Indeterminate="true"></MudProgressCircular>
+                    }
+                    else
+                    {
+                        <MudCard>
+                            <MudCardContent>
+                                <MudForm @ref="_form" @bind-IsValid="@_success" @bind-Errors="@_errors">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <MudTextField @bind-Value="Model.Name"
+                                                      T="string" Label="Наименование"
+                                                      Required="true" RequiredError="Укажите наименование" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <MudTextField @bind-Value="Model.Comment"
+                                                      T="string" Label="Комментарий"
+                                                      Required="true" RequiredError="Укажите комментарий" />
+                                        </div>
+                                    </div>
+                                </MudForm>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ItfCloseBtn OnClick="CloseForm">Закрыть</ItfCloseBtn>
+                                        <ItfSaveBtn OnClick="async () => await Save()"
+                                                Disabled="@(!_success)"
+                                                Class="ml-auto">Сохранить</ItfSaveBtn>
+                                    </div>
+                                </div>
+                            </MudCardActions>
+                        </MudCard>
+
+                        if (_hasError)
+                        {
+                            <MudAlert Severity="Severity.Error"> @_errorText </MudAlert>
+                        }
+                    }
+                </MudContainer>
+            </DialogContent>
+        </MudDialog>
+    </div>
+</div>
+
+@code {
+
+>>>>>>> 0f9cff0c508729a59bb5e6b01ff908232256e2cb
 }

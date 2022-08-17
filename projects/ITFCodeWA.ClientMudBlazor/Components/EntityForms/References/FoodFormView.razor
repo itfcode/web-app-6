@@ -5,6 +5,7 @@
 
 @inherits ReferenceFormView<FoodModel, IFoodService>
 
+<<<<<<< HEAD
 @{
     BuildRenderTree(__builder);
 }
@@ -21,6 +22,54 @@
         <MudTextField @bind-Value="Model.Comment"
                       T="string" Label="Коментарий"
                       Required="true" RequiredError="Укажите коментарий" />
+=======
+<div class="row">
+    <div class="col">
+        <MudDialog DisableSidePadding="true" Style="max-height: 500px; min-width: 600px;">
+            <DialogContent>
+                <MudContainer>
+                    @if (_loading)
+                    {
+                        <MudProgressCircular Indeterminate="true"></MudProgressCircular>
+                    }
+                    else
+                    {
+                        <MudCard>
+                            <MudCardContent>
+                                <MudText>Группа продуктов питания</MudText>
+
+                                <MudForm @ref="_form" @bind-IsValid="@_success" @bind-Errors="@_errors">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <MudTextField @bind-Value="Model.Name"
+                                                      T="string" Label="Найменування"
+                                                      Required="true" RequiredError="Вкажить назву валюти!" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <MudTextField @bind-Value="Model.Comment"
+                                                      T="string" Label="Коментарий"
+                                                      Required="true" RequiredError="Укажите коментарий" />
+                                        </div>
+                                    </div>
+                                </MudForm>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <ItfCloseBtn OnClick="CloseForm">Закрыть</ItfCloseBtn>
+                                <ItfSaveBtn OnClick="async () => await Save()" Disabled="@(!_success)">Сохранить</ItfSaveBtn>
+                            </MudCardActions>
+                        </MudCard>
+
+                        if (_hasError)
+                        {
+                            <MudAlert Severity="Severity.Error"> @_errorText </MudAlert>
+                        }
+                    }
+                </MudContainer>
+            </DialogContent>
+        </MudDialog>
+>>>>>>> 0f9cff0c508729a59bb5e6b01ff908232256e2cb
     </div>
 </div>
 
