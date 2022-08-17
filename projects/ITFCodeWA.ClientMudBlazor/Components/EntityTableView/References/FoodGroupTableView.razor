@@ -1,11 +1,13 @@
-﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityTableView.References.Base
+﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityForms.References
+@using ITFCodeWA.ClientMudBlazor.Components.EntityTableView.References.Base
 @using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
 @using ITFCodeWA.ClientMudBlazor.Static.ColumnSettings
 @using ITFCodeWA.Models.References
 
 @inherits ReferenceTableView<FoodGroupModel, IFoodGroupService>
 
-<ReferenceTable TModel="FoodGroupModel" Table="@_table" Columns="@_columns"
+<ReferenceTable TModel="FoodGroupModel" TModelForm="FoodGroupFormView"
+                Table="@_table" Columns="@_columns"
                 SelectedItem="@_selectedItem"
                 ServerData="@ServerData"
                 RelatedInfo="Информация о группах продуктов питания">

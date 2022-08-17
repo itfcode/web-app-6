@@ -25,4 +25,8 @@
     <ProjectReference Include="..\ITFCodeWA.Models\ITFCodeWA.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Components\EntityForms\Documents\" />
+  </ItemGroup>
+
 </Project>

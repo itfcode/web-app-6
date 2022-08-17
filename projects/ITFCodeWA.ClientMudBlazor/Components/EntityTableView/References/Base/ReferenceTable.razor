@@ -1,6 +1,8 @@
 ﻿@using ITFCodeWA.ClientMudBlazor.Models.ColumnSettings
+@using Microsoft.AspNetCore.Components;
 
 @typeparam TModel
+@typeparam TModelForm
 
 <MudTable @ref="Table" @bind-SelectedItem="SelectedItem"
           ServerData="@ServerData"
@@ -32,7 +34,7 @@
                                Size="@Size.Small"
                                Class="ma-2"
                                Style="padding:0px;padding-left:16px;"
-                               OnClick="() => {}"></MudIconButton>
+                               OnClick="() => OpenForm(context)"></MudIconButton>
             </MudTooltip>
         </MudTd>
     </RowTemplate>
@@ -64,4 +66,8 @@
 
     [Parameter]
     public string RelatedInfo { get; set; }
+
+    [Inject]
+    protected IDialogService _dialogService { get; set; }
+
 }
