@@ -5,24 +5,10 @@
 
 @inherits ReferenceFormView<FoodModel, IFoodService>
 
-<<<<<<< HEAD
 @{
     BuildRenderTree(__builder);
 }
 
-<div class="row">
-    <div class="col-8">
-        <MudTextField @bind-Value="Model.Name"
-                      T="string" Label="Найменування"
-                      Required="true" RequiredError="Вкажить назву валюти!" />
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <MudTextField @bind-Value="Model.Comment"
-                      T="string" Label="Коментарий"
-                      Required="true" RequiredError="Укажите коментарий" />
-=======
 <div class="row">
     <div class="col">
         <MudDialog DisableSidePadding="true" Style="max-height: 500px; min-width: 600px;">
@@ -69,7 +55,6 @@
                 </MudContainer>
             </DialogContent>
         </MudDialog>
->>>>>>> 0f9cff0c508729a59bb5e6b01ff908232256e2cb
     </div>
 </div>
 

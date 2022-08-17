@@ -6,6 +6,7 @@ namespace ITFCodeWA.ClientMudBlazor.Services.Api.Base.Interfaces
         where TModel : class, IModel<TKey>
         where TKey : IComparable
     {
+        Task<TModel> SaveAsync(TModel model, CancellationToken cancellationToken = default);
         Task<TModel> AddAsync(TModel model, CancellationToken cancellationToken = default);
         Task<TModel> UpdateAsync(TModel model, CancellationToken cancellationToken = default);
         Task<bool> DeleteAsync(TKey id, CancellationToken cancellationToken = default);

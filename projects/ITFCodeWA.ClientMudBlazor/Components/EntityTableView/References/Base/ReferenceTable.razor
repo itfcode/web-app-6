@@ -34,11 +34,8 @@
                                Size="@Size.Small"
                                Class="ma-2"
                                Style="padding:0px;padding-left:16px;"
-<<<<<<< HEAD
                                OnClick="() => OpenForm(context, FormTitle)"></MudIconButton>
-=======
-                               OnClick="() => OpenForm(context)"></MudIconButton>
->>>>>>> 0f9cff0c508729a59bb5e6b01ff908232256e2cb
+
             </MudTooltip>
         </MudTd>
     </RowTemplate>
@@ -71,15 +68,9 @@
     [Parameter]
     public string RelatedInfo { get; set; }
 
-<<<<<<< HEAD
     [Parameter]
     public virtual string FormTitle { get; set; } = "Not Defined";
 
     [Inject]
     protected IDialogService DialogService { get; set; }
-=======
-    [Inject]
-    protected IDialogService _dialogService { get; set; }
-
->>>>>>> 0f9cff0c508729a59bb5e6b01ff908232256e2cb
 }

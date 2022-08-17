@@ -30,13 +30,13 @@ namespace ITFCodeWA.Core.API.Controllers.Base
         }
 
         [HttpPut("{id}")]
-        public virtual async Task<IActionResult> PutAsync(TKey id, [FromBody] TModel model, CancellationToken cancellationToken = default)
+        public virtual async Task<IActionResult> PutAsync([FromRoute] TKey id, [FromBody] TModel model, CancellationToken cancellationToken = default)
         {
             return Ok(await _dataService.UpdateAsync(model, cancellationToken));
         }
 
         [HttpDelete("{id}")]
-        public virtual async Task<IActionResult> DeleteAsync(TKey id, CancellationToken cancellationToken = default)
+        public virtual async Task<IActionResult> DeleteAsync([FromRoute] TKey id, CancellationToken cancellationToken = default)
         {
             await _dataService.DeleteAsync(id, cancellationToken);
             return Ok();

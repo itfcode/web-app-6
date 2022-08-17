@@ -31,6 +31,8 @@ builder.Services.AddCors(options => options.AddPolicy(name: "LifeAppOrigins",
     {
         policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
         policy.WithOrigins("http://localhost:44393").AllowAnyHeader().AllowAnyMethod();
+        policy.WithOrigins("https://localhost:5001").AllowAnyHeader().AllowAnyMethod();
+        policy.WithOrigins("http://localhost:5001").AllowAnyHeader().AllowAnyMethod();
     }));
 
 builder.Services.AddEntityFrameworkSqlServer()

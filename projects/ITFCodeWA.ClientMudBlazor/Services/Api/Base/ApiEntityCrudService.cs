@@ -12,7 +12,7 @@ namespace ITFCodeWA.ClientMudBlazor.Services.Api.Base
         #region Protected Properties 
 
         public virtual string RouteAdd => $"{_route}";
-        public virtual string RouteUpdate => $"{_route}";
+        public virtual string RouteUpdate => $"{_route}/{{0}}";
         public virtual string RouteDelete => $"{_route}/{{0}}";
 
         #endregion
@@ -24,12 +24,19 @@ namespace ITFCodeWA.ClientMudBlazor.Services.Api.Base
         #endregion
 
         #region IApiEntityCrudService Implementation
+        public virtual async Task<TModel> SaveAsync(TModel model, CancellationToken cancellationToken = default)
+        {
+            if (model.Id.Equals(default(TKey)))
+                return await AddAsync(model, cancellationToken);
+            else
+                return await UpdateAsync(model, cancellationToken);
+        }
 
         public virtual async Task<TModel> AddAsync(TModel model, CancellationToken cancellationToken = default)
             => await PostAsync<TModel>(RouteAdd, model, cancellationToken);
 
         public virtual async Task<TModel> UpdateAsync(TModel model, CancellationToken cancellationToken = default)
-            => await PutAsync<TModel>(RouteUpdate, model, cancellationToken);
+            => await PutAsync<TModel>(string.Format(RouteUpdate, model.Id), model, cancellationToken);
 
         public virtual async Task<bool> DeleteAsync(TKey id, CancellationToken cancellationToken = default)
             => await DeleteAsync(string.Format(RouteDelete, id), cancellationToken);

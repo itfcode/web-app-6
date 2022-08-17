@@ -1,16 +1,19 @@
-﻿using ITFCodeWA.ClientMudBlazor.Services.Api.Base.Interfaces;
+﻿using ITFCodeWA.ClientMudBlazor.Components.PagePart;
+using ITFCodeWA.ClientMudBlazor.Services.Api.Base.Interfaces;
 using ITFCodeWA.Core.Models.Common.Base.Interfaces;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
 namespace ITFCodeWA.ClientMudBlazor.Components.EntityForms.Base
 {
-    public abstract class EntityFormView<TModel, TKey, TApiService> : ComponentBase
+    public partial class EntityDialogForm<TModel, TKey, TApiService> : ComponentBase
         where TModel : class, IModel<TKey>, new()
         where TApiService : class, IApiEntityCrudService<TModel, TKey>
         where TKey : IComparable
     {
         #region Protected Fields 
+
+        private MudDialog _dialog;
 
         protected MudForm _form;
         protected bool _success = false;
@@ -33,10 +36,13 @@ namespace ITFCodeWA.ClientMudBlazor.Components.EntityForms.Base
         public TKey ModelId { get; set; }
 
         //[Parameter]
-        public TModel Model { get; set; }
+        public TModel Model { get; set; } = new();
 
         [Parameter]
         public EventCallback<TModel> SaveHandler { get; set; }
+
+        [Parameter]
+        public RenderFragment Fields { get; set; }
 
         #endregion
 
@@ -64,6 +70,7 @@ namespace ITFCodeWA.ClientMudBlazor.Components.EntityForms.Base
             }
 
             _loading = false;
+
             StateHasChanged();
         }
 
@@ -91,7 +98,7 @@ namespace ITFCodeWA.ClientMudBlazor.Components.EntityForms.Base
             {
                 try
                 {
-                    await ApiService.AddAsync(Model);
+                    await ApiService.SaveAsync(Model);
                     CloseForm();
                 }
                 catch (Exception ex)
