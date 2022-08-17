@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Components\EntityForms\References\Base\ReferenceFormView.razor" />
     <Content Remove="Pages\Project\References\ContractorsPage.razor" />
     <Content Remove="Pages\Project\References\ContractsPage.razor" />
     <Content Remove="Pages\Project\References\CurrenciesPage.razor" />
@@ -23,6 +24,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ITFCodeWA.Models\ITFCodeWA.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\EntityForms\Documents\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,47 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.Buttons.Operations
+@using ITFCodeWA.ClientMudBlazor.Components.EntityForms.References.Base
+@using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
+@using ITFCodeWA.Models.References
+@using ITFCodeWA.ClientMudBlazor.Components.PagePart;
+
+@inherits ReferenceFormView<FoodGroupModel, IFoodGroupService>
+
+@{
+    base.BuildRenderTree(__builder);
+}
+
+<InternalViewContent @ref="@_internalViewContent">
+    <InternalContent>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTextField @bind-Value="Model.Name"
+                              T="string" Label="Наименование"
+                              Required="true" RequiredError="Укажите наименование" />
+            </MudItem>
+            <MudItem xs="12">
+                <MudTextField @bind-Value="Model.Comment"
+                              T="string" Label="Комментарий"
+                              Required="false" RequiredError="Укажите комментарий" />
+            </MudItem>
+        </MudGrid>
+    </InternalContent>
+</InternalViewContent>
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        //Model = new();
+        base.SetChildContent(_internalViewContent);
+        await base.OnInitializedAsync();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            //base.SetChildContent(_internalViewContent);
+            await Task.Delay(1);
+        }
+    }
+}

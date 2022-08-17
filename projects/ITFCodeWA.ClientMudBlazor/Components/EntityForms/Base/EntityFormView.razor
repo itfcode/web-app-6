@@ -1,0 +1,53 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.Buttons.Operations
+@using ITFCodeWA.ClientMudBlazor.Components.EntityForms.References.Base
+@using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
+@using ITFCodeWA.Models.References
+
+@typeparam TModel
+@typeparam TKey
+@typeparam TApiService
+
+<MudGrid>
+    <MudItem xs="12">
+        <MudDialog @ref="_dialog" DisableSidePadding="true" Style="max-height: 500px; min-width: 600px;">
+            <DialogContent>
+                <MudContainer>
+                    @if (_loading)
+                    {
+                        <MudGrid>
+                            <MudItem xs="12" Style="text-align:center;">
+                                <MudProgressCircular Indeterminate="true" Color="Color.Tertiary"></MudProgressCircular>
+                            </MudItem>
+                        </MudGrid>
+                    }
+                    else
+                    {
+                        <MudForm @ref="_form" @bind-IsValid="@_success" @bind-Errors="@_errors" Class="_is_this_form">
+                            @_childContent
+                        </MudForm>
+                        if (_hasError)
+                        {
+                            <MudAlert Severity="Severity.Error"> @_errorText </MudAlert>
+                        }
+                    }
+                </MudContainer>
+            </DialogContent>
+            <DialogActions>
+                <MudContainer>
+                    <MudGrid>
+                        <MudItem xs="12" Style="text-align:right;padding-right:4px;">
+                            <ItfCloseBtn OnClick="CloseForm">Закрыть</ItfCloseBtn>
+                            <ItfSaveBtn OnClick="async () => await Save()"
+                                        Disabled="@(!_success)"
+                                        Class="ml-auto">Сохранить</ItfSaveBtn>
+                        </MudItem>
+                    </MudGrid>
+                </MudContainer>
+            </DialogActions>
+        </MudDialog>
+    </MudItem>
+</MudGrid>
+
+@code {
+
+}

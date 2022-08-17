@@ -1,0 +1,29 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.Buttons.Operations
+@using ITFCodeWA.ClientMudBlazor.Components.EntityForms.References.Base
+@using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
+@using ITFCodeWA.Models.References
+
+@inherits ReferenceFormView<FoodModel, IFoodService>
+
+@{
+    BuildRenderTree(__builder);
+}
+
+<div class="row">
+    <div class="col-8">
+        <MudTextField @bind-Value="Model.Name"
+                      T="string" Label="Найменування"
+                      Required="true" RequiredError="Вкажить назву валюти!" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <MudTextField @bind-Value="Model.Comment"
+                      T="string" Label="Коментарий"
+                      Required="true" RequiredError="Укажите коментарий" />
+    </div>
+</div>
+
+@code {
+
+}

@@ -1,4 +1,5 @@
-﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityTableView.References.Base
+﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityForms.References
+@using ITFCodeWA.ClientMudBlazor.Components.EntityTableView.References.Base
 @using ITFCodeWA.ClientMudBlazor.Models.ColumnSettings
 @using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
 @using ITFCodeWA.ClientMudBlazor.Static.ColumnSettings
@@ -6,7 +7,8 @@
 
 @inherits ReferenceTableView<FoodModel, IFoodService>
 
-<ReferenceTable TModel="FoodModel" Table="@_table" Columns="@_columns"
+<ReferenceTable TModel="FoodModel" TModelForm="FoodFormView"
+                Table="@_table" Columns="@_columns"
                 SelectedItem="@_selectedItem"
                 ServerData="@ServerData"
                 RelatedInfo="Информация о продуктах питания">
