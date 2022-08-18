@@ -22,8 +22,8 @@ namespace ITFCodeWA.Models.References
         [JsonProperty("calories")]
         public decimal Calories { get; set; }
 
-        [JsonPropertyName("groupId")]
-        [JsonProperty("groupId")]
+        [JsonPropertyName("foodGroupId")]
+        [JsonProperty("foodGroupId")]
         public int FoodGroupId { get; set; }
 
         [JsonPropertyName("foodGroupName")]

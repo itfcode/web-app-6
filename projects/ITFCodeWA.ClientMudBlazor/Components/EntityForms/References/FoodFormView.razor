@@ -2,61 +2,54 @@
 @using ITFCodeWA.ClientMudBlazor.Components.EntityForms.References.Base
 @using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
 @using ITFCodeWA.Models.References
+@using ITFCodeWA.ClientMudBlazor.Components.EntityForms.Base;
 
 @inherits ReferenceFormView<FoodModel, IFoodService>
 
-@{
-    BuildRenderTree(__builder);
-}
+<EntityDialogForm TModel="FoodModel" TKey="int" TApiService="IFoodService" ModelId="@ModelId" Model="@Model">
+    <Fields>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTextField @bind-Value="Model.Name"
+                              T="string" Label="Наименование"
+                              Required="true" RequiredError="Укажите наименование" />
+            </MudItem>
+            <MudItem xs="6">
+                <MudTextField @bind-Value="Model.Calories"
+                              Label="Ккал"
+                              Format="F1"
+                              Required="true" RequiredError="Укажите количество ккал" />
+            </MudItem>
+            <MudItem xs="6">
+                &nbsp;
+            </MudItem>
+            <MudItem xs="4"> 
+                <MudTextField @bind-Value="Model.Proteins"
+                              Label="Белки"
+                              Format="F1"
+                              Required="true" RequiredError="Укажите количество белка" />
+            </MudItem>
+            <MudItem xs="4"> 
+                <MudTextField @bind-Value="Model.Fats"
+                              Label="Жиры"
+                              Format="F1"
+                              Required="true" RequiredError="Укажите количество жиров" />
+            </MudItem>
+            <MudItem xs="4"> 
+                <MudTextField @bind-Value="Model.Carbohydrates"
+                              Label="Углеводы"
+                              Format="F1"
+                              Required="true" RequiredError="Укажите количество углеводов" />
+            </MudItem>
+            <MudItem xs="12">
+                <MudTextField @bind-Value="Model.Comment"
+                              T="string" Label="Комментарий"
+                              Required="false" RequiredError="Укажите комментарий" />
+            </MudItem>
+        </MudGrid>
 
-<div class="row">
-    <div class="col">
-        <MudDialog DisableSidePadding="true" Style="max-height: 500px; min-width: 600px;">
-            <DialogContent>
-                <MudContainer>
-                    @if (_loading)
-                    {
-                        <MudProgressCircular Indeterminate="true"></MudProgressCircular>
-                    }
-                    else
-                    {
-                        <MudCard>
-                            <MudCardContent>
-                                <MudText>Группа продуктов питания</MudText>
-
-                                <MudForm @ref="_form" @bind-IsValid="@_success" @bind-Errors="@_errors">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <MudTextField @bind-Value="Model.Name"
-                                                      T="string" Label="Найменування"
-                                                      Required="true" RequiredError="Вкажить назву валюти!" />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <MudTextField @bind-Value="Model.Comment"
-                                                      T="string" Label="Коментарий"
-                                                      Required="true" RequiredError="Укажите коментарий" />
-                                        </div>
-                                    </div>
-                                </MudForm>
-                            </MudCardContent>
-                            <MudCardActions>
-                                <ItfCloseBtn OnClick="CloseForm">Закрыть</ItfCloseBtn>
-                                <ItfSaveBtn OnClick="async () => await Save()" Disabled="@(!_success)">Сохранить</ItfSaveBtn>
-                            </MudCardActions>
-                        </MudCard>
-
-                        if (_hasError)
-                        {
-                            <MudAlert Severity="Severity.Error"> @_errorText </MudAlert>
-                        }
-                    }
-                </MudContainer>
-            </DialogContent>
-        </MudDialog>
-    </div>
-</div>
+    </Fields>
+</EntityDialogForm>
 
 @code {
 

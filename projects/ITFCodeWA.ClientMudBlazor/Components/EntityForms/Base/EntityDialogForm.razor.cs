@@ -35,7 +35,7 @@ namespace ITFCodeWA.ClientMudBlazor.Components.EntityForms.Base
         [Parameter]
         public TKey ModelId { get; set; }
 
-        //[Parameter]
+        [Parameter]
         public TModel Model { get; set; } = new();
 
         [Parameter]

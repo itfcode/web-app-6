@@ -9,6 +9,10 @@
 
 <MudGrid>
     <MudItem xs="12">
+        <MudAlert Severity="Severity.Error">
+            Comment = @((Model as FoodModel).Name) <br/>
+            Comment = @((Model as FoodModel).Comment) 
+        </MudAlert>
         <MudDialog @ref="_dialog" DisableSidePadding="true" Style="max-height: 500px; min-width: 600px;">
             <DialogContent>
                 <MudContainer>
@@ -16,7 +20,7 @@
                     {
                         <MudGrid>
                             <MudItem xs="12" Style="text-align:center;">
-                                <MudProgressCircular Indeterminate="true" Color="Color.Tertiary"></MudProgressCircular>
+                                <MudProgressCircular Indeterminate="true" Color="Color.Primary"></MudProgressCircular>
                             </MudItem>
                         </MudGrid>
                     }

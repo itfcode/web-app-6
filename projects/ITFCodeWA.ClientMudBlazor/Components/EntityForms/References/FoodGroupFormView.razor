@@ -7,7 +7,7 @@
 
 @inherits ReferenceFormView<FoodGroupModel, IFoodGroupService>
 
-<EntityDialogForm TModel="FoodGroupModel" TKey="int" TApiService="IFoodGroupService" ModelId="@ModelId">
+<EntityDialogForm TModel="FoodGroupModel" TKey="int" TApiService="IFoodGroupService" ModelId="@ModelId" >
     <Fields>
         <MudGrid>
             <MudItem xs="12">
@@ -24,7 +24,6 @@
 
     </Fields>
 </EntityDialogForm>
-
 
 @code {
 
