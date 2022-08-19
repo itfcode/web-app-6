@@ -38,7 +38,6 @@ namespace ITFCodeWA.API.Controllers.References
                 CancellationToken cancellationToken = default)
             => await base.PostAsync(model, cancellationToken);
 
-        [HttpPut("{id}")]
         [SwaggerResponse(StatusCodes.Status200OK, PUT_RESPONSE_DESCRIPTION, typeof(FoodGroupModel))]
         public override async Task<IActionResult> PutAsync([FromRoute, SwaggerParameter(PUT_ID_PARAMTER_DESCRIPTION)] int id,
             [FromBody] FoodGroupModel model, CancellationToken cancellationToken = default)

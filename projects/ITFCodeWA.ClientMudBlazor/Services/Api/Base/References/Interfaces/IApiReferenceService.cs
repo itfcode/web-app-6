@@ -6,5 +6,6 @@ namespace ITFCodeWA.ClientMudBlazor.Services.Api.Base.References.Interfaces
     public interface IApiReferenceService<TReferenceModel> : IApiEntityCrudService<TReferenceModel, int>
         where TReferenceModel : class, IReferenceModel
     {
+        Task<IEnumerable<TReferenceModel>> FindByValueAsync(string value);
     }
 }

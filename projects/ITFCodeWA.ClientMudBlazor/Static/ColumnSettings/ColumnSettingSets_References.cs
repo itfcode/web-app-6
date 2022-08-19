@@ -18,7 +18,8 @@ namespace ITFCodeWA.ClientMudBlazor.Static.ColumnSettings
 
         public static IReadOnlyList<ColumnSetting<FoodGroupModel>> FoodGroups =>
             new List<ColumnSetting<FoodGroupModel>>()
-                .AddSetting(name: nameof(FoodModel.Name), label: "Наименование", view: x => x.Name)
+                .AddSetting(name: nameof(FoodModel.Name), label: "Наименование")
+                .AddSetting(name: nameof(FoodModel.Comment), label: "Комметарий")
             ;
 
         public static IReadOnlyList<ColumnSetting<PersonModel>> Persons =>

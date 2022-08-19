@@ -18,9 +18,13 @@ namespace ITFCodeWA.ClientMudBlazor.Components.EntityTableView.References.Base
                 //["SaveHandler"] = EventCallback.Factory.Create(this, (TModel arg) => Save(arg)),
             };
 
-            var options = new DialogOptions() { CloseButton = true };
+            var options = new DialogOptions() { CloseButton = true, DisableBackdropClick = true };
 
-            await DialogService.Show<TModelForm>(title, parameters, options).Result;
+            var res = await DialogService.Show<TModelForm>(title, parameters, options).Result;
+            if (!res.Cancelled) 
+            {
+                var ss = 10;
+            }
         }
 
         #endregion

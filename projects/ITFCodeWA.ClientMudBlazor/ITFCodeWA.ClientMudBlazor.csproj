@@ -27,7 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Components\EntityCards\Documents\" />
     <Folder Include="Components\EntityForms\Documents\" />
+    <Folder Include="Components\EntityGrids\Documents\" />
+    <Folder Include="Components\EntityGrids\References\Base\" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿using ITFCodeWA.API.Constants;
 using ITFCodeWA.Core.API.Controllers;
-using ITFCodeWA.Core.Models;
 using ITFCodeWA.Core.Models.QueryFilters;
+using ITFCodeWA.Core.Models;
 using ITFCodeWA.Core.Services.Operating.Interfaces;
 using ITFCodeWA.Models.References;
 using ITFCodeWA.Services.DataServices.References.Interfaces;
@@ -48,7 +48,8 @@ namespace ITFCodeWA.API.Controllers.References
             => await base.PutAsync(id, model, cancellationToken);
 
         [SwaggerResponse(StatusCodes.Status200OK, DELETE_RESPONSE_DESCRIPTION)]
-        public override async Task<IActionResult> DeleteAsync([FromRoute, SwaggerParameter(DELETE_ID_PARAMTER_DESCRIPTION)] int id, CancellationToken cancellationToken = default)
+        public override async Task<IActionResult> DeleteAsync([FromRoute, SwaggerParameter(DELETE_ID_PARAMTER_DESCRIPTION)] int id, 
+            CancellationToken cancellationToken = default)
             => await base.DeleteAsync(id, cancellationToken);
 
         #endregion

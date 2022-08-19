@@ -1,0 +1,28 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityCards.Base
+@using ITFCodeWA.ClientMudBlazor.Components.EntityCards.References.Base
+@using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
+@using ITFCodeWA.Models.References
+
+@inherits ReferenceCard<FoodGroupModel, IFoodGroupService>
+
+<EntityCardDialog Loading="@_loading" @bind-ErrorMessage="@_errorMessage" @bind-HasError="@_hasError"
+                  SaveHandler="SaveModel">
+    <Fields>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTextField @bind-Value="_model.Name"
+                              T="string" Label="Наименование"
+                              Required="true" RequiredError="Укажите наименование" />
+            </MudItem>
+            <MudItem xs="12">
+                <MudTextField @bind-Value="_model.Comment"
+                              T="string" Label="Комментарий"
+                              Required="false" RequiredError="Укажите комментарий" />
+            </MudItem>
+        </MudGrid>
+    </Fields>
+</EntityCardDialog>
+
+@code {
+
+}

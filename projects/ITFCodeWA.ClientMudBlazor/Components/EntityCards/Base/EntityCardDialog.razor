@@ -1,0 +1,122 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.Buttons.Operations
+
+<MudGrid>
+    <MudItem xs="12">
+        <MudDialog @ref="_dialog" DisableSidePadding="true" Style="max-height: 500px; min-width: 600px;">
+            <DialogContent>
+                <MudContainer>
+                    @if (Loading)
+                    {
+                        <MudGrid>
+                            <MudItem xs="12" Style="text-align:center;">
+                                <MudProgressCircular Indeterminate="true" Color="Color.Primary"></MudProgressCircular>
+                            </MudItem>
+                        </MudGrid>
+                    }
+                    else
+                    {
+                        <MudForm @ref="_form" @bind-IsValid="@_success" @bind-Errors="@_errors" Class="_is_this_form">
+                            @Fields
+                        </MudForm>
+                        if (_hasError)
+                        {
+                            <MudAlert Severity="Severity.Error"> @_errorMessage </MudAlert>
+                        }
+                    }
+                </MudContainer>
+            </DialogContent>
+            <DialogActions>
+                <MudContainer>
+                    <MudGrid>
+                        <MudItem xs="12" Style="text-align:right;padding-right:4px;">
+                            <ItfCloseBtn OnClick="CloseForm">Закрыть</ItfCloseBtn>
+                            <ItfSaveBtn OnClick="async () => await Save()"
+                                        Disabled="@(!_success)"
+                                        Class="ml-auto">Сохранить</ItfSaveBtn>
+                        </MudItem>
+                    </MudGrid>
+                </MudContainer>
+            </DialogActions>
+        </MudDialog>
+    </MudItem>
+</MudGrid>
+
+@code {
+
+    #region Private & Potected Fields
+
+    private MudDialog _dialog;
+
+    protected MudForm _form;
+    protected bool _success = false;
+    protected bool _hasError = false;
+    protected string _errorMessage = string.Empty;
+    protected string[] _errors = { };
+
+    #endregion
+
+    #region Parameters
+
+    [CascadingParameter]
+    public MudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public bool HasError
+    {
+        get { return _hasError; }
+        set { if (_hasError == value) return; _hasError = value; HasErrorChanged.InvokeAsync(value); }
+    }
+
+    [Parameter]
+    public EventCallback<bool> HasErrorChanged { get; set; }
+
+    [Parameter]
+    public string ErrorMessage
+    {
+        get { return _errorMessage; }
+        set { if (_errorMessage == value) return; _errorMessage = value; ErrorMessageChanged.InvokeAsync(value); }
+    }
+
+    [Parameter]
+    public EventCallback<string> ErrorMessageChanged { get; set; }
+
+    [Parameter]
+    public bool Loading { get; set; } = true;
+
+    [Parameter]
+    public EventCallback SaveHandler { get; set; }
+
+    [Parameter]
+    public RenderFragment Fields { get; set; }
+
+    #endregion
+
+    #region Protected Methods
+
+    protected void CloseForm() => MudDialog.Close(DialogResult.Cancel());
+
+    protected async Task Save()
+    {
+        _hasError = false;
+        if (SaveHandler.HasDelegate)
+        {
+            try
+            {
+                await SaveHandler.InvokeAsync();
+                MudDialog.Close(DialogResult.Ok(true));
+            }
+            catch (Exception ex)
+            {
+                _hasError = true;
+                _errorMessage = ex.Message;
+            }
+        }
+        else
+        {
+            _hasError = true;
+            _errorMessage = "SaveHandler() not defined";
+        }
+    }
+
+    #endregion
+}

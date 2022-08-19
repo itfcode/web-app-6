@@ -1,5 +1,6 @@
 ﻿@using ITFCodeWA.ClientMudBlazor.Components.Buttons.Operations
 @using ITFCodeWA.ClientMudBlazor.Components.EntityForms.References.Base
+@using ITFCodeWA.ClientMudBlazor.Components.OnMudBased.Autocomplete
 @using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
 @using ITFCodeWA.Models.References
 @using ITFCodeWA.ClientMudBlazor.Components.EntityForms.Base;
@@ -21,21 +22,21 @@
                               Required="true" RequiredError="Укажите количество ккал" />
             </MudItem>
             <MudItem xs="6">
-                &nbsp;
+                <FoodGroupAutoComplete @bind-Value="_selectedFoodGroup"/>
             </MudItem>
-            <MudItem xs="4"> 
+            <MudItem xs="4">
                 <MudTextField @bind-Value="Model.Proteins"
                               Label="Белки"
                               Format="F1"
                               Required="true" RequiredError="Укажите количество белка" />
             </MudItem>
-            <MudItem xs="4"> 
+            <MudItem xs="4">
                 <MudTextField @bind-Value="Model.Fats"
                               Label="Жиры"
                               Format="F1"
                               Required="true" RequiredError="Укажите количество жиров" />
             </MudItem>
-            <MudItem xs="4"> 
+            <MudItem xs="4">
                 <MudTextField @bind-Value="Model.Carbohydrates"
                               Label="Углеводы"
                               Format="F1"
@@ -52,5 +53,8 @@
 </EntityDialogForm>
 
 @code {
+
+    protected FoodGroupModel _selectedFoodGroup = new();
+
 
 }

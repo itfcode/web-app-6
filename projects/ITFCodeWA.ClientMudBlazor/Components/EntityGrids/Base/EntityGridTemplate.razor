@@ -1,0 +1,143 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Models.ColumnSettings
+@typeparam TModel
+
+<MudTable @ref="Table" ServerData="@ServerData" @bind-SelectedItem="@SelectedItem"
+          Dense="true" Hover="false" Bordered="false" Striped="true">
+
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">@ToolBarLabel</MudText>
+        <MudSpacer />
+    </ToolBarContent>
+
+    <HeaderContent>
+        @foreach (var column in Columns.Where(x => x.Visible))
+        {
+            <MudTh Style="font-weight:bold;">
+                <MudTableSortLabel SortLabel="@column.Name" T="TModel">
+                    @*<EadFilterIconButton OnClick="() => SelectFilterdByColumn(column)" />*@
+                    @column.Label
+                </MudTableSortLabel>
+            </MudTh>
+        }
+        <MudTh Style="font-weight:bold;">&nbsp;</MudTh>
+    </HeaderContent>
+
+    <RowTemplate>
+
+        @foreach (var column in Columns.Where(x => x.Visible))
+        {
+            <MudTd DataLabel="@column.Label">@column.View(context)</MudTd>
+        }
+
+        <MudTd Class="action-column">
+            <MudTooltip Text="Редактировать" Class="float-right">
+                <MudIconButton Icon="@Icons.Filled.Edit"
+                               Size="@Size.Small"
+                               Title="Открыть позицию"
+                               Class="ma-2"
+                               Style="padding:0px;padding-left:16px;"
+                               OnClick="() => OpenItemCardHandler(context)"></MudIconButton>
+                <MudIconButton Icon="@Icons.Filled.Delete"
+                               Size="@Size.Small"
+                               Title="Удалить позицию"
+                               Class="ma-2"
+                               Style="padding:0px;padding-left:16px;"
+                               OnClick="() => DeleteItemHandler(context)"></MudIconButton>
+            </MudTooltip>
+        </MudTd>
+    </RowTemplate>
+
+    <PagerContent>
+        <MudTablePager HorizontalAlignment="MudBlazor.HorizontalAlignment.Center" />
+    </PagerContent>
+
+</MudTable>
+
+@if (!string.IsNullOrWhiteSpace(RelatedInfo))
+{
+    <MudAlert Severity="Severity.Info" Variant="Variant.Filled" Dense="true">
+        @RelatedInfo
+    </MudAlert>
+}
+
+<MudMessageBox @ref="_mbox" Title="Error" CancelButton="null" CancelText="null">
+    <MessageContent>
+        <MudAlert Severity="Severity.Error"> 
+            @_messageText
+        </MudAlert>
+    </MessageContent>
+    <YesButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Error"
+                   StartIcon="@Icons.Material.Filled.DeleteForever"></MudButton>
+    </YesButton>
+</MudMessageBox>
+
+@code {
+
+    #region Private & Protected Field
+
+    private string _messageText = string.Empty;
+
+    private MudMessageBox _mbox;
+
+    #endregion
+
+    [Parameter]
+    public MudTable<TModel> Table { get; set; }
+
+    [Parameter]
+    public TModel SelectedItem { get; set; }
+
+    [Parameter]
+    public string ToolBarLabel { get; set; } = "ToolBar Label not defined";
+
+    [Parameter]
+    public string RelatedInfo { get; set; }
+
+    [Parameter]
+    public RenderFragment Filters { get; set; }
+
+    [Parameter]
+    public IEnumerable<ColumnSetting<TModel>> Columns { get; set; }
+
+    [Parameter]
+    public Func<TableState, Task<TableData<TModel>>> ServerData { get; set; }
+
+    [Parameter]
+    public EventCallback<TModel> OpenItemCard { get; set; }
+
+    [Parameter]
+    public EventCallback<TModel> DeleteItem { get; set; }
+
+    #region Protected Methods
+
+    protected async Task OpenItemCardHandler(TModel model)
+    {
+        if (OpenItemCard.HasDelegate)
+        {
+            await OpenItemCard.InvokeAsync(model);
+        }
+        else
+        {
+            _messageText = "Delegate 'OpenItemCard' not defined";
+            bool? result = await _mbox.Show();
+            StateHasChanged();
+        }
+    }
+
+    protected async Task DeleteItemHandler(TModel model)
+    {
+        if (DeleteItem.HasDelegate)
+        {
+            await DeleteItem.InvokeAsync(model);
+        }
+        else
+        {
+            _messageText = "Delegate 'DeleteItem' not defined";
+            bool? result = await _mbox.Show();
+            StateHasChanged();
+        }
+    }
+
+    #endregion
+}
