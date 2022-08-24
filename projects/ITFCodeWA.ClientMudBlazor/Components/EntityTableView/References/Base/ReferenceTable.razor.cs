@@ -21,6 +21,7 @@ namespace ITFCodeWA.ClientMudBlazor.Components.EntityTableView.References.Base
             var options = new DialogOptions() { CloseButton = true, DisableBackdropClick = true };
 
             var res = await DialogService.Show<TModelForm>(title, parameters, options).Result;
+
             if (!res.Cancelled) 
             {
                 var ss = 10;

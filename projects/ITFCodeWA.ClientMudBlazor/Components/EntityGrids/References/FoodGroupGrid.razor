@@ -1,0 +1,24 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityCards.References
+@using ITFCodeWA.ClientMudBlazor.Components.EntityGrids.Base
+@using ITFCodeWA.ClientMudBlazor.Components.EntityGrids.References.Base
+@using ITFCodeWA.ClientMudBlazor.Services.Api.References.Interfaces
+@using ITFCodeWA.ClientMudBlazor.Static.ColumnSettings
+@using ITFCodeWA.Models.References
+
+@inherits ReferenceGridBase<FoodGroupModel, IFoodGroupService, FoodGroupCard>
+
+<EntityGridTemplate TModel="FoodGroupModel"
+                    Table="@_table"
+                    Columns="@_columns"
+                    SelectedItem="@_selectedItem"
+                    ServerData="@ServerData"
+                    ToolBarLabel="Группы питания"
+                    FormTitle="Информация о группе продуктов питания (1)"
+                    RelatedInfo="Информация о группах продуктов питания(1)">
+</EntityGridTemplate>
+
+@code {
+
+    protected override void InitColumns()
+        => _columns = ColumnSettingSets.FoodGroups;
+}
