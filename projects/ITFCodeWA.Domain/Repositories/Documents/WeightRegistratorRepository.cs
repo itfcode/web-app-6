@@ -18,7 +18,14 @@ namespace ITFCodeWA.Domain.Repositories.Documents
         #region Private & Protected Properties 
 
         protected override IQueryable<WeightRegistrator> GetOneWithDetails()
-            => DbSet.Include(x => x.Rows);
+            => DbSet
+                .Include(x => x.Person)
+                .Include(x => x.Rows);
+
+        protected override IQueryable<WeightRegistrator> GetManyWithDetails()
+            => DbSet
+                .Include(x => x.Person)
+                .Include(x => x.Rows);
 
         #endregion
     }

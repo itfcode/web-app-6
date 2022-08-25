@@ -1,0 +1,79 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityCards.Base
+@using ITFCodeWA.ClientMudBlazor.Components.EntityCards.Documents.Base
+@using ITFCodeWA.ClientMudBlazor.Services.Api.Documents.Interfaces
+@using ITFCodeWA.Extensions.DateTimeOffsetExtendors
+@using ITFCodeWA.Models.Documents
+
+@inherits DocumentCard<WeightRegistratorModel, IWeightRegistratorService>
+
+<EntityCardDialog Loading="@_loading"
+                  @bind-ErrorMessage="@_errorMessage"
+                  @bind-HasError="@_hasError"
+                  SaveHandler="SaveModel">
+    <Fields>
+        <MudAlert Severity="Severity.Warning">Регистрация веса за период: @PeriodView</MudAlert>
+        <MudSpacer></MudSpacer>
+        <MudAlert Severity="Severity.Info">
+            @if (_model is not null) 
+            {
+                <p>_model.Rows = @(_model.Rows.Count())</p>
+                <br/>
+            }
+        </MudAlert>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTable @ref="@_table" Items="@_items" Hover="true" Striped="true" Bordered="true" Dense="true"
+                          HeaderClass="table-head-bordered" FooterClass="table-foot-bordered">
+                    <HeaderContent>
+                        <MudTd>Пн</MudTd>
+                        <MudTd>Вт</MudTd>
+                        <MudTd>Ср</MudTd>
+                        <MudTd>Чт</MudTd>
+                        <MudTd>Пт</MudTd>
+                        <MudTd>Сб</MudTd>
+                        <MudTd>Вс</MudTd>
+                    </HeaderContent>
+                    <RowTemplate>
+
+                    </RowTemplate>
+                    <FooterContent>
+                        <MudTh>Пн</MudTh>
+                        <MudTh>Вт</MudTh>
+                        <MudTh>Ср</MudTh>
+                        <MudTh>Чт</MudTh>
+                        <MudTh>Пт</MudTh>
+                        <MudTh>Сб</MudTh>
+                        <MudTh>Вс</MudTh>
+                    </FooterContent>
+                </MudTable>
+            </MudItem>
+        </MudGrid>
+    </Fields>
+</EntityCardDialog>
+
+@code {
+    private MudTable<WeightRegistratorRowModel> _table;
+
+    private IEnumerable<WeightRegistratorRowModel> _items = Enumerable.Empty<WeightRegistratorRowModel>();
+
+    private string PeriodView => _model is not null ? $"{_model.DateMonth.ToString("MMMM")} {_model.DateMonth.ToString("yyyy")}" : "";
+
+    protected override Task<WeightRegistratorModel> CreateModel()
+    {
+        var monthStart = DateTimeOffset.Now.MonthStart();
+        var monthFinish = DateTimeOffset.Now.MonthEnd();
+
+        return Task.Run(() => new WeightRegistratorModel
+            {
+                Date = DateTime.Now,
+                DateMonth = DateTimeOffset.Now.MonthStart(),
+                Rows = Enumerable.Range(1, monthFinish.Day)
+                    .Select(x => new WeightRegistratorRowModel
+                    {
+                        RowNumber = x,
+                        DateDay = monthStart.AddDays(x - 1),
+                    })
+                    .ToList()
+            });
+    }
+}

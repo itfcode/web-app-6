@@ -1,0 +1,21 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityGrids.Base
+
+@inherits EntityGridBase<TModel, Guid,  TApiService>
+
+@typeparam TModel
+@typeparam TApiService
+@typeparam TModelCard
+
+<EntityGridTemplate TModel="TModel"
+                    Table="@_table"
+                    Columns="@_columns"
+                    SelectedItem="@_selectedItem"
+                    ServerData="@ServerData"
+                    ToolBarLabel="@_toolBarLabel"
+                    RelatedInfo="@_relatedInfo"
+                    OpenItemCard="(model) => OpenForm(model)">
+</EntityGridTemplate>
+
+@code {
+
+}

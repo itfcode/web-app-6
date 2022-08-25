@@ -18,9 +18,8 @@ namespace ITFCodeWA.ClientMudBlazor.Components.Buttons.Operations
         protected override void DefineProperties()
         {
             base.DefineProperties();
-            Color = MudBlazor.Color.Secondary;
+            Color = MudBlazor.Color.Primary;
             StartIcon = MudBlazor.@Icons.Material.Filled.Add;
-
         }
 
         #endregion

@@ -1,0 +1,23 @@
+﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityCards.Documents
+@using ITFCodeWA.ClientMudBlazor.Components.EntityGrids.Documents.Base
+@using ITFCodeWA.ClientMudBlazor.Services.Api.Documents.Interfaces
+@using ITFCodeWA.ClientMudBlazor.Static.ColumnSettings
+@using ITFCodeWA.Models.Documents
+
+@inherits DocumentGridBase<WeightRegistratorModel, IWeightRegistratorService, WeightRegistratorCard>
+
+@{
+    base.BuildRenderTree(__builder);
+}
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        _toolBarLabel = "Регистраторы";
+        _relatedInfo = "Таблица регистраторов веса";
+        await base.OnInitializedAsync();
+    }
+
+    protected override void InitColumns()
+        => _columns = ColumnSettingSets.WeightRegistrators;
+}

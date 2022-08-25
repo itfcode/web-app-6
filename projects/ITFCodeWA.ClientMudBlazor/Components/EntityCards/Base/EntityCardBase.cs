@@ -33,7 +33,8 @@ namespace ITFCodeWA.ClientMudBlazor.Components.EntityCards.Base
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-            await Task.Delay(500);
+
+            await Task.Delay(250);
 
             if (!ModelId.Equals(default(TKey)))
             {
@@ -49,7 +50,7 @@ namespace ITFCodeWA.ClientMudBlazor.Components.EntityCards.Base
             }
             else
             {
-                _model = new();
+                _model = await CreateModel();
             }
 
             _loading = false;
@@ -60,6 +61,11 @@ namespace ITFCodeWA.ClientMudBlazor.Components.EntityCards.Base
         protected async Task SaveModel() 
         {
             await ApiService.SaveAsync(_model);
+        }
+
+        protected virtual async Task<TModel> CreateModel() 
+        {
+            return await Task.Run(() => new TModel());
         }
 
         #endregion

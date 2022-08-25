@@ -1,4 +1,4 @@
-﻿@page "/weight-registratos"
+﻿@page "/weight-registrators"
 
 @using ITFCodeWA.ClientMudBlazor.Components.PagePart
 @using ITFCodeWA.ClientMudBlazor.Models.ColumnSettings
@@ -6,17 +6,14 @@
 @using ITFCodeWA.ClientMudBlazor.Pages.Project.Basis.Registrators
 @using ITFCodeWA.ClientMudBlazor.Services.Api.Documents.Interfaces
 @using ITFCodeWA.ClientMudBlazor.Static.ColumnSettings
+@using ITFCodeWA.ClientMudBlazor.Components.EntityGrids.Documents
 @using ITFCodeWA.Models.Documents;
 
 @inherits DocumentBasePage<WeightRegistratorModel, IWeightRegistratorService>
 
 <DocumentTemplatePage Title="Регистрация веса" Loading="@Loading" LoadFailed="@LoadFailed" Error="@Error">
     <PageContent>
-@*        <ReferenceTable TModel="WeightRegistratorModel" Table="@_table" Columns="@_columns"
-                        SelectedItem="@_selectedItem"
-                        ServerData="@ServerData"
-                        RelatedInfo="Регистрация изменений веса">
-        </ReferenceTable>*@
+        <WeightRegistratorGrid />
     </PageContent>
 </DocumentTemplatePage>
 
@@ -28,7 +25,7 @@
         => await base.OnInitializedAsync();
 
     protected override void InitColumns()
-        => _columns = ColumnSettingSets.WeghtRegistrators;
+        => _columns = ColumnSettingSets.WeightRegistrators;
 
     #endregion
 }
