@@ -1,5 +1,6 @@
 ﻿@using ITFCodeWA.ClientMudBlazor.Components.EntityCards.Base
 @using ITFCodeWA.ClientMudBlazor.Components.EntityCards.Documents.Base
+@using ITFCodeWA.ClientMudBlazor.Models.Documents
 @using ITFCodeWA.ClientMudBlazor.Services.Api.Documents.Interfaces
 @using ITFCodeWA.Extensions.DateTimeOffsetExtendors
 @using ITFCodeWA.Models.Documents
@@ -12,38 +13,43 @@
                   SaveHandler="SaveModel">
     <Fields>
         <MudAlert Severity="Severity.Warning">Регистрация веса за период: @PeriodView</MudAlert>
-        <MudSpacer></MudSpacer>
-        <MudAlert Severity="Severity.Info">
-            @if (_model is not null) 
-            {
-                <p>_model.Rows = @(_model.Rows.Count())</p>
-                <br/>
-            }
-        </MudAlert>
         <MudGrid>
             <MudItem xs="12">
-                <MudTable @ref="@_table" Items="@_items" Hover="true" Striped="true" Bordered="true" Dense="true"
+                <MudTable @ref="@_table" Items="@_items" Hover="true" Striped="true" Bordered="true" Dense="false"
                           HeaderClass="table-head-bordered" FooterClass="table-foot-bordered">
                     <HeaderContent>
-                        <MudTd>Пн</MudTd>
-                        <MudTd>Вт</MudTd>
-                        <MudTd>Ср</MudTd>
-                        <MudTd>Чт</MudTd>
-                        <MudTd>Пт</MudTd>
-                        <MudTd>Сб</MudTd>
-                        <MudTd>Вс</MudTd>
+                        <MudTh Style="font-weight:500">Пн</MudTh>
+                        <MudTh Style="font-weight:500">Вт</MudTh>
+                        <MudTh Style="font-weight:500">Ср</MudTh>
+                        <MudTh Style="font-weight:500">Чт</MudTh>
+                        <MudTh Style="font-weight:500">Пт</MudTh>
+                        <MudTh Style="font-weight:500;color:darkred">Сб</MudTh>
+                        <MudTh Style="font-weight:500;color:darkred">Вс</MudTh>
                     </HeaderContent>
                     <RowTemplate>
 
+                        @foreach (var day in context.Days)
+                        {
+                            <MudTd>
+                                @if (day is not null)
+                                {
+                                    <MudTextField @bind-Value="day.Weight" Label="@(day.DateDay.Day.ToString())" Format="F1" />
+                                }
+                                else
+                                {
+                                    @(string.Empty)
+                                }
+                            </MudTd>
+                        }
                     </RowTemplate>
                     <FooterContent>
-                        <MudTh>Пн</MudTh>
-                        <MudTh>Вт</MudTh>
-                        <MudTh>Ср</MudTh>
-                        <MudTh>Чт</MudTh>
-                        <MudTh>Пт</MudTh>
-                        <MudTh>Сб</MudTh>
-                        <MudTh>Вс</MudTh>
+                        <MudTh Style="font-weight:500">Пн</MudTh>
+                        <MudTh Style="font-weight:500">Вт</MudTh>
+                        <MudTh Style="font-weight:500">Ср</MudTh>
+                        <MudTh Style="font-weight:500">Чт</MudTh>
+                        <MudTh Style="font-weight:500">Пт</MudTh>
+                        <MudTh Style="font-weight:500;color:darkred">Сб</MudTh>
+                        <MudTh Style="font-weight:500;color:darkred">Вс</MudTh>
                     </FooterContent>
                 </MudTable>
             </MudItem>
@@ -52,28 +58,72 @@
 </EntityCardDialog>
 
 @code {
-    private MudTable<WeightRegistratorRowModel> _table;
+    private MudTable<WeightRegistratorTableRow> _table;
 
-    private IEnumerable<WeightRegistratorRowModel> _items = Enumerable.Empty<WeightRegistratorRowModel>();
+    private IEnumerable<WeightRegistratorTableRow> _items = Enumerable.Empty<WeightRegistratorTableRow>();
 
     private string PeriodView => _model is not null ? $"{_model.DateMonth.ToString("MMMM")} {_model.DateMonth.ToString("yyyy")}" : "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        if (_model.Rows.Count > 0)
+        {
+            var items = new List<WeightRegistratorTableRow>();
+
+            var monthStart = _model.DateMonth;
+            var weekStart = monthStart.WeekStart();
+            var monthFinish = monthStart.MonthEnd();
+
+            while (weekStart < monthFinish)
+            {
+                var tableRow = new WeightRegistratorTableRow();
+
+                //{
+                //        Mon = _model.Rows.FirstOrDefault(x => x.DateDay == weekStart.AddDays(0)),
+                //        Tue = _model.Rows.FirstOrDefault(x => x.DateDay == weekStart.AddDays(1)),
+                //        Wed = _model.Rows.FirstOrDefault(x => x.DateDay == weekStart.AddDays(2)),
+                //        Thu = _model.Rows.FirstOrDefault(x => x.DateDay == weekStart.AddDays(3)),
+                //        Fri = _model.Rows.FirstOrDefault(x => x.DateDay == weekStart.AddDays(4)),
+                //        Sat = _model.Rows.FirstOrDefault(x => x.DateDay == weekStart.AddDays(5)),
+                //        Sun = _model.Rows.FirstOrDefault(x => x.DateDay == weekStart.AddDays(6)),
+                //    };
+
+                for (int i = 0; i <= 6; i++)
+                {
+                    tableRow.Days[i] = _model.Rows.FirstOrDefault(x => x.DateDay == weekStart.AddDays(i));
+                }
+
+                items.Add(tableRow);
+                weekStart = weekStart.AddDays(7);
+            }
+
+            _items = items.ToArray();
+        }
+    }
 
     protected override Task<WeightRegistratorModel> CreateModel()
     {
         var monthStart = DateTimeOffset.Now.MonthStart();
         var monthFinish = DateTimeOffset.Now.MonthEnd();
 
-        return Task.Run(() => new WeightRegistratorModel
+        var model = new WeightRegistratorModel
             {
                 Date = DateTime.Now,
                 DateMonth = DateTimeOffset.Now.MonthStart(),
+                AuthorId = 1,
+                PersonId = 1,
                 Rows = Enumerable.Range(1, monthFinish.Day)
-                    .Select(x => new WeightRegistratorRowModel
-                    {
-                        RowNumber = x,
-                        DateDay = monthStart.AddDays(x - 1),
-                    })
-                    .ToList()
-            });
+                .Select(x => new WeightRegistratorRowModel
+                {
+                    RowNumber = x,
+                    DateDay = monthStart.AddDays(x - 1),
+                })
+                .ToList()
+            };
+
+        return Task.Run(() => model);
     }
 }
+

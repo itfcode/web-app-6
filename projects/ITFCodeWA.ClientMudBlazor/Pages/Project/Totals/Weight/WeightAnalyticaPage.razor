@@ -94,7 +94,7 @@
     {
         await Task.Delay(500);
 
-        var personTotals = await WeightTotalService.GetPersonTotalsAsync(16);
+        var personTotals = await WeightTotalService.GetPersonTotalsAsync(1);
 
         _yearTotals = personTotals.Totals;
         _weekTotals = personTotals.WeekTotals;

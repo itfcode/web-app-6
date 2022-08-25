@@ -1,5 +1,6 @@
 ﻿using ITFCodeWA.ClientMudBlazor.Services.Api.Base.Documents;
 using ITFCodeWA.ClientMudBlazor.Services.Api.Documents.Interfaces;
+using ITFCodeWA.Core.Models.Common.Base.Interfaces;
 using ITFCodeWA.Models.Documents;
 
 namespace ITFCodeWA.ClientMudBlazor.Services.Api.Documents
@@ -13,5 +14,19 @@ namespace ITFCodeWA.ClientMudBlazor.Services.Api.Documents
         }
 
         #endregion
+
+        public override async Task<WeightRegistratorModel> AddAsync(WeightRegistratorModel model, CancellationToken cancellationToken = default)
+        {
+            if (model.Id.Equals(Guid.Empty))
+            { 
+                var id = Guid.NewGuid();
+                model.Id = id;
+                foreach (var row in model.Rows)
+                {
+                    row.DocumentId = id;
+                }
+            }
+            return await PostAsync<WeightRegistratorModel>(RouteAdd, model, cancellationToken);
+        }
     }
 }
