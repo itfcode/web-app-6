@@ -12,15 +12,15 @@ namespace ITFCodeWA.Models.Documents
 
         [JsonPropertyName("max")]
         [JsonProperty("max")]
-        public decimal Max => Rows.Where(x => x.Weight.HasValue && x.Weight > 0).Max(x => x.Weight.Value);
+        public decimal Max => Math.Round(Rows.Where(x => x.Weight.HasValue && x.Weight > 0).Max(x => x.Weight.Value), 1);
 
         [JsonPropertyName("min")]
         [JsonProperty("min")]
-        public decimal Min => Rows.Where(x => x.Weight.HasValue && x.Weight > 0).Min(x => x.Weight.Value);
+        public decimal Min => Math.Round(Rows.Where(x => x.Weight.HasValue && x.Weight > 0).Min(x => x.Weight.Value), 1);
 
         [JsonPropertyName("avg")]
         [JsonProperty("avg")]
-        public decimal Avg => Math.Round(Rows.Where(x => x.Weight.HasValue && x.Weight > 0).Average(x => x.Weight.Value), 2);
+        public decimal Avg => Math.Round(Rows.Where(x => x.Weight.HasValue && x.Weight > 0).Average(x => x.Weight.Value), 1);
 
         [JsonPropertyName("rows")]
         [JsonProperty("rows")]

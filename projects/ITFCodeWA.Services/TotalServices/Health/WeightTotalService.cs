@@ -23,6 +23,7 @@ namespace ITFCodeWA.Services.TotalServices.Health
             var items = await _repository.GetDBSetQuery()
                 .Where(x => x.PersonId == personId)
                 .SelectMany(x => x.Rows)
+                .Where(x => x.Weight != 0)
                 .Select(x => new
                 {
                     Date = x.DateDay,

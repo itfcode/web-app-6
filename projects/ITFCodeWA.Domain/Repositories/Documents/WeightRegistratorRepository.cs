@@ -1,4 +1,5 @@
-﻿using ITFCodeWA.Core.Domain.Repositories.Documents;
+﻿using ITFCodeWA.Core.Domain.Exceptions;
+using ITFCodeWA.Core.Domain.Repositories.Documents;
 using ITFCodeWA.Data.Documents;
 using ITFCodeWA.Domain.DataContext;
 using ITFCodeWA.Domain.Repositories.Documents.Interfaces;
@@ -16,6 +17,29 @@ namespace ITFCodeWA.Domain.Repositories.Documents
         #endregion
 
         #region Private & Protected Properties 
+
+        public override async Task<WeightRegistrator> UpdateAsync([NotNull] WeightRegistrator entity, bool commit = false, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                ValidateParam(entity, nameof(entity));
+
+                var dbSetRows = Context.Set<WeightRegistratorRow>();
+
+                dbSetRows.UpdateRange(AttachChildEntities(dbSetRows, entity.Rows));
+
+                var updated = DbSet.Update(AttachEntity(entity)).Entity;
+
+                if (commit) await CommitChangesAsync(cancellationToken);
+
+                return updated;
+            }
+            catch (Exception ex)
+            {
+                throw new DbSetUpdateException(ex);
+            }
+        }
+
 
         protected override IQueryable<WeightRegistrator> GetOneWithDetails()
             => DbSet

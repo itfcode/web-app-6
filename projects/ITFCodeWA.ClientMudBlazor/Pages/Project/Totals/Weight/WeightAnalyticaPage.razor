@@ -21,7 +21,7 @@
                 <MudTabs Elevation="2" Rounded="true" Centered="false" Style="font-size:90%;">
 
                     <MudTabPanel Text="Итоги по годам" BadgeData='"2017-2022"'
-                                 Style="min-width:220px;justify-content:left;">
+                                 Style="min-width:230px;justify-content:left;">
                         <WeightSingleTotals Totals="@_yearTotals"
                                             Caption="Среднее значение по месяцам" />
 
@@ -41,15 +41,17 @@
                     </MudTabPanel>
 
                     <MudTabPanel Text="Итоги по неделям" BadgeData='"2017-2022"' BadgeColor="Color.Info"
-                                 Style="min-width:220px;justify-content:left;">
+                                 Style="min-width:230px;justify-content:left;">
                         <WeightTotalsByYears></WeightTotalsByYears>
                     </MudTabPanel>
 
-                    <MudTabPanel Text="График по годам" BadgeData='"e"'>
+                    <MudTabPanel Text="График по годам" BadgeData='"e"'
+                                 Style="min-width:230px;justify-content:left;">
                         <WeightTotalsChart Series="@_yearSeries" />
                     </MudTabPanel>
 
-                    <MudTabPanel Text="График по неделям" BadgeColor="Color.Primary">
+                    <MudTabPanel Text="График по неделям" BadgeColor="Color.Primary"
+                                 Style="min-width:230px;justify-content:left;">
                         <WeightTotalsChart Series="@_weekSeries" />
                     </MudTabPanel>
 

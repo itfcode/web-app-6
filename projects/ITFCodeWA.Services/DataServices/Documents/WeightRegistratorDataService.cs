@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using ITFCodeWA.Core.Data.Documents.Interfaces;
+using ITFCodeWA.Core.Models.QueryFilters;
 using ITFCodeWA.Core.Services.DataServices.Base;
 using ITFCodeWA.Core.Services.Operating.Interfaces;
 using ITFCodeWA.Data.Documents;
@@ -19,6 +21,10 @@ namespace ITFCodeWA.Services.DataServices.Documents
             IWeightRegistratorRepository repository) : base(logger, currentUserService, mapper, repository)
         {
         }
+
+        #endregion
+
+        #region Overriding 
 
         #endregion
     }

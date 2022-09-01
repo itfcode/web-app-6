@@ -320,6 +320,16 @@ namespace ITFCodeWA.Core.Domain.Repositories.Base
             return entities;
         }
 
+        protected IEnumerable<TChildEntity> AttachChildEntities<TChildEntity>(DbSet<TChildEntity> childDbSet, IEnumerable<TChildEntity> entities) where TChildEntity : class 
+        {
+            var needed = entities.Where(r => Context.Entry(r).State == EntityState.Detached);
+
+            if (needed.Any())
+                childDbSet.AttachRange(needed);
+
+            return entities;
+        }
+
         protected virtual void ValidateParam<TParam>(TParam param, string paramName)
         {
             ArgumentNullException.ThrowIfNull(param, paramName);
