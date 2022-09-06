@@ -2,7 +2,7 @@
 
 namespace ITFCodeWA.API.Filters.Action.Base
 {
-    public abstract class ActionFilterBase : IActionFilter
+    public abstract class ActionFilterBase : Attribute, IActionFilter
     {
         public virtual void OnActionExecuted(ActionExecutedContext context)
         {
