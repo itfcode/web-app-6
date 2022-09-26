@@ -59,6 +59,8 @@ app.UseAuthorization();
 
 app.UseCors("LifeAppOrigins");
 
+app.Map("/test-test", () => "Index Page");
+
 app.MapControllers();
 
 app.Run();
